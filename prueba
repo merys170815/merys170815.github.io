@@ -1,143 +1,24 @@
-<!DOCTYPE HTML>
-<!--
-    Su Medico En Casa
--->
-<html>
-<head>
-    <title>Su Medico En Casa</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <style>
-        /* CSS para el icono flotante de WhatsApp */
-        .whatsapp-icon {
-            position: fixed;
-            bottom: 20px; /* Distancia desde el fondo de la página */
-            right: 20px; /* Distancia desde el lado derecho de la página */
-            background-color: #25D366; /* Color de fondo del icono (verde de WhatsApp) */
-            border-radius: 50%; /* Hacer el icono redondeado */
-            padding: 15px; /* Espaciado interno */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra del icono */
-            z-index: 1000; /* Asegura que el icono esté por encima de otros elementos */
-        }
-        .whatsapp-icon a {
-            color: white; /* Color del icono */
-            font-size: 24px; /* Tamaño del icono */
-            text-decoration: none; /* Quitar subrayado */
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16532088361"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'AW-16532088361');
-    </script>
-</head>
-
-<body class="landing is-preload">
-
-    <!-- Page Wrapper -->
-    <div id="page-wrapper">
-
-        <!-- Header -->
-        <header id="header" class="alt">
-            <h1><a href="index.html">Su Medico En Casa</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li class="special">
-                        <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                        <div id="menu">
-                            <ul>
-                                <li><a href="index.html">Inicio</a></li>
-                                <li><a href="#one">Consulta Médica General</a></li>
-                                <li><a href="#one">Terapia Respiratoria</a></li>
-                                <li><a href="#one">Terapia Física</a></li>
-                                <li><a href="#one">Cuidados Paliativos</a></li>
-                                <li><a href="#one">Asistencia Psicológica</a></li>
-                                <li><a href="#one">Curaciones</a></li>
-                                <li><a href="#one">Colocación de Sueros Vitaminados</a></li>
-                                <li><a href="#one">Lavado de Oídos</a></li>
-                                <li><a href="#one">Retiro de Suturas</a></li>
-                                <li><a href="#one">Teleconsulta, Videoconsulta, Incapacidades, Certificado Médico</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Banner -->
-        <section id="banner">
-            <div class="inner">
-                <h2>SU MEDICO EN CASA SAS</h2>
-                <p>Bienvenido a su medico en casa. Aquí encontrarás información sobre todos los servicios con los que cuenta la IPS en la comodidad de tu hogar.</p>
-                <ul class="actions special">
-                    <li><a href="https://wa.me/3249416572" class="button primary" target="_blank">Contáctame</a></li>
-                </ul>
-            </div>
-            <a href="#one" class="more scrolly">Saber Más</a>
-        </section>
-
-        <!-- One -->
-        <section id="one" class="wrapper style1 special">
-            <div class="inner">
-                <header class="major">
-                    <h2>SU MEDICO EN CASA SAS</h2>
-                    <p>
-                        <strong>MISIÓN</strong><br>
-                        “SU MEDICO EN CASA S.A.S.” es una organización de atención médica domiciliaria, consejo médico telefónico, asesoría psicológica y traslado ambulatorio de pacientes. Contamos con servicios especializados en atención de pacientes en la comodidad de su domicilio y a nivel pre-hospitalario, asegurando los mejores estándares de calidad, agilidad, oportunidad y confiabilidad, contribuyendo así al mejoramiento de las condiciones de salud de nuestros usuarios.
-                    </p>
-                    <p>
-                        <strong>VISIÓN</strong><br>
-                        “SU MEDICO EN CASA S.A.S.” es reconocida en el mercado como una de las empresas líderes en la prestación de servicio médico domiciliario, consejo médico telefónico, asesoría psicológica y traslado ambulatorio. Contamos con el mejor potencial humano, infraestructura, tecnología y mejoramiento continuo en el desempeño de los servicios que ofrecemos.
-                    </p>
-                    <p>
-                        <strong>OBJETIVOS</strong><br>
-                        <strong>Objetivo General:</strong><br>
-                        Brindar durante 24 horas diarias consulta a domicilio en Medicina General y traslado ambulatorio de pacientes de forma personalizada y oportuna.
-                    </p>
-                    <p>
-                        <strong>Objetivos Específicos:</strong><br>
-                        <ul>
-                            <li>Prestar el servicio de consulta médica domiciliaria con profesionalismo, calidad y eficiencia.</li>
-                            <li>Prestar el servicio de traslado de pacientes ambulatorios.</li>
-                            <li>Contar con un grupo de Profesionales de la Salud calificados y con experiencia.</li>
-                            <li>Servir conforme a las normas vigentes de calidad en salud.</li>
-                            <li>Contribuir al desarrollo del recurso humano del sector salud.</li>
-                            <li>Capacitar al personal en cambios normativos y avances en los servicios prestados.</li>
-                            <li>Evaluar periódicamente la calidad y oportunidad del servicio prestado.</li>
-                        </ul>
-                    </p>
-                </header>
-            </div>
-        </section>
-
-        <!-- Two -->
+  <!-- Two -->
         <section id="two" class="wrapper alt style2">
             <section class="spotlight">
                 <div class="image"><img src="images/pic07.jpg" alt="" /></div>
                 <div class="content">
                     <h2>CONSULTA MEDICA GENERAL</h2>
-                    <p>Servicio médico domiciliario las 24 horas del día, los 7 días de la semana, en la comodidad de tu hogar, con la más alta calidad en la atención.</p>
+                    <p> Atención integral para diagnóstico, tratamiento y prevención de enfermedades comunes, promoviendo la salud general y el bienestar de los pacientes.</p>
                 </div>
             </section>
             <section class="spotlight">
                 <div class="image"><img src="images/pic08.jpg" alt="" /></div>
                 <div class="content">
                     <h2>TERAPIA RESPIRATORIA</h2>
-                    <p>Terapeutas entrenados para brindarte el mejor servicio en la comodidad de tu hogar las 24 horas del día, los 7 días de la semana.</p>
+                    <p> Manejo y tratamiento de enfermedades respiratorias, incluyendo técnicas para mejorar la función pulmonar y aliviar síntomas..</p>
                 </div>
             </section>
             <section class="spotlight">
                 <div class="image"><img src="images/pic09.jpg" alt="" /></div>
                 <div class="content">
                     <h2>TERAPIA FISICA</h2>
-                    <p>Tratamiento de diferentes enfermedades mediante medios físicos y mecánicos, mejorando la función musculoesquelética con profesionales capacitados.</p>
+                    <p>Tratamiento para mejorar la movilidad y fuerza física a través de ejercicios específicos y técnicas de rehabilitación, ayudando en la recuperación de lesiones y en la prevención de futuras complicaciones.</p>
                 </div>
             </section>
             <section class="spotlight">
@@ -151,103 +32,43 @@
                 <div class="image"><img src="images/pic11.jpg" alt="" /></div>
                 <div class="content">
                     <h2>ASISTENCIA PSICOLÓGICA</h2>
-                    <p>Apoyo psicológico para pacientes y familiares para enfrentar situaciones difíciles con profesionales especializados en salud mental.</p>
+                    <p> Evaluación y tratamiento de problemas emocionales y psicológicos, ofreciendo apoyo y estrategias para mejorar el bienestar mental y emocional.</p>
                 </div>
             </section>
             <section class="spotlight">
                 <div class="image"><img src="images/pic12.jpg" alt="" /></div>
                 <div class="content">
                     <h2>CURACIONES</h2>
-                    <p>Curaciones para heridas y otras lesiones menores, garantizando una recuperación adecuada y sin complicaciones.</p>
+                    <p>Tratamiento profesional para la limpieza y el cuidado de heridas, asegurando una recuperación óptima y minimizando el riesgo de infección..</p>
                 </div>
             </section>
             <section class="spotlight">
                 <div class="image"><img src="images/pic13.jpg" alt="" /></div>
                 <div class="content">
                     <h2>COLOCACIÓN DE SUEROS VITAMINADOS</h2>
-                    <p>Aplicación de sueros vitaminados para mejorar la salud y el bienestar general, con personal calificado que se desplaza hasta tu hogar.</p>
+                    <p>Administración de sueros con vitaminas y nutrientes esenciales para mejorar la salud general, revitalizar el cuerpo y tratar deficiencias nutricionales..</p>
                 </div>
             </section>
             <section class="spotlight">
                 <div class="image"><img src="images/pic14.jpg" alt="" /></div>
                 <div class="content">
                     <h2>LAVADO DE OIDOS</h2>
-                    <p>Procedimiento seguro y efectivo para la eliminación de tapones de cerumen, realizado por profesionales de salud capacitados.</p>
+                    <p> Procedimiento para eliminar cerumen acumulado en el oído, mejorando la audición y previniendo infecciones.</p>
                 </div>
             </section>
             <section class="spotlight">
                 <div class="image"><img src="images/pic15.jpg" alt="" /></div>
                 <div class="content">
                     <h2>RETIRO DE SUTURAS</h2>
-                    <p>Servicio de retiro de suturas realizado en la comodidad de tu hogar, garantizando una adecuada cicatrización y sin complicaciones.</p>
+                    <p> Procedimiento para remover suturas después de la cicatrización adecuada, asegurando una recuperación completa y libre de complicaciones..</p>
                 </div>
+
             </section>
             <section class="spotlight">
                 <div class="image"><img src="images/pic16.jpg" alt="" /></div>
                 <div class="content">
-                    <h2>TELECONSULTA, VIDEOCONSULTA, INCAPACIDADES, CERTIFICADO MEDICO</h2>
+                    <h2>Incluyen teleconsulta, videoconsulta, incapacidades médicas y certificados médicos a domicilio, brindando atención médica accesible y personalizada.</h2>
                     <p>Consultas médicas a distancia a través de medios digitales, facilitando el acceso a la atención médica sin salir de casa.</p>
                 </div>
             </section>
         </section>
-
-         <!-- Three -->
-        <section id="three" class="wrapper style3 special">
-            <div class="inner">
-                <header class="major">
-                    <h2>CONTACTO</h2>
-                    <p>
-                         Bogotá, Colombia  SU MEDICO EN CASA SAS NIT: 900976775-2<br>
-                       Carrera 45D N 20-74  Teléfono: 3249416572<br>
-                        Correo electrónico: sumedicoencasajym@gmail.com
-                    </p>
-                </header>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section id="cta" class="wrapper style4">
-            <div class="inner">
-                <header>
-                    <h2>Contacto</h2>
-                    <p>Para más información sobre nuestros servicios o para agendar una cita, contáctanos a través de nuestro número de WhatsApp o correo electrónico.</p>
-                </header>
-                <ul class="actions stacked">
-                    <li><a href="https://wa.me/3249416572" class="button fit primary" target="_blank">WhatsApp</a></li>
-                    <li><a href="mailto:sumedicoencasajym@gmail.com" class="button fit">Correo Electrónico</a></li>
-                </ul>
-            </div>
-        </section>
-
-      <!-- Footer -->
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="https://wa.me/3249416572" class="icon brands fa-whatsapp" target="_blank"><span class="label">WhatsApp</span></a></li>
-                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="mailto:sumedicoencasajym@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-            </ul>
-            <ul class="copyright">
-                <li>&copy; Su Medico En Casa SAS. Todos los derechos reservados.</li>
-            </ul>
-        </footer>
-
-        <!-- Icono flotante de WhatsApp -->
-        <div class="whatsapp-icon">
-            <a href="https://wa.me/3249416572" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-
-    </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
-</body>
-</html>
