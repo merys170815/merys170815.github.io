@@ -1,6 +1,7 @@
 import pandas as pd
 import xml.etree.ElementTree as ET
 import os
+import subprocess
 
 # Obtener la ruta del escritorio
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
@@ -51,11 +52,26 @@ if df is not None:
         valor.text = str(row['valor'])
 
     # Guardar el archivo XML en el escritorio con el nombre específico
-    output_path = os.path.join(desktop_path, '9009122875802024GT010.XML')
+    xml_file_path = os.path.join(desktop_path, '9009122875802024GT010.XML')
     tree = ET.ElementTree(root)
-    tree.write(output_path, encoding='utf-8', xml_declaration=True)
+    tree.write(xml_file_path, encoding='utf-8', xml_declaration=True)
 
-    print(f"El archivo XML se ha guardado en: {output_path}")
+    print(f"El archivo XML se ha guardado en: {xml_file_path}")
+
+    # Firmar el archivo XML con OpenSSL
+    signature_file_path = os.path.join(desktop_path, 'signature.bin')
+    private_key_path = os.path.join(desktop_path, 'openssl-3.3.1', 'private_key.pem')
+
+    try:
+        # Ejecutar el comando OpenSSL para firmar el archivo XML
+        result = subprocess.run([
+            'openssl', 'dgst', '-sha256', '-sign', private_key_path,
+            '-out', signature_file_path, xml_file_path
+        ], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+        print(f"El archivo XML ha sido firmado correctamente. La firma se guarda en: {signature_file_path}")
+    except subprocess.CalledProcessError as e:
+        print(f"Ocurrió un error al firmar el archivo XML: {e}")
+        print(f"Salida del error: {e.stderr.decode()}")
 else:
     print("No se pudo procesar el archivo XML porque el DataFrame está vacío.")
-
