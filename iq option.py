@@ -1,39 +1,37 @@
-import time
+import asyncio
 import pandas as pd
-from iqoptionapi.stable_api import IQ_Option
-import os
+from pyquotex.quotexapi.stable_api import Quotex
 
-# Configuración de la conexión a la API de IQ Option
-email = "sirem66@gmail.com"
+# Define tus credenciales
+username = "capsaludsas@gmail.com"
 password = "22520873Me"
-API = IQ_Option(email, password)
 
-try:
-    API.connect()
-    if not API.check_connect():
-        raise Exception("Conexión no establecida")
-except Exception as e:
-    print("Error al conectar a la API:", e)
-    exit()
 
-# Configuración del activo y el tamaño de la vela
-activo = "EURUSD"
-tamaño_vela = 1  # En minutos
-
-# Función para obtener el precio actual del activo
-def get_current_price():
+async def get_candles(client, symbol):
     try:
-        candles = API.get_candles(activo, tamaño_vela, count=1, endtime=time.time())
-        if candles:
-            return candles[0]["close"]
+        # Obtener datos históricos de velas
+        data = await client.get_candle_v2(symbol, interval=1, limit=200)  # Ajusta según la API
+        if data:
+            df = pd.DataFrame(data)
+            return df
         else:
-            print("No se encontraron velas")
-            return None
+            print("No se obtuvieron datos de velas.")
+            return pd.DataFrame()  # Retorna un DataFrame vacío
     except Exception as e:
-        print("Error al obtener velas:", e)
+        print(f"Error al obtener datos de velas: {e}")
+        return pd.DataFrame()  # Retorna un DataFrame vacío en caso de error
+
+
+async def get_realtime_price(client, symbol):
+    try:
+        # Obtener el precio en tiempo real
+        price = await client.get_realtime_price(symbol)
+        return price
+    except Exception as e:
+        print(f"Error al obtener el precio en tiempo real: {e}")
         return None
 
-
+# Funciones para cálculos de indicadores
 def calculate_ichimoku_cloud(price_data):
     high_prices = [data['max'] for data in price_data]
     low_prices = [data['min'] for data in price_data]
@@ -45,13 +43,11 @@ def calculate_ichimoku_cloud(price_data):
 
     return tenkan_sen, kijun_sen, senkou_span_a, senkou_span_b
 
-
 def calculate_momentum(price_data, period=14):
     if len(price_data) < period:
         return None
     momentum = price_data[-1]['close'] - price_data[-period]['close']
     return momentum
-
 
 def calculate_stochastic(price_data, period=14):
     if len(price_data) < period:
@@ -70,7 +66,6 @@ def calculate_stochastic(price_data, period=14):
         stochastic = 50
 
     return stochastic
-
 
 def calculate_rsi(price_data, period=14):
     if len(price_data) < period:
@@ -91,20 +86,17 @@ def calculate_rsi(price_data, period=14):
 
     return rsi
 
-
 def calculate_adx(price_data, period=14):
     if len(price_data) < period + 1:  # Asegurarse de tener suficientes datos para el cálculo
         return None
     df = pd.DataFrame(price_data)
 
     # Calcular el True Range (TR)
-    df['TR'] = df['max'] - df['min']
-    df['TR'] = df['TR'].combine(df['max'].shift(1) - df['min'], max)
-    df['TR'] = df['TR'].combine(df['min'] - df['close'].shift(1), max)
+    df['TR'] = df[['max', 'min', 'close']].apply(lambda x: max(x['max'] - x['min'], x['max'] - x['close'].shift(), x['close'] - x['min']), axis=1)
 
     # Calcular +DM y -DM
-    df['+DM'] = df['max'] - df['max'].shift(1)
-    df['-DM'] = df['min'].shift(1) - df['min']
+    df['+DM'] = df['max'] - df['max'].shift()
+    df['-DM'] = df['min'].shift() - df['min']
 
     df['+DM'] = df.apply(lambda row: row['+DM'] if row['+DM'] > row['-DM'] and row['+DM'] > 0 else 0, axis=1)
     df['-DM'] = df.apply(lambda row: row['-DM'] if row['-DM'] > row['+DM'] and row['-DM'] > 0 else 0, axis=1)
@@ -121,7 +113,6 @@ def calculate_adx(price_data, period=14):
     adx = df['DX'].rolling(window=period).mean().iloc[-1]
 
     return adx
-
 
 def calculate_parabolic_sar(price_data):
     # Implementación simplificada del SAR parabólico
@@ -159,76 +150,45 @@ def calculate_parabolic_sar(price_data):
 
     return psar[-1]
 
-def predict_next_candle_direction(price_data):
-    if len(price_data) < 52:
-        return "no claro"  # No hay suficientes datos para Ichimoku y otros indicadores
+async def automated_trade():
+    client = Quotex(username, password)
 
-    tenkan_sen, kijun_sen, senkou_span_a, senkou_span_b = calculate_ichimoku_cloud(price_data)
-    momentum = calculate_momentum(price_data)
-    stochastic = calculate_stochastic(price_data)
-    rsi = calculate_rsi(price_data)
-    adx = calculate_adx(price_data)
+    if await client.connect():
+        print("Conexión exitosa a Quotex")
 
-    if any(x is None for x in [momentum, stochastic, rsi, adx]):
-        return "no claro"  # Si alguno de los indicadores no se pudo calcular, devolver "no claro"
+        symbol = 'EUR/USD'
 
-    last_close_price = price_data[-1]['close']
+        # Obtener datos históricos
+        df = await get_candles(client, symbol)
+        if not df.empty:
+            df = calculate_indicators(df)
 
-    # Condiciones para la dirección de las próximas velas
-    if (last_close_price > senkou_span_a and last_close_price > senkou_span_b and
-            momentum > 0 and stochastic > 80 and rsi > 50 and adx > 25):
-        return "alcista"
-    elif (last_close_price < senkou_span_a and last_close_price < senkou_span_b and
-          momentum < 0 and stochastic < 20 and rsi < 50 and adx > 25):
-        return "bajista"
-    else:
-        return "no claro"
+            latest = df.iloc[-1]
 
+            # Obtener precio en tiempo real
+            real_time_price = await get_realtime_price(client, symbol)
 
-def wait_for_next_candle():
-    # Calcular el tiempo hasta el próximo minuto
-    current_time = time.time()
-    next_minute = ((current_time // 60) + 1) * 60
-    sleep_time = next_minute - current_time
-    time.sleep(sleep_time)
+            if real_time_price is not None:
+                print(f"Precio en tiempo real del par {symbol}: {real_time_price}")
 
-
-def run_strategy():
-    while True:
-        while not API.check_connect():
-            try:
-                API.connect()
-                if not API.check_connect():
-                    raise Exception("No se pudo reconectar")
-            except Exception as e:
-                print("Error al reconectar a la API:", e)
-                time.sleep(60)  # Esperar 1 minuto antes de intentar reconectar
-
-        wait_for_next_candle()  # Esperar hasta el inicio de la próxima vela
-
-        precio_actual = get_current_price()
-
-        if precio_actual:
-            print("Precio actual:", precio_actual)
-
-            endtime = int(time.time())  # Obtener la marca de tiempo actual
-            try:
-                price_data = API.get_candles(activo, tamaño_vela, count=100, endtime=endtime)
-            except Exception as e:
-                print("Error al obtener datos históricos:", e)
-                continue
-
-            direction = predict_next_candle_direction(price_data)
-            print("Dirección de las próximas velas:", direction)
-
-            if direction != "no claro":
-                subject = f"Información de trading - {activo}"
-                message = f"Precio actual: {precio_actual}\nDirección: {direction}"
-
-
+                # Ejemplo de decisión de trading basado en indicadores
+                if latest['SMA50'] > latest['SMA200'] and latest['RSI'] > 30:
+                    print("Señal de compra detectada.")
+                    await client.sell_option(symbol,
+                                             amount=10)  # Vender $10 de EUR/USD (Ajusta según el método correcto)
+                elif latest['SMA50'] < latest['SMA200'] and latest['RSI'] < 70:
+                    print("Señal de venta detectada.")
+                    await client.sell_option(symbol,
+                                             amount=10)  # Vender $10 de EUR/USD (Ajusta según el método correcto)
+                else:
+                    print("No hay señales de trading.")
+            else:
+                print("No se pudo obtener el precio en tiempo real.")
         else:
-            print("Error al obtener el precio actual")
+            print("No se pudieron obtener datos históricos.")
+    else:
+        print("Error al conectar a Quotex")
 
 
-# Ejecutar la estrategia
-run_strategy()
+asyncio.run(automated_trade())
+

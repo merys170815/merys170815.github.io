@@ -50,7 +50,6 @@ def obtener_datos_binance(symbol, intervalo, limit):
 
     return df, closing_prices, volume_data, scaler
 
-
 def calcular_rsi(precios_serie):
     """
     Calcular el RSI (Relative Strength Index) de una serie de precios.
@@ -79,7 +78,6 @@ def calcular_rsi(precios_serie):
     except Exception as e:
         print("Error al calcular el RSI:", e)
         return pd.Series([50] * len(precios_serie))  # Valor de RSI ficticio
-
 def detectar_divergencias_y_estado_en_tiempo_real():
     try:
         # Obtener datos en tiempo real
@@ -100,8 +98,6 @@ def detectar_divergencias_y_estado_en_tiempo_real():
     except Exception as e:
         print("Error al detectar divergencias y estado del mercado en tiempo real:", e)
         return False, None, None, None  # Devolver valores predeterminados si hay un error
-
-
 def detectar_divergencias(rsi, precios_serie):
     """
     Detectar divergencias en el RSI.
@@ -140,7 +136,6 @@ def detectar_divergencias(rsi, precios_serie):
         print("Error al detectar divergencias:", e)
         return False, None
 
-
 def detectar_estado_mercado(rsi):
     """
     Detecta el estado del mercado (sobrecompra o sobreventa) en tiempo real utilizando el RSI.
@@ -155,7 +150,6 @@ def detectar_estado_mercado(rsi):
     except Exception as e:
         print("Error al detectar el estado del mercado:", e)
         return "Neutral"
-
 def detectar_ley_dow_avanzado(closing_prices_df):
     try:
         ultimo_cierre = closing_prices_df['closing_prices'].iloc[-1]
@@ -188,21 +182,30 @@ def detectar_tendencia_macd_con_cambio_porcentual(closing_prices_df):
         macd = ema_12 - ema_26
         signal_line = macd.ewm(span=9, adjust=False).mean()
 
+        # Calcular el cambio porcentual
+        if len(closing_prices_df) < 2:
+            print("No hay suficientes datos para calcular el cambio porcentual.")
+            return "No hay señal clara en este momento"
+
         cambio_porcentual = (closing_prices_df['closing_prices'].iloc[-1] - closing_prices_df['closing_prices'].iloc[-2]) / closing_prices_df['closing_prices'].iloc[-2] * 100
 
+        # Definir umbrales para identificar señales claras
+        umbral_cambio_porcentual = 0.1  # Puedes ajustar este umbral según tus necesidades
+
         # Si el MACD cruza por encima de la señal y el cambio porcentual es positivo, es una señal alcista
-        if macd.iloc[-1] > signal_line.iloc[-1] and cambio_porcentual > 0:
+        if macd.iloc[-1] > signal_line.iloc[-1] and cambio_porcentual > umbral_cambio_porcentual:
             return "Tendencia alcista según el MACD y cambio porcentual"
         # Si el MACD cruza por debajo de la señal y el cambio porcentual es negativo, es una señal bajista
-        elif macd.iloc[-1] < signal_line.iloc[-1] and cambio_porcentual < 0:
+        elif macd.iloc[-1] < signal_line.iloc[-1] and cambio_porcentual < -umbral_cambio_porcentual:
             return "Tendencia bajista según el MACD y cambio porcentual"
-        # Si no hay cruce alcista ni bajista, pero el MACD y la señal están cerca, considera esto como tendencia lateral
+        # Si el MACD y la señal están cerca y el cambio porcentual es bajo, considera esto como tendencia lateral
         else:
             return "Tendencia lateral según el MACD y cambio porcentual"
 
     except Exception as e:
         print("Error:", e)
-        return "Neutral"  # Dummy MACD trend result
+        return "Neutral"  # Resultado por defecto en caso de error
+
 def detectar_patrones_graficos(data_source, intervalo_tiempo=1, tamaño_muestra=10):
     try:
         # Obtener los nuevos datos en tiempo real
@@ -382,8 +385,6 @@ def detectar_doble_techo(closing_prices, volumes, intervalo_tiempo, tamaño_mues
 
     return False
 
-
-
 def calcular_probabilidad_elliott(wave_patterns):
     try:
         impulsiva_count = sum(1 for patron in wave_patterns if patron['tipo'] == 'impulsiva')
@@ -504,7 +505,7 @@ def detectar_ley_elliott_avanzado(data_source):
 
     except Exception as e:
         print("Error al detectar la Ley de Elliott:", e)
-        return "Neutral", 0.5  # Dummy Elliott wave result
+        return "Neutral", 0.5
 
 def analisis_practico(closing_prices_df, volume_data, ema_50, rsi_data,
                       tolerancia=0.5, resultado_elliott=None,
@@ -527,11 +528,11 @@ def analisis_practico(closing_prices_df, volume_data, ema_50, rsi_data,
             for patron, tipo in resultado_patrones.items():
                 resultado_practico += f"Patrón detectado: {patron} ({tipo})\n"
         else:
-            print("No se encontraron patrones.")
+            resultado_practico += "No se encontraron patrones.\n"
 
         # Agregar resultados adicionales
         if resultado_elliott:
-            resultado_practico += f", Ley de Elliott: {resultado_elliott}"
+            resultado_practico += f"Ley de Elliott: {resultado_elliott}"
             if probabilidad_elliott is not None:
                 resultado_practico += f", Probabilidad de formación de onda de Elliott: {probabilidad_elliott}"
         if resultado_dow:
@@ -540,7 +541,7 @@ def analisis_practico(closing_prices_df, volume_data, ema_50, rsi_data,
             resultado_practico += f", Divergencias RSI: Sí, {tipo_divergencia}"
         else:
             resultado_practico += f", Divergencias RSI: No"
-        if rsi_data is not None:
+        if rsi_data is not None and not rsi_data.empty:
             resultado_practico += f", RSI: {rsi_data.iloc[-1]}"
         if estado_mercado is not None:
             resultado_practico += f", Estado del mercado: {estado_mercado}"
@@ -557,7 +558,6 @@ def analisis_practico(closing_prices_df, volume_data, ema_50, rsi_data,
     except Exception as e:
         print("Error al realizar el análisis práctico:", e)
         return "No hay señal clara en este momento"
-
 
 def obtener_datos_en_tiempo_real():
     """
@@ -610,7 +610,7 @@ def analisis_fundamental(closing_prices, volume_data):
             price_volatility = np.std(closing_prices)
 
             # Calculamos la tendencia a largo plazo utilizando una media móvil de 200 días
-            long_term_trend = np.mean(closing_prices[-200:])
+            long_term_trend = np.mean(closing_prices[-200:]) if len(closing_prices) >= 200 else average_price
 
             # Calculamos la liquidez del activo basándonos en el volumen promedio de operaciones
             average_volume = np.mean(volume_data)
@@ -649,7 +649,7 @@ def interpretar_analisis_fundamental(resultados_fundamentales):
     Returns:
     - str: Una cadena que representa la interpretación del análisis fundamental.
     """
-    if resultados_fundamentales is not None:
+    if resultados_fundamentales:
         average_price = resultados_fundamentales.get("average_price")
         long_term_trend = resultados_fundamentales.get("long_term_trend")
         average_volume = resultados_fundamentales.get("average_volume")
@@ -666,6 +666,7 @@ def interpretar_analisis_fundamental(resultados_fundamentales):
             return "Los datos fundamentales son incompletos."
     else:
         return "No se pudo realizar el análisis fundamental."
+
 def enviar_correo(resultado_practico):
     try:
         # Configurar los parámetros del servidor SMTP
@@ -792,82 +793,83 @@ def ejecutar_analisis_continuo():
             data_source = DataSource(client)
             df_exchange = data_source.obtener_datos_en_tiempo_real()
 
-            if df_exchange is not None:
+            if df_exchange is not None and not df_exchange.empty:
                 print("Datos en tiempo real de intercambios:")
                 print(df_exchange.head())
             else:
                 print("No se pudieron obtener datos en tiempo real de intercambios.")
+                time.sleep(900)  # Esperar 15 minutos antes de reintentar
+                continue
 
             if hasattr(data_source, 'obtener_datos_en_tiempo_real'):
-                print("El objeto data_source tiene el método obtener_datos_en_tiempo_real.")
-
                 df = data_source.obtener_datos_en_tiempo_real()
 
-                if isinstance(df, pd.DataFrame):
+                if isinstance(df, pd.DataFrame) and not df.empty:
                     print("¡'precios' es un DataFrame de Pandas!")
                     print("Primeros registros de 'precios':")
                     print(df.head())
 
-                    precios_serie = df['closing_prices']  # Utiliza la serie de precios en lugar de la lista
+                    precios_serie = df['closing_prices']
                     volumenes = df['volume_data'].tolist()
 
-                    if not df.empty:
-                        # Calcular el RSI
-                        rsi_data = calcular_rsi(precios_serie)
+                    # Calcular el RSI
+                    rsi_data = calcular_rsi(precios_serie)
 
-                        # Obtener divergencias y estado del mercado en tiempo real
-                        divergencias, tipo_divergencia, _, estado_mercado = detectar_divergencias_y_estado_en_tiempo_real()
+                    # Obtener divergencias y estado del mercado en tiempo real
+                    divergencias, tipo_divergencia, _, estado_mercado = detectar_divergencias_y_estado_en_tiempo_real()
 
-                        # Verificar si se han detectado divergencias
-                        if divergencias:
-                            print("Se han detectado divergencias en tiempo real:")
-                            print(f"Divergencia {tipo_divergencia} ")
-                            divergencias_detectadas = True
-                        else:
-                            print("No se han detectado divergencias en tiempo real.")
-                            divergencias_detectadas = False
-
-                        print(f"RSI en tiempo real: {rsi_data.iloc[-1]}")
-                        print(f"Estado del mercado en tiempo real: {estado_mercado}")
-
-                        resultado_dow = detectar_ley_dow_avanzado(df)  # Supongo que esta función está definida en otro lugar
-                        print(resultado_dow)
-
-                        resultado_elliott, probabilidad_elliott = detectar_ley_elliott_avanzado(data_source)  # Y esta función también
-
-                        resultado_macd = detectar_tendencia_macd_con_cambio_porcentual(df)  # Detectar la tendencia con MACD
-                        print(resultado_macd)
-
-                        ema_50 = precios_serie.ewm(span=50, adjust=False).mean()
-
-                        # Detectar patrones gráficos
-                        resultado_patrones = detectar_patrones_graficos(data_source)
-
-                        resultado_practico = analisis_practico(df, volumenes, ema_50, rsi_data,
-                                                               resultado_patrones=resultado_patrones,
-                                                               resultado_elliott=resultado_elliott,
-                                                               resultado_dow=resultado_dow,
-                                                               resultado_divergencias=divergencias_detectadas,
-                                                               tipo_divergencia=tipo_divergencia,
-                                                               estado_mercado=estado_mercado,
-                                                               resultado_macd=resultado_macd,
-                                                               probabilidad_elliott=probabilidad_elliott)
-
-                        # Ejecutar el análisis fundamental en tiempo real
-                        analisis_fundamental_en_tiempo_real()
-
+                    # Verificar si se han detectado divergencias
+                    if divergencias:
+                        print("Se han detectado divergencias en tiempo real:")
+                        print(f"Divergencia {tipo_divergencia}")
+                        divergencias_detectadas = True
                     else:
-                        print("¡'precios' NO es un DataFrame de Pandas!")
+                        print("No se han detectado divergencias en tiempo real.")
+                        divergencias_detectadas = False
+
+                    print(f"RSI en tiempo real: {rsi_data.iloc[-1]}")
+                    print(f"Estado del mercado en tiempo real: {estado_mercado}")
+
+                    resultado_dow = detectar_ley_dow_avanzado(df)
+                    print(resultado_dow)
+
+                    resultado_elliott, probabilidad_elliott = detectar_ley_elliott_avanzado(data_source)
+
+                    resultado_macd = detectar_tendencia_macd_con_cambio_porcentual(df)
+                    print(resultado_macd)
+
+                    ema_50 = precios_serie.ewm(span=50, adjust=False).mean()
+
+                    # Detectar patrones gráficos
+                    resultado_patrones = detectar_patrones_graficos(data_source)
+
+                    resultado_practico = analisis_practico(df, volumenes, ema_50, rsi_data,
+                                                           resultado_patrones=resultado_patrones,
+                                                           resultado_elliott=resultado_elliott,
+                                                           resultado_dow=resultado_dow,
+                                                           resultado_divergencias=divergencias_detectadas,
+                                                           tipo_divergencia=tipo_divergencia,
+                                                           estado_mercado=estado_mercado,
+                                                           resultado_macd=resultado_macd,
+                                                           probabilidad_elliott=probabilidad_elliott)
+
+                    # Ejecutar el análisis fundamental en tiempo real
+                    analisis_fundamental_en_tiempo_real()
+
+                    # Enviar correo con los resultados prácticos
+                    resultado_envio_correo = enviar_correo(resultado_practico)
+                    print(resultado_envio_correo)
+
                 else:
                     print("El objeto data_source NO tiene el método obtener_datos_en_tiempo_real.")
-
-            resultado_envio_correo = enviar_correo(resultado_practico)
 
             # Esperar 15 minutos antes de realizar el siguiente análisis
             time.sleep(900)  # 15 minutos = 900 segundos
 
         except Exception as e:
             print("Error:", e)
+            time.sleep(900)  # Esperar 15 minutos en caso de error para evitar una sobrecarga de errores
+
 
 if __name__ == '__main__':
     client = Client(API_KEY, API_SECRET)
