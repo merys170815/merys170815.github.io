@@ -34,6 +34,3 @@
 [submodule "cloudflare-quiche"]
     path = cloudflare-quiche
     url = https://github.com/cloudflare/quiche
-[submodule "merys170815.github.io"]
-	path = merys170815.github.io
-	url = https://github.com/merys170815/merys170815.github.io.git
