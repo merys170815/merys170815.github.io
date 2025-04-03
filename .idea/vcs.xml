@@ -4,7 +4,5 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/merys170815.github.io" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/merys170815.github.io/merys170815.github.io" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/pyquotex" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/pyquotex/pyquotex" vcs="Git" />
   </component>
 </project>
