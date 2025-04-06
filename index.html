@@ -99,12 +99,13 @@
   </header>
 
   <main class="main">
+
 <!-- Hero Interactivo con Imágenes y Texto Rotativo -->
 <section class="relative w-full min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
 
   <!-- Contenedor de Imagenes -->
-  <div class="w-full md:w-1/2 relative h-[300px] md:h-[500px]">
-    <img id="rotatingImage" src="assets/img/logo4.png" alt="Imagen Doctor" class="absolute inset-0 w-full h-full object-cover rounded-3xl shadow-xl transition-opacity duration-1000">
+  <div class="w-full relative h-auto max-h-[500px]">
+    <img id="rotatingImage" src="assets/img/logo4.png" alt="Imagen Doctor" class="absolute inset-0 w-full h-full object-contain md:object-cover rounded-3xl shadow-xl transition-opacity duration-1000">
   </div>
 
   <!-- Contenedor de Texto -->
@@ -119,7 +120,6 @@
   </div>
 
 </section>
-
 
 <!-- JavaScript para rotar imágenes y textos -->
 <script>
