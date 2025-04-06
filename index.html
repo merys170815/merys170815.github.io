@@ -215,6 +215,120 @@
         </div>
       </div>
 <style>
+
+    /* Hacer todo ajustable según el tamaño de la pantalla */
+
+/* Este bloque es para pantallas grandes (de escritorio) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 16px;  /* Ajusta el tamaño de la fuente */
+    }
+
+    .container {
+        width: 80%;  /* Establece el tamaño del contenedor en el 80% del ancho */
+        margin: 0 auto;  /* Centra el contenedor */
+    }
+
+    img {
+        max-width: 100%;  /* Las imágenes no excederán el tamaño de su contenedor */
+        height: auto;  /* Mantener las proporciones de las imágenes */
+    }
+}
+
+/* Este bloque es para pantallas medianas (tabletas) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        font-size: 14px;  /* Ajusta el tamaño de la fuente */
+    }
+
+    .container {
+        width: 90%;  /* Ajuste de ancho para pantallas medianas */
+    }
+
+    img {
+        max-width: 100%;  /* Las imágenes no excederán el tamaño de su contenedor */
+        height: auto;
+    }
+}
+
+/* Este bloque es para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+    body {
+        font-size: 12px;  /* Ajuste del tamaño de la fuente para móviles */
+    }
+
+    .container {
+        width: 100%;  /* El contenedor ocupa todo el ancho de la pantalla */
+    }
+
+    img {
+        max-width: 100%;  /* Asegura que las imágenes se ajusten al ancho de la pantalla */
+        height: auto;
+    }
+
+    header {
+        padding: 10px;  /* Reduce el padding del header en pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 24px;  /* Ajusta el tamaño de los encabezados en móviles */
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;  /* Ajusta el tamaño de los párrafos en móviles */
+    }
+}
+
+/* Estilo para mejorar el diseño del botón de WhatsApp flotante */
+a.fixed {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+a.fixed:hover {
+    transform: scale(1.1);
+}
+
+/* Mejorar la visibilidad de la barra de navegación en dispositivos pequeños */
+@media (max-width: 767px) {
+    #navmenu {
+        display: block;
+    }
+
+    #navmenu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #navmenu li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    #navmenu a {
+        font-size: 16px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* Mostrar el menú en dispositivos pequeños */
+    .mobile-nav-toggle {
+        display: block;
+    }
+}
+
     .pricing-item {
         text-align: center;
         background: #fff;
@@ -591,10 +705,7 @@
 
 <!-- Main JS File -->
 <script src="assets/js/main.js"></script>
- <!-- 📱 5. Botón de WhatsApp Siempre Visible -->
-  <a href="https://wa.me/573027125931" class="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg z-50">
-    <img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png" alt="WhatsApp">
-  </a>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Su Médico en Casa</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -760,11 +871,6 @@
     <h3>Ecografías</h3>
   </a>
 </section>
-
-
-  <a class="whatsapp-btn" href="https://wa.me/573027125931" target="_blank">
-    <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
-  </a>
 
 
 <footer id="footer" class="footer position-relative light-background">
