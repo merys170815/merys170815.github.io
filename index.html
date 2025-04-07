@@ -99,6 +99,8 @@
   </header>
 
   <main class="main">
+
+
 <!-- Hero Interactivo con Imágenes y Texto Rotativo -->
 <section class="relative w-full min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
 
@@ -114,7 +116,7 @@
   <div class="w-full md:w-1/2 px-8 text-left space-y-6 z-10">
     <!-- Título Principal -->
     <h1 class="text-5xl sm:text-6xl font-extrabold text-gradient bg-clip-text text-transparent drop-shadow-lg">
-      ¡Bienvenido a <span class="text-green-400">Su Médico en Casa!</span>
+       <span class="text-green-400"></span>
     </h1>
 
     <!-- Subtítulo Dinámico -->
@@ -122,11 +124,10 @@
       Tu salud, nuestra prioridad.
     </h2>
 
-    <!-- Descripción -->
-    <p class="text-lg sm:text-xl text-gray-300 leading-relaxed mt-4">
-      Profesionales confiables, atención cálida, en la comodidad de tu hogar.
-    </p>
-  </div>
+  <p class="text-xl sm:text-2xl text-gray-300 leading-relaxed mt-4">
+  Profesionales confiables, atención cálida, en la comodidad de tu hogar.
+</p>
+
 
 </section>
 
@@ -150,14 +151,16 @@
   }
 
   /* Estilo para la descripción */
-  p {
-    font-family: 'Roboto', sans-serif;
-    color: #d1d5db;
-    line-height: 1.7;
-    max-width: 600px;
-    margin: 0 auto;
-    font-weight: 400;
-  }
+ p {
+  font-family: 'Roboto', sans-serif;
+  color: #d1d5db;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+  /* font-size: 1rem; */ /* ← Esto ya no es necesario */
+}
+
 
   /* Efecto de transición para el texto */
   h1:hover {
@@ -262,12 +265,6 @@
     "assets/img/logo_6.png"
   ];
 
-  const texts = [
-    "Consulta médica a domicilio 👨‍⚕️",
-    "Atención para niños, adultos y mayores 👧🧓",
-    "Tu salud en las mejores manos 🤝",
-    "¡Su Médico en Casa, siempre contigo! 💚"
-  ];
 
   let currentIndex = 0;
 
