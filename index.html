@@ -74,17 +74,16 @@
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
 
   .hero-section {
-  position: relative;
-  min-height: 100vh;
-  background-image: url("assets/img/doctor1.png");
-  background-size: cover; /* Ocupa todo el fondo */
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: #0f172a;
-  overflow: hidden;
-  transition: background-image 1s ease-in-out;
-}
-
+    position: relative;
+    min-height: 100vh;
+    background-image: url("assets/img/doctor1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0f172a;
+    transition: background-image 1s ease-in-out;
+    overflow: hidden;
+  }
 
   .overlay {
     position: absolute;
@@ -92,7 +91,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(5, 32, 54, 0.6));
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(15, 23, 42, 0.7));
     z-index: 1;
   }
 
@@ -101,14 +100,20 @@
     z-index: 2;
     padding: 2rem;
     max-width: 800px;
+    animation: fadeIn 1s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .main-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 4.5rem;
     color: #4ade80;
-    letter-spacing: 2px;
     text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1.5px;
   }
 
   .sub-title {
@@ -116,8 +121,10 @@
     font-size: 2rem;
     font-style: italic;
     font-weight: 600;
-    color: #22d3ee;
-    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    color: #38bdf8;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeText 1s ease-in-out forwards;
   }
 
   .description-text {
@@ -125,67 +132,52 @@
     font-size: 1.2rem;
     color: #e0f2fe;
     line-height: 1.8;
-    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes fadeText {
+    to { opacity: 1; }
   }
 
   @media (max-width: 768px) {
-    .main-title {
-      font-size: 2.8rem;
-    }
-
-    .sub-title {
-      font-size: 1.4rem;
-    }
-
-    .description-text {
-      font-size: 1rem;
-    }
-
-    .hero-section {
-      background-size: cover; /* Para dispositivos pequeños mejor usar cover */
-    }
+    .main-title { font-size: 2.8rem; }
+    .sub-title { font-size: 1.3rem; }
+    .description-text { font-size: 1rem; }
   }
 </style>
 
 <!-- SCRIPT -->
 <script>
   const items = [
-    {
-      img: "assets/img/doctor1.png",
-      text: "Tu salud, nuestra prioridad."
-    },
-    {
-      img: "assets/img/doctor2.png",
-      text: "Consulta médica sin salir de casa."
-    },
-    {
-      img: "assets/img/doctor3.png",
-      text: "Confianza y calidad en cada visita."
-    },
-    {
-      img: "assets/img/doctor5.png",
-      text: "Atención humana y profesional."
-    },
-    {
-      img: "assets/img/imagen1.png",
-      text: "¡Cuidamos de ti donde estés!"
-    }
+    { img: "assets/img/doctor1.png", text: "Tu salud, nuestra prioridad." },
+    { img: "assets/img/doctor2.png", text: "Consulta médica sin salir de casa." },
+    { img: "assets/img/doctor3.png", text: "Confianza y calidad en cada visita." },
+    { img: "assets/img/doctor4.png", text: "Atención humana y profesional." },
+    { img: "assets/img/doctor5.png", text: "¡Cuidamos de ti donde estés!" }
   ];
 
   let index = 0;
   const heroSection = document.querySelector(".hero-section");
   const textElement = document.getElementById("changingText");
 
+  function updateHero() {
+    // Cambiar imagen de fondo
+    heroSection.style.backgroundImage = `url('${items[index].img}')`;
+
+    // Efecto de transición de texto
+    textElement.style.opacity = 0;
+    setTimeout(() => {
+      textElement.innerText = items[index].text;
+      textElement.style.opacity = 1;
+    }, 400);
+  }
+
+  // Iniciar intervalos
   setInterval(() => {
     index = (index + 1) % items.length;
-    heroSection.style.backgroundImage = `url('${items[index].img}')`;
-  }, 4000);
-
-  setInterval(() => {
-    textElement.innerText = items[index].text;
-  }, 4000);
+    updateHero();
+  }, 5000);
 </script>
-
 
  </section>
  <section id="servicios" class="py-5 bg-light">
