@@ -1,591 +1,1486 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Su Médico en Casa - Servicios Médicos a Domicilio</title>
-  <meta content="Servicios médicos a domicilio en Bogotá. Ofrecemos teleconsulta, videoconsulta, y atención médica personalizada en la comodidad de su hogar." name="description">
-  <meta content="medicina a domicilio, teleconsulta, videoconsulta, servicios médicos, Bogotá" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-</head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Su Médico en Casa</h1><span>.</span>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#hero" class="active">Inicio</a></li>
-          <li><a href="index.html#about">Nosotros</a></li>
-          <li><a href="index.html#services">Servicios</a></li>
-          <li><a href="index.html#portfolio">Portafolio</a></li>
-          <li><a href="index.html#pricing">Precios</a></li>
-          <li><a href="index.html#team">Equipo</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="index.html#contact">Contacto</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="index.html#about">Empezar</a>
-
-    </div>
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10">
-            <h2 data-aos="fade-up" data-aos-delay="100">Bienvenido a Su Médico en Casa</h2>
-            <p data-aos="fade-up" data-aos-delay="200">Somos un equipo de profesionales de la salud ofreciendo atención médica a domicilio en Bogotá</p>
-          </div>
-          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="sign-up-form"><input type="email" name="email"><input type="submit" value="Suscribirse"></div>
-              <div class="loading">Cargando</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Tu solicitud de suscripción ha sido enviada. ¡Gracias!</div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section">
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section light-background">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-xl-center gy-5">
-
-          <div class="col-xl-5 content">
-            <h3>Nosotros</h3>
-            <h2>Quiénes Somos</h2>
-            <p>Somos una IPS en Bogotá especializada en ofrecer servicios médicos a domicilio. Nuestro objetivo es brindar atención médica de calidad en la comodidad de su hogar, con profesionales capacitados y comprometidos con su salud.</p>
-            <a href="#" class="read-more"><span>Leer Más</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-
-          <div class="col-xl-7">
-            <div class="row gy-4 icon-boxes">
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon-box">
-                  <i class="bi bi-buildings"></i>
-                  <h3>Profesionalismo</h3>
-                  <p>Contamos con un equipo de médicos y especialistas altamente capacitados.</p>
-                </div>
-              </div> <!-- End Icon Box -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon-box">
-                  <i class="bi bi-clipboard-pulse"></i>
-                  <h3>Atención Personalizada</h3>
-                  <p>Ofrecemos servicios adaptados a las necesidades específicas de cada paciente.</p>
-                </div>
-              </div> <!-- End Icon Box -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon-box">
-                  <i class="bi bi-command"></i>
-                  <h3>Confianza y Seguridad</h3>
-                  <p>Garantizamos la seguridad y confidencialidad en cada consulta y tratamiento.</p>
-                </div>
-              </div> <!-- End Icon Box -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="icon-box">
-                  <i class="bi bi-graph-up-arrow"></i>
-                  <h3>Innovación</h3>
-                  <p>Utilizamos tecnología avanzada para ofrecer los mejores servicios médicos a domicilio.</p>
-                </div>
-              </div> <!-- End Icon Box -->
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section light-background">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up">
-            <div class="stats-item">
-              <span class="counter" data-purecounter-start="0" data-purecounter-end="2024" data-purecounter-duration="1">2016</span>
-              <p>Año de Fundación</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="stats-item">
-              <span class="counter" data-purecounter-start="0" data-purecounter-end="15000" data-purecounter-duration="1">15000</span>
-              <p>Pacientes Atendidos</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="stats-item">
-              <span class="counter" data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1">150</span>
-              <p>Consultas por Mes</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="stats-item">
-              <span class="counter" data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1">10</span>
-              <p>Servicios Ofrecidos</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-<div class="container" data-aos="zoom-in" data-aos-delay="100">
-
-    <div class="row g-4">
-
-        <div class="col-lg-4">
-            <div class="pricing-item">
-                <h3>Consulta General</h3>
-                <div class="icon">
-                    <i class="bi bi-stethoscope"></i>
-                </div>
-                <h4><sup>$</sup><span> / consulta</span></h4>
-                <ul>
-                    <li><i class="bi bi-check"></i> <span>Consulta médica a domicilio</span></li>
-                    <li><i class="bi bi-check"></i> <span>Evaluación general de salud</span></li>
-                    <li><i class="bi bi-check"></i> <span>Diagnóstico y tratamiento</span></li>
-                    <li class="na"><i class="bi bi-x"></i> <span>Exámenes especializados</span></li>
-                    <li class="na"><i class="bi bi-x"></i> <span>Procedimientos quirúrgicos</span></li>
-                </ul>
-                <div class="text-center"><a href="https://wa.me/573247125931" class="buy-btn">Agendar Ahora</a></div>
-            </div>
-        </div><!-- End Pricing Item -->
-
-        <div class="col-lg-4">
-            <div class="pricing-item featured">
-                <h3>Teleconsulta</h3>
-                <div class="icon">
-                    <i class="bi bi-camera-video"></i>
-                </div>
-
-                <h4><sup>$</sup><span> / consulta</span></h4>
-                <ul>
-                    <li><i class="bi bi-check"></i> <span>Consulta médica por videollamada</span></li>
-                    <li><i class="bi bi-check"></i> <span>Orientación médica</span></li>
-                    <li><i class="bi bi-check"></i> <span>Receta electrónica</span></li>
-                    <li><i class="bi bi-check"></i> <span>Seguimiento de tratamientos</span></li>
-                    <li><i class="bi bi-check"></i> <span>Asesoría en salud preventiva</span></li>
-                </ul>
-                <div class="text-center"><a href="https://wa.me/573247125931" class="buy-btn">Agendar Ahora</a></div>
-            </div>
-        </div><!-- End Pricing Item -->
-
-        <div class="col-lg-4">
-            <div class="pricing-item">
-                <h3>Certificado Médico</h3>
-                <div class="icon">
-                    <i class="bi bi-file-earmark-medical"></i>
-                </div>
-                <h4><sup>$</sup><span> / certificado</span></h4>
-                <ul>
-                    <li><i class="bi bi-check"></i> <span>Certificado de aptitud médica</span></li>
-                    <li><i class="bi bi-check"></i> <span>Evaluación física</span></li>
-                    <li><i class="bi bi-check"></i> <span>Firma y sello de médico</span></li>
-                    <li><i class="bi bi-check"></i> <span>Entrega en formato digital</span></li>
-                    <li><i class="bi bi-check"></i> <span>Válido para trámites oficiales</span></li>
-                </ul>
-                <div class="text-center"><a href="https://wa.me/573247125931" class="buy-btn">Agendar Ahora</a></div>
-            </div>
-        </div><!-- End Pricing Item -->
-
-    </div>
-
-</div>
-
-</section><!-- /Pricing Section -->
-
-<!-- Faq Section -->
-<section id="faq" class="faq section">
-
-    <div class="container">
-
-        <div class="row gy-4">
-
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="content px-xl-5">
-                    <h3><span>Preguntas </span><strong>Frecuentes</strong></h3>
-                    <p>
-                        Aquí encontrarás respuestas a las preguntas más comunes sobre nuestros servicios.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-
-                <div class="faq-container">
-                    <div class="faq-item faq-active">
-                        <h3><span class="num">1.</span> <span>¿Cómo agendo una consulta?</span></h3>
-                        <div class="faq-content">
-                            <p>Puedes agendar una consulta llamando al 3249416572 o a través de nuestro WhatsApp haciendo clic en el botón de "Agendar Ahora" en nuestra página web.</p>
-                        </div>
-                        <i class="faq-toggle bi bi-chevron-right"></i>
-                    </div><!-- End Faq item-->
-
-                    <div class="faq-item">
-                        <h3><span class="num">2.</span> <span>¿Cuáles son los métodos de pago aceptados?</span></h3>
-                        <div class="faq-content">
-                            <p>Aceptamos pagos en efectivo, transferencia bancaria y pagos electrónicos a través de plataformas seguras.</p>
-                        </div>
-                        <i class="faq-toggle bi bi-chevron-right"></i>
-                    </div><!-- End Faq item-->
-
-                    <div class="faq-item">
-                        <h3><span class="num">3.</span> <span>¿Puedo cancelar o reprogramar una cita?</span></h3>
-                        <div class="faq-content">
-                            <p>Sí, puedes cancelar o reprogramar tu cita hasta 24 horas antes de la consulta sin costo adicional. Por favor, contáctanos para realizar estos cambios.</p>
-                        </div>
-                        <i class="faq-toggle bi bi-chevron-right"></i>
-                    </div><!-- End Faq item-->
-
-                    <div class="faq-item">
-                        <h3><span class="num">4.</span> <span>¿Qué incluye una consulta a domicilio?</span></h3>
-                        <div class="faq-content">
-                            <p>La consulta a domicilio incluye una evaluación médica completa, diagnóstico, tratamiento y recomendaciones personalizadas.</p>
-                        </div>
-                        <i class="faq-toggle bi bi-chevron-right"></i>
-                    </div><!-- End Faq item-->
-
-                    <div class="faq-item">
-                        <h3><span class="num">5.</span> <span>¿Cómo obtengo el certificado médico?</span></h3>
-                        <div class="faq-content">
-                            <p>El certificado médico se entrega en formato digital después de la consulta. Se puede utilizar para trámites escolares, laborales y deportivos.</p>
-                        </div>
-                        <i class="faq-toggle bi bi-chevron-right"></i>
-                    </div><!-- End Faq item-->
-
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-</section><!-- /Faq Section -->
-
-<!-- Team Section -->
-<section id="team" class="team section light-background">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-        <h2>Equipo</h2>
-        <p>Conoce al equipo de profesionales detrás de "Su Médico en Casa".</p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-
-        <div class="row gy-5">
-
-            <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
-                <div class="member-img">
-                    <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href="#"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="member-info text-center">
-                    <h4>Angie Yulieth García Bejarano</h4>
-                    <span>Directora Médica</span>
-                    <p>Con amplia experiencia en medicina general y atención domiciliaria, Angie lidera nuestro equipo con dedicación y profesionalismo.</p>
-                </div>
-            </div><!-- End Team Member -->
-pyquotex/
-pyquotex/
-a href="#"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="member-info text-center">
-                    <h4>Dr. Juan Pérez</h4>
-                    <span>Médico General</span>
-                    <p>Especialista en salud preventiva y manejo de enfermedades crónicas, Juan se dedica a brindar atención de calidad a nuestros pacientes.</p>
-                </div>
-            </div><!-- End Team Member -->
-
-            <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
-                <div class="member-img">
-                    <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href="#"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="member-info text-center">
-                    <h4>Dra. María González</h4>
-                    <span>Psicóloga</span>
-                    <p>Con experiencia en psicología clínica y terapia familiar, María apoya a nuestros pacientes en su bienestar emocional y mental.</p>
-                </div>
-            </div><!-- End Team Member -->
-
-        </div>
-
-    </div>
-
-</section><!-- /Team Section -->
-
-      <!-- Contact Section -->
-<section id="contact" class="contact section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Contacto</h2>
-    <p>Ponte en contacto con nosotros para cualquier consulta o información adicional.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-6">
-
-        <div class="row gy-4">
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="200">
-              <i class="bi bi-geo-alt"></i>
-              <h3>Dirección  Carrera 45D N 20-74</h3>
-              <p>Bogotá, Colombia</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="300">
-              <i class="bi bi-telephone"></i>
-              <h3>Teléfonos</h3>
-              <p>+57 3249416572</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="400">
-              <i class="bi bi-envelope"></i>
-              <h3>Correo Electrónico</h3>
-              <p>sumedicoencasajym@gmail.com</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="500">
-              <i class="bi bi-clock"></i>
-              <h3>Horarios</h3>
-              <p>Lunes - Viernes</p>
-              <p>8:00AM - 5:00PM</p>
-            </div>
-          </div><!-- End Info Item -->
-
-        </div>
-
-      </div>
-
-      <div class="col-lg-6">
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Tu Nombre" required>
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Tu Correo Electrónico" required>
-            </div>
-
-            <div class="col-12">
-              <input type="text" class="form-control" name="subject" placeholder="Asunto" required>
-            </div>
-
-            <div class="col-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required></textarea>
-            </div>
-
-            <div class="col-12 text-center">
-              <div class="loading">Cargando</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Tu mensaje ha sido enviado. ¡Gracias!</div>
-
-              <button type="submit">Enviar Mensaje</button>
-            </div>
-
-          </div>
-        </form>
-      </div><!-- End Contact Form -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Contact Section -->
-
-</main>
-
-<footer id="footer" class="footer position-relative light-background">
-
-  <div class="container footer-top">
-    <div class="row gy-4">
-      <div class="col-lg-5 col-md-12 footer-about">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <span class="sitename">Su Médico en Casa</span>
-        </a>
-        <p>Brindamos atención médica de calidad en la comodidad de tu hogar. Contáctanos para obtener más información sobre nuestros servicios.</p>
-        <div class="social-links d-flex mt-4">
-          <a href="https://www.instagram.com/su.medico.en.casa"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.facebook.com/su.medico.en.casa"><i class="bi bi-facebook"></i></a>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-6 footer-links">
-        <h4>Enlaces Útiles</h4>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Sobre Nosotros</a></li>
-          <li><a href="#">Servicios</a></li>
-          <li><a href="#">Política de Privacidad</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-2 col-6 footer-links">
-        <h4>Nuestros Servicios</h4>
-        <ul>
-          <li><a href="#">Medicina General</a></li>
-          <li><a href="#">Terapia Respiratoria</a></li>
-          <li><a href="#">Psicología</a></li>
-          <li><a href="#">Sueros Vitaminados</a></li>
-          <li><a href="#">Cuidados Paliativos</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-        <h4>Contáctanos</h4>
-        <p>Bogotá, Colombia</p>
-        <p class="mt-4"><strong>Teléfono:</strong> <span>+57 3249416572</span></p>
-        <p><strong>Correo Electrónico:</strong> <span>sumedicoencasajym@gmail.com</span></p>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="container copyright text-center mt-4">
-    <p>© <span>Copyright</span> <strong class="sitename">Su Médico en Casa</strong> <span>Todos los derechos reservados</span></p>
-    <div class="credits">
-      Diseñado por <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div>
-  </div>
-
-</footer>
-
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Preloader -->
-<div id="preloader"></div>
-
-<!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-<!-- Main JS File -->
-<script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
-
+ <html lang="es">
+ <head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Su Médico en Casa - Servicios Médicos a Domicilio</title>
+     <meta content="Servicios médicos a domicilio en Bogotá. Ofrecemos teleconsulta, videoconsulta, y atención médica personalizada en la comodidad de su hogar." name="description">
+     <meta content="medicina a domicilio, teleconsulta, videoconsulta, servicios médicos, Bogotá" name="keywords">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+     <!-- Favicon para navegadores -->
+     <link rel="icon" type="image/png" sizes="32x32" href="images/logo_sumedico.png">
+     <link rel="icon" type="image/png" sizes="192x192" href="images/logo_sumedico.png">
+
+     <!-- Icono para dispositivos Apple -->
+     <link rel="apple-touch-icon" sizes="180x180" href="images/logo_sumedico.png">
+
+     <!-- Icono para Windows -->
+     <meta name="msapplication-TileImage" content="images/logo_sumedico.png">
+   <title>Su Médico en Casa - Servicios Médicos a Domicilio</title>
+   <meta name="description" content="Servicios médicos a domicilio en Bogotá. Ofrecemos teleconsulta, videoconsulta, y atención médica personalizada en la comodidad de su hogar.">
+   <meta name="keywords" content="medicina a domicilio, teleconsulta, videoconsulta, servicios médicos, Bogotá">
+   <meta name="author" content="Su Médico en Casa">
+   <meta name="robots" content="index, follow">
+
+   <!-- Favicon para navegadores y dispositivos -->
+   <link rel="icon" type="image/png" sizes="32x32" href="images/logo_sumedico.png">
+   <link rel="icon" type="image/png" sizes="192x192" href="images/logo_sumedico.png">
+   <link rel="apple-touch-icon" sizes="180x180" href="images/logo_sumedico.png">
+   <meta name="msapplication-TileImage" content="images/logo_sumedico.png">
+
+   <!-- Open Graph (para SEO y redes sociales) -->
+   <meta property="og:title" content="Su Médico en Casa - Servicios Médicos a Domicilio">
+   <meta property="og:description" content="Consulta médica en casa en Bogotá. Toma de muestras, videoconsultas y más.">
+   <meta property="og:image" content="images/logo_sumedico.png"> <!-- Cambia por URL completa si es posible -->
+   <meta property="og:url" content="https://www.sumedicoencasa.com">
+   <meta property="og:type" content="website">
+
+   <!-- Fonts -->
+   <link href="https://fonts.googleapis.com" rel="preconnect">
+   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+   <!-- Vendor CSS Files -->
+   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+   <!-- Main CSS File -->
+   <link href="assets/css/main.css" rel="stylesheet">
+
+   <!-- Google Ads Tag -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16955964314"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'AW-16955964314');
+   </script>
+ </head>
+
+     <!-- Fonts -->
+     <link href="https://fonts.googleapis.com" rel="preconnect">
+     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+     <!-- Vendor CSS Files -->
+     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+     <!-- Main CSS File -->
+     <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16955964314">
+ </script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'AW-16955964314');
+ </script>
+
+ </head>
+
+ <body class="index-page">
+
+   <!-- HEADER -->
+   <header id="header" class="header d-flex align-items-center fixed-top">
+     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+     <!-- Google Tag Manager (noscript) -->
+     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P54P47FB"
+     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+     <!-- End Google Tag Manager (noscript) -->
+
+     <header id="header" class="header d-flex align-items-center fixed-top">
+         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                 <!-- Uncomment the line below if you also wish to use an image logo -->
+                 <!-- <img src="assets/img/logo.png" alt=""> -->
+                 <h1 class="sitename">Su Médico en Casa</h1><span>.</span>
+             </a>
+             <nav id="navmenu" class="navmenu">
+   <ul>
+     <li><a href="starter-page.html" class="active">Inicio</a></li>
+     <li><a href="portfolio-details.html">Portafolio de servicios </a></li>
+     <li><a href="index.html#contact">Contacto</a></li>
+   </ul>
+   <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+ </nav>
+
+ <!-- Google tag (gtag.js) - Google Ads -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16955964314"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'AW-16955964314');
+ </script>
+
+ <!-- Google tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2XZ2YYP9S"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'G-C2XZ2YYP9S');
+ </script>
+
+ </script>
+
+       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+         <h1 class="sitename">Su Médico en Casa</h1><span>.</span>
+       </a>
+
+       <nav id="navmenu" class="navmenu">
+         <ul>
+           <li><a href="starter-page.html" class="active">Inicio</a></li>
+           <li><a href="portfolio-details.html">Portafolio de servicios</a></li>
+           <li><a href="index.html#contact">Contacto</a></li>
+         </ul>
+         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+       </nav>
+
+       <a class="btn-getstarted" href="index.html#about">Empezar</a>
+
+     </div>
+   </header>
+
+   <main class="main">
+   <!-- GOOGLE TAG MANAGER (para Ads y Analytics) -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16955964314"></script>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2XZ2YYP9S"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     // Google Ads
+     gtag('config', 'AW-16955964314');
+
+ <!-- Hero Interactivo con Imágenes y Texto Rotativo -->
+ <section class="relative w-full min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+     // Google Analytics
+     gtag('config', 'G-C2XZ2YYP9S');
+   </script>
+
+   <!-- Contenedor de Imagenes -->
+   <div class="w-full relative h-auto max-h-[500px]">
+     <!-- Pre-cargar la imagen para mejorar el tiempo de carga -->
+     <link rel="preload" href="assets/img/logo4.png" as="image">
+   <!-- MAIN -->
+   <main class="main">
+
+     <img id="rotatingImage" src="assets/img/logo4.png" alt="Imagen Doctor" class="absolute inset-0 w-full h-full object-contain md:object-cover rounded-3xl shadow-xl transition-opacity duration-1000">
+   </div>
+     <!-- HERO INTERACTIVO -->
+     <section class="relative w-full min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+
+   <!-- Contenedor de Texto -->
+   <div class="w-full md:w-1/2 px-8 text-left space-y-6 z-10">
+     <!-- Título Principal -->
+     <h1 class="text-5xl sm:text-6xl font-extrabold text-gradient bg-clip-text text-transparent drop-shadow-lg">
+        <span class="text-green-400"></span>
+     </h1>
+       <!-- Imagen de fondo -->
+       <div class="w-full relative h-auto max-h-[500px]">
+         <!-- Preload imagen -->
+         <link rel="preload" href="assets/img/logo4.png" as="image">
+         <img id="rotatingImage" src="assets/img/logo4.png" alt="Imagen Doctor"
+              class="absolute inset-0 w-full h-full object-contain md:object-cover rounded-3xl shadow-xl transition-opacity duration-1000">
+       </div>
+
+     <!-- Subtítulo Dinámico -->
+     <h2 id="changingText" class="text-3xl sm:text-4xl text-white italic font-semibold leading-snug drop-shadow-md">
+       Tu salud, nuestra prioridad.
+     </h2>
+       <!-- Contenido de texto -->
+       <div class="w-full md:w-1/2 px-8 text-left space-y-6 z-10">
+         <h1 class="text-5xl sm:text-6xl font-extrabold text-gradient bg-clip-text text-transparent drop-shadow-lg">
+           <span class="text-green-400">Atención médica a domicilio</span>
+         </h1>
+
+   <p class="text-xl sm:text-2xl text-gray-300 leading-relaxed mt-4">
+   Profesionales confiables, atención cálida, en la comodidad de tu hogar.
+ </p>
+         <h2 id="changingText" class="text-3xl sm:text-4xl text-white italic font-semibold leading-snug drop-shadow-md">
+           Tu salud, nuestra prioridad.
+         </h2>
+
+         <p class="text-xl sm:text-2xl text-gray-300 leading-relaxed mt-4">
+           Profesionales confiables, atención cálida, en la comodidad de tu hogar.
+         </p>
+       </div>
+
+     </section>
+
+ </section>
+
+ <!-- Estilos CSS personalizados -->
+ <style>
+   /* Estilo para el título principal */
+   h1 {
+     font-family: 'Poppins', sans-serif;
+     background: linear-gradient(to right, #16a34a, #0f766e);
+     -webkit-background-clip: text;
+     -moz-background-clip: text;
+     color: transparent;
+     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+   }
+
+   /* Estilo para el subtítulo */
+   h2#changingText {
+     font-family: 'Roboto', sans-serif;
+     font-weight: 600;
+     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+   }
+
+   /* Estilo para la descripción */
+  p {
+   font-family: 'Roboto', sans-serif;
+   color: #d1d5db;
+   line-height: 1.7;
+   max-width: 600px;
+   margin: 0 auto;
+   font-weight: 400;
+   /* font-size: 1rem; */ /* ← Esto ya no es necesario */
+ }
+
+
+   /* Efecto de transición para el texto */
+   h1:hover {
+     text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.4), 0 0 20px #16a34a;
+   }
+
+   /* Mejorar la visibilidad del texto */
+   .text-4xl, .text-5xl, .text-2xl {
+     letter-spacing: 0.5px;
+   }
+
+   /* Estilo para el texto en general */
+   .space-y-6 {
+     margin-bottom: 2rem;
+   }
+
+   /* Estilos responsivos */
+   @media (max-width: 768px) {
+     h1 {
+       font-size: 3.5rem;
+     }
+     h2#changingText {
+       font-size: 2rem;
+     }
+     p {
+       font-size: 1rem;
+     }
+   }
+ </style>
+
+ <style>
+   .text-cyan-400 {
+     color: #00bcd4;
+   }
+
+   .text-green-400 {
+     color: #66bb6a;
+   }
+
+   .bg-green-500 {
+     background-color: #4caf50;
+   }
+
+   .bg-green-600 {
+     background-color: #388e3c;
+   }
+
+   .hover\:bg-green-600:hover {
+     background-color: #388e3c !important;
+   }
+
+   .text-white {
+     color: white;
+   }
+
+   .text-gray-300 {
+     color: #e0e0e0;
+   }
+
+   /* Sombra de texto y icono */
+   .drop-shadow-lg {
+     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+   }
+
+   /* Animación de botón */
+   .animate-bounce {
+     animation: bounce 1.5s infinite;
+   }
+
+   /* Hover efecto */
+   .transform:hover {
+     transform: scale(1.1);
+   }
+
+   /* Resaltar el texto */
+   .font-extrabold {
+     font-weight: 800;
+   }
+
+   .italic {
+     font-style: italic;
+   }
+
+   /* Adaptación del texto a dispositivos pequeños */
+   @media (max-width: 640px) {
+     .text-4xl {
+       font-size: 2rem;
+     }
+
+     .text-5xl {
+       font-size: 3rem;
+     }
+   }
+ </style>
+
+ <!-- JavaScript para rotar imágenes y textos -->
+ <script>
+   const images = [
+     "assets/img/logo4.png",
+     "assets/img/logo_3.png",
+     "assets/img/logo_5.png",
+     "assets/img/logo_6.png"
+   ];
+
+
+   let currentIndex = 0;
+
+   function rotateContent() {
+     const imageEl = document.getElementById("rotatingImage");
+     const textEl = document.getElementById("changingText");
+
+     // Cambiar texto con efecto
+     textEl.style.opacity = 0;
+     setTimeout(() => {
+       imageEl.src = images[currentIndex];
+       textEl.textContent = texts[currentIndex];
+       textEl.style.opacity = 1;
+     }, 500);
+
+     currentIndex = (currentIndex + 1) % images.length;
+   }
+
+   setInterval(rotateContent, 5000); // Tiempo de rotación aumentado a 5 segundos
+   document.addEventListener("DOMContentLoaded", rotateContent);
+ </script>
+ >
+
+ <!-- About Section -->
+ <section id="about" class="about section light-background" style="padding: 60px 0; background: #f9f9f9;">
+ <section id="about" class="about section light-background">
+   <div class="container" data-aos="fade-up" data-aos-delay="100">
+     <div class="row align-items-xl-center gy-5">
+
+       <!-- Descripción sobre la empresa -->
+       <div class="col-xl-5 content">
+         <h2 style="font-size: 2.5rem; font-weight: 600; color: #16a34a; text-align: center;">¿Quiénes Somos?</h2>
+         <p style="font-size: 1.1rem; line-height: 1.6; color: #333; text-align: center;">
+       <div class="col-xl-5 content text-center">
+         <h2>¿Quiénes Somos?</h2>
+         <p>
+           Somos una IPS en Bogotá especializada en ofrecer servicios médicos a domicilio. Nuestro objetivo es brindar atención médica de calidad en la comodidad de su hogar, con profesionales capacitados y comprometidos con su salud.
+         </p>
+       </div>
+
+       <!-- Imágenes y tarjetas con beneficios -->
+       <div class="col-xl-7">
+         <div class="row gy-4 icon-boxes">
+
+           <!-- Beneficio 1 -->
+           <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+             <div class="icon-box" style="padding: 2rem; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center;">
+               <i class="bi bi-buildings" style="font-size: 2rem; color: #16a34a;"></i>
+               <h3 style="font-size: 1.2rem; font-weight: 500;">Profesionalismo</h3>
+               <p style="font-size: 0.9rem; color: #555;">Contamos con un equipo de médicos y especialistas altamente capacitados para ofrecerte la mejor atención.</p>
+             <div class="icon-box">
+               <i class="bi bi-buildings"></i>
+               <h3>Profesionalismo</h3>
+               <p>Contamos con un equipo de médicos y especialistas altamente capacitados para ofrecerte la mejor atención.</p>
+             </div>
+           </div>
+
+           <!-- Beneficio 2 -->
+           <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+             <div class="icon-box" style="padding: 2rem; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center;">
+               <i class="bi bi-clipboard-pulse" style="font-size: 2rem; color: #16a34a;"></i>
+               <h3 style="font-size: 1.2rem; font-weight: 500;">Atención Personalizada</h3>
+               <p style="font-size: 0.9rem; color: #555;">Ofrecemos servicios adaptados a las necesidades específicas de cada paciente, garantizando un trato único y cercano.</p>
+             <div class="icon-box">
+               <i class="bi bi-clipboard-pulse"></i>
+               <h3>Atención Personalizada</h3>
+               <p>Ofrecemos servicios adaptados a las necesidades específicas de cada paciente, garantizando un trato único y cercano.</p>
+             </div>
+           </div>
+
+           <!-- Beneficio 3 -->
+           <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+             <div class="icon-box" style="padding: 2rem; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center;">
+               <i class="bi bi-command" style="font-size: 2rem; color: #16a34a;"></i>
+               <h3 style="font-size: 1.2rem; font-weight: 500;">Confianza y Seguridad</h3>
+               <p style="font-size: 0.9rem; color: #555;">Garantizamos la seguridad y confidencialidad en cada consulta y tratamiento médico.</p>
+             <div class="icon-box">
+               <i class="bi bi-command"></i>
+               <h3>Confianza y Seguridad</h3>
+               <p>Garantizamos la seguridad y confidencialidad en cada consulta y tratamiento médico.</p>
+             </div>
+           </div>
+
+           <!-- Beneficio 4 -->
+           <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+             <div class="icon-box" style="padding: 2rem; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center;">
+               <i class="bi bi-graph-up-arrow" style="font-size: 2rem; color: #16a34a;"></i>
+               <h3 style="font-size: 1.2rem; font-weight: 500;">Innovación</h3>
+               <p style="font-size: 0.9rem; color: #555;">Utilizamos tecnología avanzada para ofrecer los mejores servicios médicos a domicilio con precisión y eficacia.</p>
+             <div class="icon-box">
+               <i class="bi bi-graph-up-arrow"></i>
+               <h3>Innovación</h3>
+               <p>Utilizamos tecnología avanzada para ofrecer los mejores servicios médicos a domicilio con precisión y eficacia.</p>
+             </div>
+           </div>
+
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+
+ <style>
+ /* Estilos para la sección "¿Quiénes somos?" */
+ #about {
+   padding: 60px 0;
+   background: #f9f9f9;
+ }
+
+ .about .content {
+   font-size: 1.1rem;
+   line-height: 1.6;
+   color: #333;
+ }
+
+   <!-- CSS Section -->
+   /* Estilos para el About Section */
+   #about {
+       padding: 60px 0;
+       background: #f9f9f9;
+   }
+ .about .content h2 {
+   font-size: 2.5rem;
+   font-weight: 600;
+   color: #16a34a;
+   text-align: center;
+ }
+
+   .about .content {
+       font-size: 1.1rem;
+       line-height: 1.6;
+       color: #333;
+   }
+ .about .content p {
+   text-align: center;
+ }
+
+   .about .content h2 {
+       font-size: 2.5rem;
+       font-weight: 600;
+       color: #16a34a;
+   }
+ .icon-box {
+   padding: 2rem;
+   background-color: #ffffff;
+   border-radius: 10px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   text-align: center;
+ }
+
+   .read-more {
+       font-size: 1rem;
+       color: #16a34a;
+       font-weight: bold;
+       text-decoration: none;
+       display: inline-block;
+       margin-top: 20px;
+   }
+ .icon-box h3 {
+   font-size: 1.2rem;
+   font-weight: 500;
+ }
+
+   .read-more i {
+       color: #16a34a;
+   }
+ .icon-box p {
+   font-size: 0.9rem;
+   color: #555;
+ }
+
+   .icon-box {
+       padding: 2rem;
+       background-color: #ffffff;
+       border-radius: 10px;
+       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+       text-align: center;
+   }
+ .bi {
+   font-size: 2rem;
+   color: #16a34a;
+ }
+
+   .icon-box h3 {
+       font-size: 1.2rem;
+       font-weight: 500;
+ /* Estilos Responsivos */
+ @media (min-width: 1024px) {
+   body {
+     font-size: 16px;
+   }
+
+   .icon-box p {
+       font-size: 0.9rem;
+       color: #555;
+   .container {
+     width: 80%;
+     margin: 0 auto;
+   }
+ }
+
+   .bi {
+       font-size: 2rem;
+       color: #16a34a;
+ @media (min-width: 768px) and (max-width: 1023px) {
+   body {
+     font-size: 14px;
+   }
+
+   /* Estilos Responsivos */
+   @media (min-width: 1024px) {
+       body {
+           font-size: 16px;
+       }
+
+       .container {
+           width: 80%;
+           margin: 0 auto;
+       }
+
+       img {
+           max-width: 100%;
+           height: auto;
+       }
+   .container {
+     width: 90%;
+   }
+ }
+
+   @media (min-width: 768px) and (max-width: 1023px) {
+       body {
+           font-size: 14px;
+       }
+ @media (max-width: 767px) {
+   body {
+     font-size: 12px;
+   }
+
+       .container {
+           width: 90%;
+       }
+   .container {
+     width: 100%;
+   }
+
+       img {
+           max-width: 100%;
+           height: auto;
+       }
+   header {
+     padding: 10px;
+   }
+
+   @media (max-width: 767px) {
+       body {
+           font-size: 12px;
+       }
+   h1 {
+     font-size: 24px;
+   }
+
+       .container {
+           width: 100%;
+       }
+   h2 {
+     font-size: 18px;
+   }
+
+       img {
+           max-width: 100%;
+           height: auto;
+       }
+   p {
+     font-size: 14px;
+   }
+ }
+
+       header {
+           padding: 10px;
+       }
+ /* Botón de WhatsApp flotante */
+ a.fixed {
+   position: fixed;
+   bottom: 10px;
+   right: 10px;
+   background-color: #25d366;
+   color: white;
+   border-radius: 50%;
+   padding: 15px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   transition: transform 0.3s ease;
+ }
+
+       h1 {
+           font-size: 24px;
+       }
+ a.fixed:hover {
+   transform: scale(1.1);
+ }
+
+       h2 {
+           font-size: 18px;
+       }
+ /* Menú responsive */
+ @media (max-width: 767px) {
+   #navmenu {
+     display: block;
+   }
+
+       p {
+           font-size: 14px;
+       }
+   #navmenu ul {
+     list-style-type: none;
+     padding: 0;
+     margin: 0;
+   }
+
+   /* Estilo para el botón de WhatsApp flotante */
+   a.fixed {
+       position: fixed;
+       bottom: 10px;
+       right: 10px;
+       background-color: #25d366;
+       color: white;
+       border-radius: 50%;
+       padding: 15px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       transition: transform 0.3s ease;
+   #navmenu li {
+     margin: 10px 0;
+     text-align: center;
+   }
+
+   a.fixed:hover {
+       transform: scale(1.1);
+   #navmenu a {
+     font-size: 16px;
+     color: #fff;
+     text-decoration: none;
+   }
+
+   /* Mejorar visibilidad de la barra de navegación en móviles */
+   @media (max-width: 767px) {
+       #navmenu {
+           display: block;
+       }
+
+       #navmenu ul {
+           list-style-type: none;
+           padding: 0;
+           margin: 0;
+       }
+
+       #navmenu li {
+           margin: 10px 0;
+           text-align: center;
+       }
+
+       #navmenu a {
+           font-size: 16px;
+           color: #fff;
+           text-decoration: none;
+       }
+
+       /* Mostrar el menú en dispositivos pequeños */
+       .mobile-nav-toggle {
+           display: block;
+       }
+   .mobile-nav-toggle {
+     display: block;
+   }
+ }
+ </style>
+
+
+
+ </section>
+ <section id="servicios" class="py-5 bg-light">
+   <div class="container">
+     <h2 class="text-center mb-5 text-success fw-bold">Nuestros Servicios</h2>
+     <div class="row gy-4">
+       <!-- Medicina General -->
+       <div id="medicina-general" class="col-lg-4 col-md-6">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/medicina_general.jpg" alt="Medicina General" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Medicina General</h4>
+           <p>Consulta médica en tu hogar con diagnóstico clínico, tratamiento y orientación profesional.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20deseo%20agendar%20una%20consulta%20de%20Medicina%20General"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+
+       <!-- Videoconsulta -->
+       <div class="col-lg-4 col-md-6" id="videoconsulta">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/VIDEO_CON1.jpg" alt="Videoconsulta" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Videoconsulta</h4>
+           <p>Consulta médica virtual, rápida y efectiva desde la comodidad de tu casa.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20quisiera%20agendar%20una%20Videoconsulta"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+ <!-- Medicina General -->
+ <div id="medicina-general" class="col-lg-4 col-md-6">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/medicina_general.jpg" alt="Medicina General" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Medicina General</h4>
+     <p>Consulta médica en tu hogar con diagnóstico clínico, tratamiento y orientación profesional.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20deseo%20agendar%20una%20consulta%20de%20Medicina%20General"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </div>
+
+       <!-- Terapia Respiratoria -->
+       <div class="col-lg-4 col-md-6" id="terapia-respiratoria">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/TERAPIA_RESPIRA.jpg" alt="Terapia Respiratoria" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Terapia Respiratoria</h4>
+           <p>Atención profesional para mejorar tu capacidad pulmonar con equipos y técnicas modernas.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20quiero%20solicitar%20una%20Terapia%20Respiratoria"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+
+       <!-- Terapia Física -->
+       <div class="col-lg-4 col-md-6" id="terapia-fisica">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/terapia_fisica.jpg" alt="Terapia Física" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Terapia Física</h4>
+           <p>Recuperación funcional mediante ejercicios terapéuticos y técnicas de rehabilitación.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20quiero%20agendar%20una%20Terapia%20Física"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+    <!-- Videoconsulta -->
+ <div class="col-lg-4 col-md-6" id="videoconsulta">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/VIDEO_CON1.jpg" alt="Videoconsulta" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Videoconsulta</h4>
+     <p>Consulta médica virtual, rápida y efectiva desde la comodidad de tu casa.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20quisiera%20agendar%20una%20Videoconsulta"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </div>
+
+       <!-- Curaciones -->
+       <div class="col-lg-4 col-md-6" id="curaciones">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/sutura.png" alt="Curaciones" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Curaciones</h4>
+           <p>Limpieza, desinfección y cuidado de heridas por profesionales capacitados.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20necesito%20una%20Curación%20a%20domicilio"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+
+       <!-- Electrocardiograma -->
+       <div class="col-lg-4 col-md-6" id="electrocardiograma">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/ELECTROCARDIOGRAMA1.webp" alt="Electrocardiograma" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Electrocardiograma</h4>
+           <p>Evaluación del ritmo y la actividad eléctrica del corazón con resultados inmediatos y lectura médica profesional.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20deseo%20solicitar%20un%20Electrocardiograma%20a%20domicilio"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+      <!-- Terapia Respiratoria -->
+ <div class="col-lg-4 col-md-6" id="terapia-respiratoria">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/TERAPIA_RESPIRA.jpg" alt="Terapia Respiratoria" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Terapia Respiratoria</h4>
+     <p>Atención profesional para mejorar tu capacidad pulmonar con equipos y técnicas modernas.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20quiero%20solicitar%20una%20Terapia%20Respiratoria"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </div>
+
+       <!-- Toma de Laboratorio -->
+       <div class="col-lg-4 col-md-6" id="laboratorio">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/laboratorio.png" alt="Toma de Laboratorio" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Toma de Laboratorio</h4>
+           <p>Extracción de muestras en casa para exámenes de sangre, orina y otros análisis clínicos, con resultados confiables.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20quiero%20programar%20una%20Toma%20de%20Laboratorio%20a%20domicilio"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+
+       <!-- Ecografías -->
+       <div class="col-lg-4 col-md-6" id="ecografias">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/ecografia.jpg" alt="Ecografías a domicilio" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Ecografías</h4>
+           <p>Realizamos ecografías diagnósticas en la comodidad de tu hogar, con equipos de alta tecnología y personal calificado.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20deseo%20agendar%20una%20Ecografía%20a%20domicilio"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+   <!-- Terapia Física -->
+ <div class="col-lg-4 col-md-6" id="terapia-fisica">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/terapia_fisica.jpg" alt="Terapia Física" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Terapia Física</h4>
+     <p>Recuperación funcional mediante ejercicios terapéuticos y técnicas de rehabilitación.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20quiero%20agendar%20una%20Terapia%20Física"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </div>
+
+       <!-- Sueros Vitaminados -->
+       <div class="col-lg-4 col-md-6" id="sueros-vitaminados">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/SUEROS1.jpg" alt="Sueros Vitaminados" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Sueros Vitaminados</h4>
+           <p>Recibe sueros de vitaminas esenciales para mejorar tu salud y energía.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20deseo%20agendar%20una%20sesión%20de%20Sueros%20Vitaminados"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+      <!-- Curaciones -->
+ <div class="col-lg-4 col-md-6" id="curaciones">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/sutura.png" alt="Curaciones" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Curaciones</h4>
+     <p>Limpieza, desinfección y cuidado de heridas por profesionales capacitados.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20necesito%20una%20Curación%20a%20domicilio"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </div>
+
+       <!-- Cuidados Paliativos -->
+       <div class="col-lg-4 col-md-6" id="cuidados-paliativos">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/cuidados_paliativos.jpeg" alt="Cuidados Paliativos" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Cuidados Paliativos</h4>
+           <p>Atención médica especializada para el control del dolor y la mejora de la calidad de vida en pacientes con enfermedades graves.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20deseo%20agendar%20una%20consulta%20de%20Cuidados%20Paliativos"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+
+       <!-- Lavado de Oídos -->
+       <div class="col-lg-4 col-md-6" id="lavado-oidos">
+         <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+           <img src="images/lavado_oidos.jpg" alt="Lavado de Oídos" class="img-fluid rounded mb-3">
+           <h4 class="text-success">Lavado de Oídos</h4>
+           <p>Eliminación de cerumen acumulado y limpieza profunda de los oídos para mejorar la audición y la salud auditiva.</p>
+           <a href="https://wa.me/573027307330?text=Hola%2C%20necesito%20un%20Lavado%20de%20Oídos%20a%20domicilio"
+              class="btn btn-success d-inline-flex align-items-center gap-2 mt-2" target="_blank">
+             <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+           </a>
+         </div>
+       </div>
+     </div>
+      <!-- Electrocardiograma -->
+ <div class="col-lg-4 col-md-6" id="electrocardiograma">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/ELECTROCARDIOGRAMA1.webp" alt="Electrocardiograma" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Electrocardiograma</h4>
+     <p>Evaluación del ritmo y la actividad eléctrica del corazón con resultados inmediatos y lectura médica profesional.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20deseo%20solicitar%20un%20Electrocardiograma%20a%20domicilio"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </section>
+ </div>
+
+
+     <!-- Toma de Laboratorio -->
+ <div class="col-lg-4 col-md-6" id="laboratorio">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/laboratorio.png" alt="Toma de Laboratorio" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Toma de Laboratorio</h4>
+     <p>Extracción de muestras en casa para exámenes de sangre, orina y otros análisis clínicos, con resultados confiables.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20quiero%20programar%20una%20Toma%20de%20Laboratorio%20a%20domicilio"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </div>
+
+
+
+    <!-- Sueros Vitaminados -->
+ <div class="col-lg-4 col-md-6" id="sueros-vitaminados">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/SUEROS1.jpg" alt="Sueros Vitaminados" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Sueros Vitaminados</h4>
+     <p>Recibe sueros de vitaminas esenciales para mejorar tu salud y energía.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20deseo%20agendar%20una%20sesión%20de%20Sueros%20Vitaminados"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </div>
+
+      <!-- Cuidados Paliativos -->
+ <div class="col-lg-4 col-md-6" id="cuidados-paliativos">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/cuidados_paliativos.jpeg" alt="Cuidados Paliativos" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Cuidados Paliativos</h4>
+     <p>Atención médica especializada para el control del dolor y la mejora de la calidad de vida en pacientes con enfermedades graves.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20deseo%20agendar%20una%20consulta%20de%20Cuidados%20Paliativos"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </div>
+
+  <!-- Lavado de Oídos -->
+ <div class="col-lg-4 col-md-6" id="lavado-oidos">
+   <div class="pricing-item rounded-3 shadow p-4 text-center bg-white h-100">
+     <img src="images/lavado_oidos.jpg" alt="Lavado de Oídos" class="img-fluid rounded mb-3">
+     <h4 class="text-success">Lavado de Oídos</h4>
+     <p>Eliminación de cerumen acumulado y limpieza profunda de los oídos para mejorar la audición y la salud auditiva.</p>
+     <a href="https://wa.me/573027307330?text=Hola%2C%20necesito%20un%20Lavado%20de%20Oídos%20a%20domicilio"
+        class="btn btn-success d-inline-flex align-items-center gap-2 mt-2"
+        target="_blank"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+       <i class="bi bi-whatsapp"></i> Agendar por WhatsApp
+     </a>
+   </div>
+ </div>
+
+
+ <!-- Beneficios -->
+ <section style="background: linear-gradient(to bottom, #ffffff, #e6ffe6); padding: 3rem 1.5rem;">
+   <h2 style="font-size: 2.5rem; font-weight: bold; text-align: center; color: #16a34a; margin-bottom: 2rem;">¿Por qué elegirnos?</h2>
+
+   <div class="container d-flex flex-wrap justify-content-center gap-4">
+
+     <!-- Tarjeta beneficio -->
+     <div style="width: 260px; background: #fff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+       <div style="background: #e0fbe0; padding: 2rem; text-align: center;">
+         <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Médico confiable" style="width: 80px; height: 80px;">
+         <h3 class="mt-3 text-success">Médicos Confiables</h3>
+         <p style="font-size: 0.9rem;">Atención profesional con experiencia para tu tranquilidad.</p>
+       </div>
+     </div>
+
+     <div style="width: 260px; background: #fff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+       <div style="background: #e0fbe0; padding: 2rem; text-align: center;">
+         <img src="https://cdn-icons-png.flaticon.com/512/2967/2967495.png" alt="Atención rápida" style="width: 80px; height: 80px;">
+         <h3 class="mt-3 text-success">Atención Rápida</h3>
+         <p style="font-size: 0.9rem;">Llegamos a tu hogar con todo lo necesario.</p>
+       </div>
+     </div>
+
+     <div style="width: 260px; background: #fff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+       <div style="background: #e0fbe0; padding: 2rem; text-align: center;">
+         <img src="https://cdn-icons-png.flaticon.com/512/9431/9431211.png" alt="Atención completa" style="width: 80px; height: 80px;">
+         <h3 class="mt-3 text-success">Valoración Completa</h3>
+         <p style="font-size: 0.9rem;">Servicio personalizado con seguimiento de tu estado.</p>
+       </div>
+     </div>
+
+     <!-- Nuevo Beneficio 1 -->
+     <div style="width: 260px; background: #fff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+       <div style="background: #e0fbe0; padding: 2rem; text-align: center;">
+         <img src="https://cdn-icons-png.flaticon.com/512/3044/3044066.png" alt="Disponibilidad 24/7" style="width: 80px; height: 80px;">
+         <h3 class="mt-3 text-success">Atención 24/7</h3>
+         <p style="font-size: 0.9rem;">Estamos disponibles a cualquier hora para tu tranquilidad.</p>
+       </div>
+     </div>
+
+     <!-- Nuevo Beneficio 2 -->
+     <div style="width: 260px; background: #fff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+       <div style="background: #e0fbe0; padding: 2rem; text-align: center;">
+         <img src="https://cdn-icons-png.flaticon.com/512/1014/1014851.png" alt="Precios accesibles" style="width: 80px; height: 80px;">
+         <h3 class="mt-3 text-success">Precios Accesibles</h3>
+         <p style="font-size: 0.9rem;">Ofrecemos servicios de calidad a precios justos y accesibles.</p>
+       </div>
+     </div>
+
+     <!-- Nuevo Beneficio 3 -->
+     <div style="width: 260px; background: #fff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+       <div style="background: #e0fbe0; padding: 2rem; text-align: center;">
+         <img src="https://cdn-icons-png.flaticon.com/512/3705/3705677.png" alt="Confianza" style="width: 80px; height: 80px;">
+         <h3 class="mt-3 text-success">Confianza Total</h3>
+         <p style="font-size: 0.9rem;">Nuestro equipo es altamente capacitado para tu cuidado.</p>
+       </div>
+     </div>
+
+   </div>
+ </section>
+
+
+ </div><!-- End Pricing Item -->
+
+ <div class="col-lg-12">
+     <p class="text-center mt-4">Ofrecemos más servicios médicos a domicilio. Contacta con nosotros para conocer todas nuestras opciones.</p>
+     <p class="text-center mt-4">
+         Ofrecemos más servicios médicos a domicilio. Contacta con nosotros para conocer todas nuestras opciones.
+     </p>
+ </div>
+
+
+ </section><!-- /Pricing Section -->
+
+ <!-- Faq Section -->
+ <section id="faq" class="faq section">
+
+     <div class="container">
+
+         <div class="row gy-4">
+
+             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                 <div class="content px-xl-5">
+                     <h3><span>Preguntas </span><strong>Frecuentes</strong></h3>
+                     <p>
+                         Aquí encontrarás respuestas a las preguntas más comunes sobre nuestros servicios.
+                     </p>
+                 </div>
+             </div>
+
+             <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+
+                 <div class="faq-container">
+
+                     <div class="faq-item faq-active">
+                         <h3><span class="num">1.</span> <span>¿Cómo agendo una consulta?</span></h3>
+                         <div class="faq-content">
+                             <p>Puedes agendar una consulta llamando al 3027307330 o a través de nuestro WhatsApp haciendo clic en el botón de "Agendar Ahora" en nuestra página web.</p>
+                         </div>
+                         <i class="faq-toggle bi bi-chevron-right"></i>
+                     </div><!-- End Faq item-->
+
+                     <div class="faq-item">
+                         <h3><span class="num">2.</span> <span>¿Cuáles son los métodos de pago aceptados?</span></h3>
+                         <div class="faq-content">
+                             <p>Aceptamos pagos en efectivo, transferencia bancaria y pagos electrónicos a través de plataformas seguras.</p>
+                         </div>
+                         <i class="faq-toggle bi bi-chevron-right"></i>
+                     </div><!-- End Faq item-->
+
+                     <div class="faq-item">
+                         <h3><span class="num">3.</span> <span>¿Puedo cancelar o reprogramar una cita?</span></h3>
+                         <div class="faq-content">
+                             <p>Sí, puedes cancelar o reprogramar tu cita hasta 24 horas antes de la consulta sin costo adicional. Por favor, contáctanos para realizar estos cambios.</p>
+                         </div>
+                         <i class="faq-toggle bi bi-chevron-right"></i>
+                     </div><!-- End Faq item-->
+
+                     <div class="faq-item">
+                         <h3><span class="num">4.</span> <span>¿Qué incluye una consulta a domicilio?</span></h3>
+                         <div class="faq-content">
+                             <p>La consulta a domicilio incluye una evaluación médica completa, diagnóstico, tratamiento y recomendaciones personalizadas.</p>
+                         </div>
+                         <i class="faq-toggle bi bi-chevron-right"></i>
+                     </div><!-- End Faq item-->
+
+                     <div class="faq-item">
+                         <h3><span class="num">5.</span> <span>¿Cómo obtengo el certificado médico?</span></h3>
+                         <div class="faq-content">
+                             <p>El certificado médico se entrega en formato digital después de la consulta. Se puede utilizar para trámites escolares, laborales y deportivos.</p>
+                         </div>
+                         <i class="faq-toggle bi bi-chevron-right"></i>
+                     </div><!-- End Faq item-->
+
+                 </div>
+                 </div><!-- End Faq Container -->
+             </div><!-- End col-lg-8 -->
+
+             </div>
+         </div>
+         </div><!-- End row -->
+
+     </div>
+     </div><!-- End container -->
+
+ </section><!-- /Faq Section -->
+
+ <!-- Team Section -->
+ <section id="team" class="team section light-background">
+   <!-- Aquí puedes agregar contenido del equipo si lo deseas -->
+ </section><!-- /Team Section -->
+
+ <!-- Contact Section -->
+ <section id="contact" class="contact section bg-light py-5" style="background: linear-gradient(to right, #e0f7fa, #e8f5e9);">
+   <div class="container" data-aos="fade-up">
+     <!-- Section Title -->
+     <div class="text-center mb-5">
+       <h2 class="text-success">Contáctanos</h2>
+       <p class="text-muted">¿Tienes dudas o necesitas más información? Estamos aquí para ayudarte.</p>
+     </div>
+
+     <div class="row gy-4 justify-content-center">
+       <!-- Contact Info -->
+       <div class="col-lg-5">
+         <div class="bg-white shadow rounded p-4" data-aos="fade-right">
+           <div class="info-item mb-4 d-flex align-items-center">
+             <i class="bi bi-geo-alt fs-3 text-success me-3"></i>
+             <div>
+               <h5 class="mb-1">Dirección</h5>
+               <p class="mb-0">Bogotá, carrera 114c No 70 c18</p>
+             </div>
+           </div>
+
+           <div class="info-item mb-4 d-flex align-items-center">
+             <i class="bi bi-telephone fs-3 text-success me-3"></i>
+             <div>
+               <h5 class="mb-1">Teléfono</h5>
+               <p class="mb-0">+57 302 730 7330</p>
+             </div>
+           </div>
+
+           <div class="info-item mb-4 d-flex align-items-center">
+             <i class="bi bi-envelope fs-3 text-success me-3"></i>
+             <div>
+               <h5 class="mb-1">Correo</h5>
+               <p class="mb-0">sumedicoencasajym@gmail.com</p>
+             </div>
+           </div>
+
+           <div class="info-item d-flex align-items-center">
+             <i class="bi bi-clock fs-3 text-success me-3"></i>
+             <div>
+               <h5 class="mb-1">Horario</h5>
+               <p class="mb-0">Todos los días: 6:00 AM - 10:00 PM</p>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <!-- Contact Form -->
+       <div class="col-lg-7">
+         <div class="bg-white shadow rounded p-4" data-aos="fade-left">
+           <h4 class="text-success mb-4">Envíanos un mensaje</h4>
+           <form id="contact-form">
+             <div class="row">
+               <div class="col-md-6 mb-3">
+                 <input type="text" class="form-control" name="name" placeholder="Tu Nombre" required>
+               </div>
+               <div class="col-md-6 mb-3">
+                 <input type="email" class="form-control" name="email" placeholder="Tu Correo Electrónico" required>
+               </div>
+             </div>
+             <div class="mb-3">
+               <input type="text" class="form-control" name="subject" placeholder="Asunto" required>
+             </div>
+             <div class="mb-3">
+               <textarea class="form-control" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+             </div>
+             <div class="text-end">
+               <button type="submit" class="btn btn-success">
+                 <i class="bi bi-send me-1"></i> Enviar Mensaje
+               </button>
+             </div>
+             <div id="form-messages" class="mt-3 text-center"></div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+
+ </footer>
+ </section><!-- /Contact Section -->
+
+ <!-- Scroll Top -->
+ <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+ <!-- Preloader -->
+ <div id="preloader"></div>
+
+
+ <!-- Floating WhatsApp Button -->
+ <a href="https://wa.me/573027307330" id="whatsapp-button" class="d-flex align-items-center justify-content-center">
+ <a href="https://wa.me/573027307330"
+    id="whatsapp-button"
+    class="d-flex align-items-center justify-content-center"
+    target="_blank"
+    onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+   <i class="bi bi-whatsapp"></i>
+ </a>
+
+
+
+ <!-- Vendor JS Files -->
+ <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="assets/vendor/php-email-form/validate.js"></script>
+ <script src="assets/vendor/aos/aos.js"></script>
+ <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+ <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+ <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+ <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+ <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+ <!-- Main JS File -->
+ <script src="assets/js/main.js"></script>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>Su Médico en Casa</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+   <style>
+
+     body {
+       font-family: 'Poppins', sans-serif;
+       background: #f9f9f9;
+       margin: 0;
+       padding: 0;
+       color: #333;
+     }
+
+     header {
+       background: linear-gradient(135deg, #009688, #4db6ac);
+       color: white;
+       padding: 40px 20px;
+       text-align: center;
+     }
+
+     header h1 {
+       margin: 0;
+       font-size: 2.5em;
+     }
+
+     header p {
+       font-size: 1.2em;
+       margin-top: 10px;
+     }
+
+     .iconos {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       padding: 40px 20px;
+       gap: 30px;
+     }
+
+     .icono {
+       text-align: center;
+       width: 150px;
+       padding: 20px;
+       background: white;
+       border-radius: 20px;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+       transition: transform 0.3s ease, background 0.3s ease;
+     }
+
+     .icono:hover {
+       transform: scale(1.1);
+       background: #e0f2f1;
+     }
+
+     .icono i {
+       font-size: 40px;
+       color: #009688;
+       margin-bottom: 10px;
+     }
+
+     .icono h3 {
+       font-size: 16px;
+       margin-top: 10px;
+     }
+
+     .whatsapp-btn {
+       display: block;
+       margin: 40px auto;
+       width: fit-content;
+       background: #25D366;
+       color: white;
+       padding: 15px 25px;
+       border-radius: 50px;
+       text-decoration: none;
+       font-weight: bold;
+       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+       transition: background 0.3s;
+     }
+
+     .whatsapp-btn:hover {
+       background: #1ebe5d;
+     }
+
+     footer {
+       background: #004d40;
+       color: white;
+       text-align: center;
+       padding: 20px;
+       font-size: 14px;
+       position: relative;
+     }
+
+     .social-icons {
+       margin-top: 10px;
+     }
+
+     .social-icons a {
+       color: white;
+       margin: 0 10px;
+       font-size: 20px;
+       transition: color 0.3s;
+     }
+
+     .social-icons a:hover {
+       color: #4db6ac;
+     }
+
+     .contact-info {
+       margin-top: 10px;
+       line-height: 1.6;
+     }
+   </style>
+ </head>
+
+
+   <header>
+   <h1>Su Médico en Casa</h1>
+   <p>Atención médica y terapéutica a domicilio en Bogotá</p>
+ </header>
+
+ <section class="iconos">
+   <a href="#medicina-general" class="icono">
+     <i class="fas fa-user-md"></i>
+     <h3>Medicina General</h3>
+   </a>
+   <a href="#terapia-respiratoria" class="icono">
+     <i class="fas fa-lungs"></i>
+     <h3>Terapia Respiratoria</h3>
+   </a>
+   <a href="#terapia-fisica" class="icono">
+     <i class="fas fa-dumbbell"></i>
+     <h3>Terapia Física</h3>
+   </a>
+   <a href="#lavado-oidos" class="icono">
+     <i class="fas fa-ear-listen"></i>
+     <h3>Lavado de Oídos</h3>
+   </a>
+   <a href="#curaciones" class="icono">
+     <i class="fas fa-bandage"></i>
+     <h3>Curaciones</h3>
+   </a>
+   <a href="#sueros-vitaminados" class="icono">
+     <i class="fas fa-vial"></i>
+     <h3>Sueros Vitaminados</h3>
+   </a>
+   <a href="#cuidados-paliativos" class="icono">
+     <i class="fas fa-people-carry-box"></i>
+     <h3>Cuidados Paliativos</h3>
+   </a>
+   <a href="#videoconsulta" class="icono">
+     <i class="fas fa-video"></i>
+     <h3>Videoconsulta</h3>
+   </a>
+   <a href="#electrocardiograma" class="icono">
+     <i class="fas fa-heartbeat"></i>
+     <h3>EKG</h3> <!-- Cambié el texto a "EKG" -->
+   </a>
+   <a href="#laboratorio" class="icono">
+     <i class="fas fa-vials"></i>
+     <h3>Laboratorio</h3>
+   </a>
+   <a href="#ecografias" class="icono">
+     <i class="fas fa-wave-square"></i>
+     <h3>Ecografías</h3>
+   </a>
+ </section>
+
+
+ <footer id="footer" class="footer position-relative light-background">
+
+
+   <div class="container copyright text-center mt-4">
+     <p>© <span>Copyright</span> <strong class="sitename">Su Médico en Casa NIT 900976775-2</strong> <span>Todos los derechos reservados</span></p>
+     <div class="credits">
+       Diseñado por <a href="Su Medico En Casa">Su Médico En Casa</a>
+     </div>
+   </div>
+
+
+ </body>
+ </html>
