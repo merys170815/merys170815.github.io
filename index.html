@@ -13,6 +13,10 @@
   <!-- Íconos -->
   <link rel="icon" type="image/png" href="images/logo_sumedico.png" />
 
+    <!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
 
@@ -71,6 +75,7 @@
 
 <!-- ESTILOS -->
 <style>
+
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
 
   .hero-section {
@@ -144,7 +149,119 @@
     .sub-title { font-size: 1.3rem; }
     .description-text { font-size: 1rem; }
   }
-</style>
+
+     body {
+       font-family: 'Poppins', sans-serif;
+       background: #f9f9f9;
+       margin: 0;
+       padding: 0;
+       color: #333;
+     }
+
+     header {
+       background: linear-gradient(135deg, #009688, #4db6ac);
+       color: white;
+       padding: 40px 20px;
+       text-align: center;
+     }
+
+     header h1 {
+       margin: 0;
+       font-size: 2.5em;
+     }
+
+     header p {
+       font-size: 1.2em;
+       margin-top: 10px;
+     }
+
+     .iconos {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       padding: 40px 20px;
+       gap: 30px;
+     }
+
+     .icono {
+       text-align: center;
+       width: 150px;
+       padding: 20px;
+       background: white;
+       border-radius: 20px;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+       transition: transform 0.3s ease, background 0.3s ease;
+     }
+
+     .icono:hover {
+       transform: scale(1.1);
+       background: #e0f2f1;
+     }
+
+     .icono i {
+       font-size: 40px;
+       color: #009688;
+       margin-bottom: 10px;
+     }
+
+     .icono h3 {
+       font-size: 16px;
+       margin-top: 10px;
+     }
+
+   #whatsapp-button {
+    position: fixed; /* Esto asegura que el botón sea fijo en la pantalla */
+    bottom: 20px; /* Ajusta la distancia desde el fondo */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    width: 60px; /* Ajusta el tamaño del botón */
+    height: 60px;
+    background-color: #25d366; /* Color de WhatsApp */
+    color: white;
+    border-radius: 50%; /* Hace que el botón sea circular */
+    font-size: 28px; /* Tamaño del ícono */
+    display: flex;
+    align-items: center; /* Centra el ícono dentro del botón */
+    justify-content: center; /* Centra el ícono dentro del botón */
+    z-index: 9999; /* Asegura que el botón esté por encima de otros elementos */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra sutil para que resalte */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+#whatsapp-button:hover {
+    background-color: #128c7e; /* Color de fondo cuando se pasa el mouse */
+    color: white;
+}
+
+
+     footer {
+       background: #004d40;
+       color: white;
+       text-align: center;
+       padding: 20px;
+       font-size: 14px;
+       position: relative;
+     }
+
+     .social-icons {
+       margin-top: 10px;
+     }
+
+     .social-icons a {
+       color: white;
+       margin: 0 10px;
+       font-size: 20px;
+       transition: color 0.3s;
+     }
+
+     .social-icons a:hover {
+       color: #4db6ac;
+     }
+
+     .contact-info {
+       margin-top: 10px;
+       line-height: 1.6;
+     }
+   </style>
 
 <!-- SCRIPT -->
 <script>
@@ -179,7 +296,7 @@
   }, 5000);
 </script>
 
- <section id="services" class="services">
+<section id="services" class="services">
   <div class="container" data-aos="fade-up">
 
     <div class="section-title text-center">
@@ -189,96 +306,130 @@
 
     <div class="row gy-4">
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+      <!-- Medicina General -->
+      <div id="medicina-general" class="col-lg-4 col-md-6 d-flex align-items-stretch">
         <div class="icon-box">
-          <img src="assets/img/medicina_general.jpg" class="img-fluid rounded" alt="Medicina General"loading="lazy">
+          <img src="assets/img/medicina_general.jpg" class="img-fluid rounded" alt="Medicina General" loading="lazy">
           <h4><a href="#">Medicina General</a></h4>
           <p>Consulta médica a domicilio para evaluación, diagnóstico y tratamiento oportuno.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20medicina%20general" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+      <!-- Terapia Respiratoria -->
+      <div id="terapia-respiratoria" class="col-lg-4 col-md-6 d-flex align-items-stretch">
         <div class="icon-box">
-          <img src="assets/img/TERAPIA_RESPIRA.jpg" class="img-fluid rounded" alt="Terapia Respiratoria"loading="lazy">
+          <img src="assets/img/TERAPIA_RESPIRA.jpg" class="img-fluid rounded" alt="Terapia Respiratoria" loading="lazy">
           <h4><a href="#">Terapia Respiratoria</a></h4>
           <p>Intervenciones para mejorar la función pulmonar, manejo de oxígeno, nebulizaciones y más.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20terapia%20respiratoria" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+      <!-- Terapia Física -->
+      <div id="terapia-fisica" class="col-lg-4 col-md-6 d-flex align-items-stretch">
         <div class="icon-box">
-          <img src="assets/img/terapia_fisica.jpg" class="img-fluid rounded" alt="Terapia Física"loading="lazy">
+          <img src="assets/img/terapia_fisica.jpg" class="img-fluid rounded" alt="Terapia Física" loading="lazy">
           <h4><a href="#">Terapia Física</a></h4>
           <p>Rehabilitación física para recuperación de movilidad, fuerza y equilibrio funcional.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20terapia%20física" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+      <!-- Lavado de Oídos -->
+      <div id="lavado-oidos" class="col-lg-4 col-md-6 d-flex align-items-stretch">
         <div class="icon-box">
-          <img src="assets/img/lavado_oidos.jpg" class="img-fluid rounded" alt="Lavado de Oídos"loading="lazy">
+          <img src="assets/img/lavado_oidos.jpg" class="img-fluid rounded" alt="Lavado de Oídos" loading="lazy">
           <h4><a href="#">Lavado de Oídos</a></h4>
           <p>Procedimiento seguro para eliminar tapones de cerumen que afectan la audición.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20lavado%20de%20oídos" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+      <!-- Retiro de Suturas -->
+      <div id="suturas" class="col-lg-4 col-md-6 d-flex align-items-stretch">
         <div class="icon-box">
-          <img src="assets/img/suturas.jpg" class="img-fluid rounded" alt="Retiro de Suturas"loading="lazy">
+          <img src="assets/img/suturas.jpg" class="img-fluid rounded" alt="Retiro de Suturas" loading="lazy">
           <h4><a href="#">Retiro de Suturas</a></h4>
           <p>Extracción cuidadosa de puntos quirúrgicos realizada por profesionales.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20el%20retiro%20de%20suturas" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+      <!-- Curaciones -->
+      <div id="curaciones" class="col-lg-4 col-md-6 d-flex align-items-stretch">
         <div class="icon-box">
-          <img src="assets/img/curacion.jpg" class="img-fluid rounded" alt="Curaciones"loading="lazy">
+          <img src="assets/img/curacion.jpg" class="img-fluid rounded" alt="Curaciones" loading="lazy">
           <h4><a href="#">Curaciones</a></h4>
           <p>Atención especializada en heridas agudas y crónicas con material estéril.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20curación" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
         </div>
       </div>
 
-     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-  <div class="icon-box">
-    <img src="assets/img/electrocardiograma1.jpg" class="img-fluid rounded" alt="Electrocardiograma"loading="lazy">
-    <h4><a href="#">Electrocardiograma</a></h4>
-    <p>Registro de la actividad eléctrica del corazón. Ideal para detectar arritmias, isquemias y otros trastornos cardíacos en la comodidad de tu hogar.</p>
-  </div>
-</div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-  <div class="icon-box">
-    <img src="assets/img/ecografia.jpg" class="img-fluid rounded" alt="Ecografía"loading="lazy">
-    <h4><a href="#">Ecografía</a></h4>
-    <p>Exploración diagnóstica por imágenes para evaluar órganos internos o embarazos, realizada por profesionales certificados en tu domicilio.</p>
-  </div>
-</div>
-
-
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+      <!-- Electrocardiograma -->
+      <div id="electrocardiograma" class="col-lg-4 col-md-6 d-flex align-items-stretch">
         <div class="icon-box">
-          <img src="assets/img/SUEROS1.jpg" class="img-fluid rounded" alt="Sueros Vitaminados"loading="lazy">
+          <img src="assets/img/electrocardiograma1.jpg" class="img-fluid rounded" alt="Electrocardiograma" loading="lazy">
+          <h4><a href="#">Electrocardiograma</a></h4>
+          <p>Registro de la actividad eléctrica del corazón. Ideal para detectar arritmias, isquemias y otros trastornos cardíacos en la comodidad de tu hogar.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20electrocardiograma" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Ecografía -->
+      <div id="ecografias" class="col-lg-4 col-md-6 d-flex align-items-stretch">
+        <div class="icon-box">
+          <img src="assets/img/ecografia.jpg" class="img-fluid rounded" alt="Ecografía" loading="lazy">
+          <h4><a href="#">Ecografía</a></h4>
+          <p>Exploración diagnóstica por imágenes para evaluar órganos internos o embarazos, realizada por profesionales certificados en tu domicilio.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20ecografía" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Sueros Vitaminados -->
+      <div id="sueros-vitaminados" class="col-lg-4 col-md-6 d-flex align-items-stretch">
+        <div class="icon-box">
+          <img src="assets/img/SUEROS1.jpg" class="img-fluid rounded" alt="Sueros Vitaminados" loading="lazy">
           <h4><a href="#">Sueros Vitaminados</a></h4>
           <p>Rehidratación e inmunoestimulación con sueros intravenosos personalizados.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20suero%20vitaminado" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+      <!-- Cuidados Paliativos -->
+      <div id="cuidados-paliativos" class="col-lg-4 col-md-6 d-flex align-items-stretch">
         <div class="icon-box">
-          <img src="assets/img/cuidados_paliativos.jpeg" class="img-fluid rounded" alt="Cuidados Paliativos"loading="lazy">
+          <img src="assets/img/cuidados_paliativos.jpeg" class="img-fluid rounded" alt="Cuidados Paliativos" loading="lazy">
           <h4><a href="#">Cuidados Paliativos</a></h4>
           <p>Atención integral y humanizada para personas con enfermedades crónicas o terminales.</p>
+          <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20cuidados%20paliativos" target="_blank" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+          </a>
         </div>
-      </div>
-
-      <div class="col-12 text-center">
-        <p><em>Contamos con más servicios disponibles. ¡Contáctanos para más información!</em></p>
       </div>
 
     </div>
 
   </div>
 </section>
-
 
  <!-- Beneficios -->
  <section style="background: linear-gradient(to bottom, #ffffff, #e6ffe6); padding: 3rem 1.5rem;">
@@ -539,123 +690,16 @@
    <title>Su Médico en Casa</title>
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-   <style>
 
-     body {
-       font-family: 'Poppins', sans-serif;
-       background: #f9f9f9;
-       margin: 0;
-       padding: 0;
-       color: #333;
-     }
-
-     header {
-       background: linear-gradient(135deg, #009688, #4db6ac);
-       color: white;
-       padding: 40px 20px;
-       text-align: center;
-     }
-
-     header h1 {
-       margin: 0;
-       font-size: 2.5em;
-     }
-
-     header p {
-       font-size: 1.2em;
-       margin-top: 10px;
-     }
-
-     .iconos {
-       display: flex;
-       flex-wrap: wrap;
-       justify-content: center;
-       padding: 40px 20px;
-       gap: 30px;
-     }
-
-     .icono {
-       text-align: center;
-       width: 150px;
-       padding: 20px;
-       background: white;
-       border-radius: 20px;
-       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-       transition: transform 0.3s ease, background 0.3s ease;
-     }
-
-     .icono:hover {
-       transform: scale(1.1);
-       background: #e0f2f1;
-     }
-
-     .icono i {
-       font-size: 40px;
-       color: #009688;
-       margin-bottom: 10px;
-     }
-
-     .icono h3 {
-       font-size: 16px;
-       margin-top: 10px;
-     }
-
-     .whatsapp-btn {
-       display: block;
-       margin: 40px auto;
-       width: fit-content;
-       background: #25D366;
-       color: white;
-       padding: 15px 25px;
-       border-radius: 50px;
-       text-decoration: none;
-       font-weight: bold;
-       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-       transition: background 0.3s;
-     }
-
-     .whatsapp-btn:hover {
-       background: #1ebe5d;
-     }
-
-     footer {
-       background: #004d40;
-       color: white;
-       text-align: center;
-       padding: 20px;
-       font-size: 14px;
-       position: relative;
-     }
-
-     .social-icons {
-       margin-top: 10px;
-     }
-
-     .social-icons a {
-       color: white;
-       margin: 0 10px;
-       font-size: 20px;
-       transition: color 0.3s;
-     }
-
-     .social-icons a:hover {
-       color: #4db6ac;
-     }
-
-     .contact-info {
-       margin-top: 10px;
-       line-height: 1.6;
-     }
-   </style>
  </head>
 
 
-   <header>
+   header>
    <h1>Su Médico en Casa</h1>
    <p>Atención médica y terapéutica a domicilio en Bogotá</p>
- </header>
+</header>
 
- <section class="iconos">
+<section class="iconos">
    <a href="#medicina-general" class="icono">
      <i class="fas fa-user-md"></i>
      <h3>Medicina General</h3>
@@ -700,7 +744,7 @@
      <i class="fas fa-wave-square"></i>
      <h3>Ecografías</h3>
    </a>
- </section>
+</section>
 
 
  <footer id="footer" class="footer position-relative light-background">
