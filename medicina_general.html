@@ -50,9 +50,7 @@
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ6JZWJM"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
-
-
-  <!-- HEADER -->
+<!-- HEADER -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center me-auto">
@@ -60,205 +58,392 @@
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="portfolio-details.html">Portafolio de servicios</a></li>
-          <li><a href="#contact">Contacto</a></li>
+          <li><a href="portafolio.html">Portafolio de servicios</a></li>
+          <li><a href="terapia_respiratoria.html">Terapia Respiratoria</a></li>
+          <li><a href="https://wa.me/3027307330" target="_blank" class="btn-getstarted">Contáctanos</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="#about">Empezar</a>
     </div>
   </header>
 
-  <!-- ESTILOS -->
+
+<!-- ESTILOS -->
+
 <style>
+
+
 
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
 
+
+
   .hero-section {
+
     position: relative;
+
     min-height: 100vh;
+
     background-image: url("assets/img/doctor1.png");
+
     background-size: cover;
+
     background-position: center;
+
     background-repeat: no-repeat;
+
     background-color: #0f172a;
+
     transition: background-image 1s ease-in-out;
+
     overflow: hidden;
+
   }
+
+
 
   .overlay {
+
     position: absolute;
+
     top: 0;
+
     left: 0;
+
     height: 100%;
+
     width: 100%;
+
     background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(15, 23, 42, 0.7));
+
     z-index: 1;
+
   }
+
+
 
   .content {
+
     position: relative;
+
     z-index: 2;
+
     padding: 2rem;
+
     max-width: 800px;
+
     animation: fadeIn 1s ease-in;
+
   }
+
+
 
   @keyframes fadeIn {
+
     from { opacity: 0; transform: translateY(20px); }
+
     to { opacity: 1; transform: translateY(0); }
+
   }
+
+
 
   .main-title {
+
     font-family: 'Bebas Neue', sans-serif;
+
     font-size: 4.5rem;
+
     color: #4ade80;
+
     text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+
     letter-spacing: 1.5px;
+
   }
+
+
 
   .sub-title {
+
     font-family: 'Open Sans', sans-serif;
+
     font-size: 2rem;
+
     font-style: italic;
+
     font-weight: 600;
+
     color: #38bdf8;
+
     text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+
     opacity: 0;
+
     animation: fadeText 1s ease-in-out forwards;
+
   }
+
+
 
   .description-text {
+
     font-family: 'Open Sans', sans-serif;
+
     font-size: 1.2rem;
+
     color: #e0f2fe;
+
     line-height: 1.8;
+
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+
   }
+
+
 
   @keyframes fadeText {
+
     to { opacity: 1; }
+
   }
+
+
 
   @media (max-width: 768px) {
+
     .main-title { font-size: 2.8rem; }
+
     .sub-title { font-size: 1.3rem; }
+
     .description-text { font-size: 1rem; }
+
   }
 
+
+
      body {
+
        font-family: 'Poppins', sans-serif;
+
        background: #f9f9f9;
+
        margin: 0;
+
        padding: 0;
+
        color: #333;
+
      }
+
+
 
      header {
+
        background: linear-gradient(135deg, #009688, #4db6ac);
+
        color: white;
+
        padding: 40px 20px;
+
        text-align: center;
+
      }
+
+
 
      header h1 {
+
        margin: 0;
+
        font-size: 2.5em;
+
      }
+
+
 
      header p {
+
        font-size: 1.2em;
+
        margin-top: 10px;
+
      }
+
+
 
      .iconos {
+
        display: flex;
+
        flex-wrap: wrap;
+
        justify-content: center;
+
        padding: 40px 20px;
+
        gap: 30px;
+
      }
+
+
 
      .icono {
+
        text-align: center;
+
        width: 150px;
+
        padding: 20px;
+
        background: white;
+
        border-radius: 20px;
+
        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
        transition: transform 0.3s ease, background 0.3s ease;
+
      }
+
+
 
      .icono:hover {
+
        transform: scale(1.1);
+
        background: #e0f2f1;
+
      }
+
+
 
      .icono i {
+
        font-size: 40px;
+
        color: #009688;
+
        margin-bottom: 10px;
+
      }
+
+
 
      .icono h3 {
+
        font-size: 16px;
+
        margin-top: 10px;
+
      }
 
+
+
    #whatsapp-button {
+
     position: fixed; /* Esto asegura que el botón sea fijo en la pantalla */
+
     bottom: 20px; /* Ajusta la distancia desde el fondo */
+
     right: 20px; /* Ajusta la distancia desde la derecha */
+
     width: 60px; /* Ajusta el tamaño del botón */
+
     height: 60px;
+
     background-color: #25d366; /* Color de WhatsApp */
+
     color: white;
+
     border-radius: 50%; /* Hace que el botón sea circular */
+
     font-size: 28px; /* Tamaño del ícono */
+
     display: flex;
+
     align-items: center; /* Centra el ícono dentro del botón */
+
     justify-content: center; /* Centra el ícono dentro del botón */
+
     z-index: 9999; /* Asegura que el botón esté por encima de otros elementos */
+
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra sutil para que resalte */
+
     text-decoration: none; /* Elimina el subrayado del enlace */
+
 }
 
+
+
 #whatsapp-button:hover {
+
     background-color: #128c7e; /* Color de fondo cuando se pasa el mouse */
+
     color: white;
+
 }
+
+
+
 
 
      footer {
+
        background: #004d40;
+
        color: white;
+
        text-align: center;
+
        padding: 20px;
+
        font-size: 14px;
+
        position: relative;
+
      }
+
+
 
      .social-icons {
+
        margin-top: 10px;
+
      }
+
+
 
      .social-icons a {
+
        color: white;
+
        margin: 0 10px;
+
        font-size: 20px;
+
        transition: color 0.3s;
+
      }
+
+
 
      .social-icons a:hover {
+
        color: #4db6ac;
+
      }
+
+
 
      .contact-info {
-       margin-top: 10px;
-       line-height: 1.6;
-     }
 
-    /* Estilo para enlaces del menú de navegación */
+       margin-top: 10px;
+
+       line-height: 1.6;
+
+     }
+/* Estilo para enlaces del menú de navegación */
 .navmenu a {
   color: white !important;
   font-weight: 600;
