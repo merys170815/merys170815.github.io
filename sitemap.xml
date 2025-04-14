@@ -24,7 +24,7 @@
         <image:loc>https://www.sumedicoencasa.com/assets/img/curacion.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/electrocardiograma1.jpg</image:loc>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/ELECTRO2.webp</image:loc>
       </image:image>
       <image:image>
         <image:loc>https://www.sumedicoencasa.com/assets/img/ecografia.jpg</image:loc>
@@ -33,53 +33,23 @@
         <image:loc>https://www.sumedicoencasa.com/assets/img/SUEROS1.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/cuidados_paliativos.jpeg</image:loc>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/VIDEO_CON1.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/laboratorio.jpg</image:loc>
       </image:image>
   </url>
   <url>
-    <loc>https://www.sumedicoencasa.com/starter-page.html</loc>
+    <loc>https://www.sumedicoencasa.com/terapia_respiratoria.html</loc>
     <lastmod>2025-04-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sumedicoencasa.com/index.html</loc>
-    <lastmod>2025-04-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
       <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/medicina_general.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/TERAPIA_RESPIRA.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/terapia_fisica.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/lavado_oidos.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/suturas.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/curacion.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/electrocardiograma1.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/ecografia.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/SUEROS1.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.sumedicoencasa.com/assets/img/cuidados_paliativos.jpeg</image:loc>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/imagen1.png</image:loc>
       </image:image>
   </url>
   <url>
-    <loc>https://www.sumedicoencasa.com/portfolio-details.html</loc>
+    <loc>https://www.sumedicoencasa.com/portafolio.html</loc>
     <lastmod>2025-04-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -109,6 +79,54 @@
       </image:image>
       <image:image>
         <image:loc>https://www.sumedicoencasa.com/assets/img/portfolio/pic20.jpg</image:loc>
+      </image:image>
+  </url>
+  <url>
+    <loc>https://www.sumedicoencasa.com/medicina_general.html</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/imagen2.png</image:loc>
+      </image:image>
+  </url>
+  <url>
+    <loc>https://www.sumedicoencasa.com/index.html</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/medicina_general.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/TERAPIA_RESPIRA.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/terapia_fisica.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/lavado_oidos.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/suturas.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/curacion.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/ELECTRO2.webp</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/ecografia.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/SUEROS1.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/VIDEO_CON1.jpg</image:loc>
+      </image:image>
+      <image:image>
+        <image:loc>https://www.sumedicoencasa.com/assets/img/laboratorio.jpg</image:loc>
       </image:image>
   </url>
 </urlset>
