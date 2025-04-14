@@ -67,396 +67,258 @@
     </div>
   </header>
 
-
 <!-- ESTILOS -->
 
 <style>
+  /* Estilos generales para el contenido */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
 
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("assets/img/doctor1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0f172a;
+    transition: background-image 1s ease-in-out;
+    overflow: hidden;
+  }
 
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(15, 23, 42, 0.7));
+    z-index: 1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 800px;
+    animation: fadeIn 1s ease-in;
+    text-align: center; /* Centrado de contenido */
+  }
+
+  /* Animación de desvanecimiento */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    color: #4ade80;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1.5px;
+  }
+
+  .sub-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #38bdf8;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeText 1s ease-in-out forwards;
+  }
+
+  .description-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    color: #e0f2fe;
+    line-height: 1.8;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes fadeText {
+    to { opacity: 1; }
+  }
+
+  /* Ajustes en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .main-title {
+      font-size: 2.8rem;
+    }
+
+    .sub-title {
+      font-size: 1.3rem;
+    }
+
+    .description-text {
+      font-size: 1rem;
+    }
+
+    .hero-section {
+      background-image: url("assets/img/doctor1.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Asegura que las imágenes dentro de .content no se salgan de la pantalla */
+    .content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Hacer que los íconos y los textos se ajusten en dispositivos móviles */
+    .iconos {
+      flex-direction: column; /* Coloca los iconos en columna en lugar de fila */
+      padding: 20px 0;
+    }
+
+    .icono {
+      width: 100%; /* Asegura que los iconos ocupen el 100% del ancho disponible */
+      margin-bottom: 20px; /* Agrega un espacio entre los iconos */
+    }
+
+    #whatsapp-button {
+      bottom: 15px; /* Ajuste del botón de WhatsApp en pantallas pequeñas */
+      right: 15px;
+      width: 50px; /* Ajusta el tamaño del botón */
+      height: 50px;
+      font-size: 24px; /* Ajusta el tamaño del ícono */
+    }
+  }
 
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
 
-
-
-  .hero-section {
-
-    position: relative;
-
-    min-height: 100vh;
-
-    background-image: url("assets/img/doctor1.png");
-
-    background-size: cover;
-
-    background-position: center;
-
-    background-repeat: no-repeat;
-
-    background-color: #0f172a;
-
-    transition: background-image 1s ease-in-out;
-
-    overflow: hidden;
-
-  }
-
-
-
-  .overlay {
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    height: 100%;
-
-    width: 100%;
-
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(15, 23, 42, 0.7));
-
-    z-index: 1;
-
-  }
-
-
-
-  .content {
-
-    position: relative;
-
-    z-index: 2;
-
-    padding: 2rem;
-
-    max-width: 800px;
-
-    animation: fadeIn 1s ease-in;
-
-  }
-
-
-
-  @keyframes fadeIn {
-
-    from { opacity: 0; transform: translateY(20px); }
-
-    to { opacity: 1; transform: translateY(0); }
-
-  }
-
-
-
-  .main-title {
-
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: 4.5rem;
-
-    color: #4ade80;
-
-    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
-
-    letter-spacing: 1.5px;
-
-  }
-
-
-
-  .sub-title {
-
-    font-family: 'Open Sans', sans-serif;
-
-    font-size: 2rem;
-
-    font-style: italic;
-
-    font-weight: 600;
-
-    color: #38bdf8;
-
-    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
-
-    opacity: 0;
-
-    animation: fadeText 1s ease-in-out forwards;
-
-  }
-
-
-
-  .description-text {
-
-    font-family: 'Open Sans', sans-serif;
-
-    font-size: 1.2rem;
-
-    color: #e0f2fe;
-
-    line-height: 1.8;
-
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
-
-  }
-
-
-
-  @keyframes fadeText {
-
-    to { opacity: 1; }
-
-  }
-
-
-
-  @media (max-width: 768px) {
-
-    .main-title { font-size: 2.8rem; }
-
-    .sub-title { font-size: 1.3rem; }
-
-    .description-text { font-size: 1rem; }
-
-  }
-
-
-
-     body {
-
-       font-family: 'Poppins', sans-serif;
-
-       background: #f9f9f9;
-
-       margin: 0;
-
-       padding: 0;
-
-       color: #333;
-
-     }
-
-
-
-     header {
-
-       background: linear-gradient(135deg, #009688, #4db6ac);
-
-       color: white;
-
-       padding: 40px 20px;
-
-       text-align: center;
-
-     }
-
-
-
-     header h1 {
-
-       margin: 0;
-
-       font-size: 2.5em;
-
-     }
-
-
-
-     header p {
-
-       font-size: 1.2em;
-
-       margin-top: 10px;
-
-     }
-
-
-
-     .iconos {
-
-       display: flex;
-
-       flex-wrap: wrap;
-
-       justify-content: center;
-
-       padding: 40px 20px;
-
-       gap: 30px;
-
-     }
-
-
-
-     .icono {
-
-       text-align: center;
-
-       width: 150px;
-
-       padding: 20px;
-
-       background: white;
-
-       border-radius: 20px;
-
-       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
-       transition: transform 0.3s ease, background 0.3s ease;
-
-     }
-
-
-
-     .icono:hover {
-
-       transform: scale(1.1);
-
-       background: #e0f2f1;
-
-     }
-
-
-
-     .icono i {
-
-       font-size: 40px;
-
-       color: #009688;
-
-       margin-bottom: 10px;
-
-     }
-
-
-
-     .icono h3 {
-
-       font-size: 16px;
-
-       margin-top: 10px;
-
-     }
-
-
-
-   #whatsapp-button {
-
-    position: fixed; /* Esto asegura que el botón sea fijo en la pantalla */
-
-    bottom: 20px; /* Ajusta la distancia desde el fondo */
-
-    right: 20px; /* Ajusta la distancia desde la derecha */
-
-    width: 60px; /* Ajusta el tamaño del botón */
-
-    height: 60px;
-
-    background-color: #25d366; /* Color de WhatsApp */
-
+  /* Estilos del encabezado */
+  header {
+    background: linear-gradient(135deg, #009688, #4db6ac);
     color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
 
-    border-radius: 50%; /* Hace que el botón sea circular */
+  header h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
 
-    font-size: 28px; /* Tamaño del ícono */
+  header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
 
+  /* Estilos de los iconos */
+  .iconos {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 30px;
+  }
 
-    align-items: center; /* Centra el ícono dentro del botón */
+  .icono {
+    text-align: center;
+    width: 150px;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
 
-    justify-content: center; /* Centra el ícono dentro del botón */
+  .icono:hover {
+    transform: scale(1.1);
+    background: #e0f2f1;
+  }
 
-    z-index: 9999; /* Asegura que el botón esté por encima de otros elementos */
+  .icono i {
+    font-size: 40px;
+    color: #009688;
+    margin-bottom: 10px;
+  }
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra sutil para que resalte */
+  .icono h3 {
+    font-size: 16px;
+    margin-top: 10px;
+  }
 
-    text-decoration: none; /* Elimina el subrayado del enlace */
-
-}
-
-
-
-#whatsapp-button:hover {
-
-    background-color: #128c7e; /* Color de fondo cuando se pasa el mouse */
-
+  /* Estilo para el botón de WhatsApp */
+  #whatsapp-button {
+    position: fixed; /* Esto asegura que el botón sea fijo en la pantalla */
+    bottom: 20px; /* Ajusta la distancia desde el fondo */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    width: 60px; /* Ajusta el tamaño del botón */
+    height: 60px;
+    background-color: #25d366; /* Color de WhatsApp */
     color: white;
+    border-radius: 50%; /* Hace que el botón sea circular */
+    font-size: 28px; /* Tamaño del ícono */
+    display: flex;
+    align-items: center; /* Centra el ícono dentro del botón */
+    justify-content: center; /* Centra el ícono dentro del botón */
+    z-index: 9999; /* Asegura que el botón esté por encima de otros elementos */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra sutil para que resalte */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+  }
 
-}
+  #whatsapp-button:hover {
+    background-color: #128c7e; /* Color de fondo cuando se pasa el mouse */
+    color: white;
+  }
 
+  /* Estilos del pie de página */
+  footer {
+    background: #004d40;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    position: relative;
+  }
 
+  .social-icons {
+    margin-top: 10px;
+  }
 
+  .social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s;
+  }
 
+  .social-icons a:hover {
+    color: #4db6ac;
+  }
 
-     footer {
+  .contact-info {
+    margin-top: 10px;
+    line-height: 1.6;
+  }
 
-       background: #004d40;
+  /* Estilo para enlaces del menú de navegación */
+  .navmenu a {
+    color: white !important;
+    font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+  }
 
-       color: white;
+  /* Enlace activo o al pasar el mouse */
+  .navmenu a:hover {
+    color: #4ade80 !important; /* Puedes ajustar este color al que prefieras */
+  }
+</style>
 
-       text-align: center;
-
-       padding: 20px;
-
-       font-size: 14px;
-
-       position: relative;
-
-     }
-
-
-
-     .social-icons {
-
-       margin-top: 10px;
-
-     }
-
-
-
-     .social-icons a {
-
-       color: white;
-
-       margin: 0 10px;
-
-       font-size: 20px;
-
-       transition: color 0.3s;
-
-     }
-
-
-
-     .social-icons a:hover {
-
-       color: #4db6ac;
-
-     }
-
-
-
-     .contact-info {
-
-       margin-top: 10px;
-
-       line-height: 1.6;
-
-     }
-/* Estilo para enlaces del menú de navegación */
-.navmenu a {
-  color: white !important;
-  font-weight: 600;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-}
-
-/* Enlace activo o al pasar el mouse */
-.navmenu a:hover {
-  color: #4ade80 !important; /* Puedes ajustar este color al que prefieras */
-}
-
-   </style>
 
       <!-- Main Content -->
 <section id="main" style="display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px;">
