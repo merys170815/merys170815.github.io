@@ -2541,9 +2541,8 @@ section,
   color: var(--contrast-color);
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
-
 /*--------------------------------------------------------------
-# Starter Section Section
+# Starter Section
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
@@ -2563,7 +2562,6 @@ section,
   color: var(--heading-color);
   font-size: 20px;
   font-weight: 700;
-  padding: 0;
   margin: 0 0 20px 0;
 }
 
@@ -2575,6 +2573,7 @@ section,
   margin-bottom: 0;
 }
 
+/* Search Widget */
 .search-widget form {
   background: var(--background-color);
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
@@ -2612,10 +2611,6 @@ section,
   line-height: 0;
 }
 
-.search-widget form button i {
-  line-height: 0;
-}
-
 .search-widget form button:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
@@ -2624,6 +2619,7 @@ section,
   border-color: var(--accent-color);
 }
 
+/* Categories Widget */
 .categories-widget ul {
   list-style: none;
   padding: 0;
@@ -2653,6 +2649,7 @@ section,
   font-size: 14px;
 }
 
+/* Recent Posts Widget */
 .recent-posts-widget .post-item {
   display: flex;
   margin-bottom: 15px;
@@ -2689,6 +2686,7 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
+/* Tags Widget */
 .tags-widget {
   margin-bottom: -10px;
 }
@@ -2725,201 +2723,9 @@ section,
   font-size: 14px;
 }
 
-/* Estilos para el botón flotante de WhatsApp */
-#whatsapp-button {
-  position: fixed; /* Asegura que el botón esté fijo en la pantalla */
-  bottom: 60px; /* Distancia desde el borde inferior (ajustado para estar más arriba) */
-  right: 20px;  /* Distancia desde el borde derecho */
-  width: 50px;  /* Tamaño del botón */
-  height: 50px; /* Tamaño del botón */
-  background-color: #25D366; /* Color de fondo de WhatsApp */
-  color: white; /* Color del ícono */
-  border-radius: 50%; /* Hacer el botón circular */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
-  text-decoration: none; /* Quitar subrayado del enlace */
-  z-index: 1000; /* Asegura que el botón esté encima de otros elementos */
-}
-
-#whatsapp-button i {
-  font-size: 24px; /* Tamaño del ícono */
-}
-
-/* Estilos para dispositivos móviles */
-@media (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-
-    .container {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar a {
-        padding: 10px;
-        width: 100%;
-    }
-}
-
-/* Estilos para tablets */
-@media (min-width: 601px) and (max-width: 1024px) {
-    body {
-        font-size: 16px;
-    }
-
-    .container {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .navbar {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-/* Estilos para desktops */
-@media (min-width: 1025px) {
-    body {
-        font-size: 18px;
-    }
-
-    .container {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .navbar {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-
-#whatsapp-button:hover {
-  background-color: #128C7E; /* Color de fondo al pasar el ratón */
-}
-/* Hacer todo ajustable según el tamaño de la pantalla */
-
-/* Este bloque es para pantallas grandes (de escritorio) */
-@media (min-width: 1024px) {
-    body {
-        font-size: 16px;  /* Ajusta el tamaño de la fuente */
-    }
-
-    .container {
-        width: 80%;  /* Establece el tamaño del contenedor en el 80% del ancho */
-        margin: 0 auto;  /* Centra el contenedor */
-    }
-
-    img {
-        max-width: 100%;  /* Las imágenes no excederán el tamaño de su contenedor */
-        height: auto;  /* Mantener las proporciones de las imágenes */
-    }
-}
-
-/* Este bloque es para pantallas medianas (tabletas) */
-@media (min-width: 768px) and (max-width: 1023px) {
-    body {
-        font-size: 14px;  /* Ajusta el tamaño de la fuente */
-    }
-
-    .container {
-        width: 90%;  /* Ajuste de ancho para pantallas medianas */
-    }
-
-    img {
-        max-width: 100%;  /* Las imágenes no excederán el tamaño de su contenedor */
-        height: auto;
-    }
-}
-
-/* Este bloque es para pantallas pequeñas (móviles) */
-@media (max-width: 767px) {
-    body {
-        font-size: 12px;  /* Ajuste del tamaño de la fuente para móviles */
-    }
-
-    .container {
-        width: 100%;  /* El contenedor ocupa todo el ancho de la pantalla */
-    }
-
-    img {
-        max-width: 100%;  /* Asegura que las imágenes se ajusten al ancho de la pantalla */
-        height: auto;
-    }
-
-    header {
-        padding: 10px;  /* Reduce el padding del header en pantallas pequeñas */
-    }
-
-    h1 {
-        font-size: 24px;  /* Ajusta el tamaño de los encabezados en móviles */
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    p {
-        font-size: 14px;  /* Ajusta el tamaño de los párrafos en móviles */
-    }
-}
-
-/* Estilo para mejorar el diseño del botón de WhatsApp flotante */
-a.fixed {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background-color: #25d366;
-    color: white;
-    border-radius: 50%;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-a.fixed:hover {
-    transform: scale(1.1);
-}
-
-/* Mejorar la visibilidad de la barra de navegación en dispositivos pequeños */
-@media (max-width: 767px) {
-    #navmenu {
-        display: block;
-    }
-
-    #navmenu ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    #navmenu li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    #navmenu a {
-        font-size: 16px;
-        color: #fff;
-        text-decoration: none;
-    }
-
-    /* Mostrar el menú en dispositivos pequeños */
-    .mobile-nav-toggle {
-        display: block;
-    }
-
-/* Floating WhatsApp Button */
+/*--------------------------------------------------------------
+# WhatsApp Floating Button
+--------------------------------------------------------------*/
 #whatsapp-button {
   position: fixed;
   bottom: 20px;
@@ -2932,13 +2738,125 @@ a.fixed:hover {
   font-size: 28px;
   z-index: 10000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
 #whatsapp-button:hover {
   background-color: #20b358;
-  color: white;
 }
+
+/* Texto de descripción */
 .texto-descripcion {
   font-size: 0.9rem;
+}
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+
+/* Móviles (max 767px) */
+@media (max-width: 767px) {
+  body {
+    font-size: 12px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  header {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  /* Navbar en móviles */
+  #navmenu {
+    display: block;
+  }
+
+  #navmenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #navmenu li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  #navmenu a {
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Desktops (1024px en adelante) */
+@media (min-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
