@@ -162,7 +162,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
 
@@ -214,6 +213,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     color: #4ade80;
     letter-spacing: 1.5px;
     text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+    animation: fadeDown 1s ease-in-out;
+  }
+
+  @keyframes fadeDown {
+    from {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .sub-title {
@@ -267,7 +278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   .icono {
-    background: #ffffff;
+    background: linear-gradient(to top, #ffffff, #f1fdfb);
     padding: 25px;
     width: 160px;
     text-align: center;
@@ -310,10 +321,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     text-decoration: none;
     transition: background 0.3s;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
   }
 
   #whatsapp-button:hover {
     background-color: #128c7e;
+  }
+
+  .icon-box:hover h4 {
+    color: #16a34a;
+    transform: scale(1.05);
+    transition: 0.3s ease;
   }
 
   footer {
@@ -357,42 +381,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     color: #4ade80 !important;
   }
 
-  /* Responsive */
   @media (max-width: 768px) {
-    .main-title {
-      font-size: 3rem;
-    }
-
-    .sub-title {
-      font-size: 1.3rem;
-    }
-
-    .description-text {
-      font-size: 1rem;
-    }
-
-    .iconos {
-      flex-direction: column;
-      padding: 20px 10px;
-    }
-
-    .icono {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    #whatsapp-button {
-      bottom: 15px;
-      right: 15px;
-      width: 50px;
-      height: 50px;
-      font-size: 24px;
-    }
+    .main-title { font-size: 3rem; }
+    .sub-title { font-size: 1.3rem; }
+    .description-text { font-size: 1rem; }
+    .iconos { flex-direction: column; padding: 20px 10px; }
+    .icono { width: 100%; margin-bottom: 20px; }
+    #whatsapp-button { bottom: 15px; right: 15px; width: 50px; height: 50px; font-size: 24px; }
   }
 
-  .texto-descripcion {
-    font-size: 0.9rem;
-  }
+  .texto-descripcion { font-size: 0.9rem; }
 
   .icon-box {
     background: #fff;
@@ -408,7 +406,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   .icon-box img {
-    max-height: 220px; /* Aumentado de 180px a 220px */
+    max-height: 220px;
     object-fit: contain;
     margin-bottom: 20px;
   }
@@ -436,17 +434,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   @media (max-width: 768px) {
-    .icon-box img {
-      max-height: 160px; /* También aumentado un poco para móviles */
-    }
-    .icon-box h4 {
-      font-size: 20px;
-    }
-    .icon-box p {
-      font-size: 15px;
-    }
+    .icon-box img { max-height: 160px; }
+    .icon-box h4 { font-size: 20px; }
+    .icon-box p { font-size: 15px; }
   }
 </style>
+
 
 
 </head>
@@ -456,31 +449,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Scripts al final -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-  <script>
-    const items = [
-      { img: "assets/img/doctor1.webp", text: "Tu salud, nuestra prioridad." },
-      { img: "assets/img/doctor2.webp", text: "Consulta médica sin salir de casa." },
-      { img: "assets/img/doctor3.webp", text: "Confianza y calidad en cada visita." },
-      { img: "assets/img/doctor4.webp", text: "Atención humana y profesional." },
-      { img: "assets/img/doctor5.webp", text: "¡Cuidamos de ti donde estés!" }
-    ];
-    let index = 0;
-    const heroSection = document.querySelector(".hero-section");
-    const textElement = document.getElementById("changingText");
+ <script>
+  const items = [
+    { img: "assets/img/doctor1.webp", text: "Tu salud, nuestra prioridad." },
+    { img: "assets/img/doctor2.webp", text: "Consulta médica sin salir de casa." },
+    { img: "assets/img/doctor3.webp", text: "Confianza y calidad en cada visita." },
+    { img: "assets/img/doctor4.webp", text: "Atención humana y profesional." },
+    { img: "assets/img/doctor5.webp", text: "¡Cuidamos de ti donde estés!" }
+  ];
 
-    function updateHero() {
-      heroSection.style.backgroundImage = `url('${items[index].img}')`;
-      textElement.style.opacity = 0;
-      setTimeout(() => {
-        textElement.innerText = items[index].text;
-        textElement.style.opacity = 1;
-      }, 400);
-    }
+  let index = 0;
+  const heroSection = document.querySelector(".hero-section");
+  const textElement = document.getElementById("changingText");
+
+  // Pre-carga de imágenes
+  items.forEach(item => {
+    const img = new Image();
+    img.src = item.img;
+  });
+
+  function updateHero() {
+    heroSection.style.backgroundImage = `url('${items[index].img}')`;
+    textElement.style.opacity = 0;
+    setTimeout(() => {
+      textElement.innerText = items[index].text;
+      textElement.style.opacity = 1;
+    }, 400);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    updateHero(); // primera vez
     setInterval(() => {
       index = (index + 1) % items.length;
       updateHero();
     }, 5000);
-  </script>
+  });
+</script>
+
 </body>
 
 
