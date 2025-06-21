@@ -172,15 +172,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     padding: 0;
     color: #333;
   }
+.hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0f172a;
+}
 
-  .hero-section {
-    position: relative;
-    min-height: 100vh;
-    background: url("assets/img/doctor1.webp") center/cover no-repeat;
-    background-color: #0f172a;
-    transition: background-image 1s ease-in-out;
-    overflow: hidden;
-  }
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-image-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px) brightness(0.7);
+  transform: scale(1.05);
+  transition: transform 10s ease;
+  animation: zoomIn 15s ease infinite alternate;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 2rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+  color: #4ade80;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #e0f2fe;
+  margin-top: 1rem;
+  animation: fadeInUp 2s 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.5rem; }
+  .hero-subtitle { font-size: 1.2rem; }
+}
 
   .overlay {
     position: absolute;
@@ -438,9 +500,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .icon-box h4 { font-size: 20px; }
     .icon-box p { font-size: 15px; }
   }
+
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  .card-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .card-text {
+    color: #555;
+  }
+  @media (max-width: 768px) {
+    .card-title {
+      font-size: 1.1rem;
+    }
+  }
 </style>
-
-
 
 </head>
 
@@ -488,141 +568,155 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </body>
 
-
-<section id="services" class="services">
-  <div class="container" data-aos="fade-up">
-    <div class="section-title text-center">
-      <h2>Servicios Médicos a Domicilio</h2>
-      <p>Brindamos atención médica profesional en la comodidad de tu hogar. Conoce nuestros servicios especializados disponibles:</p>
+<section id="services" class="services py-5">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h2 class="fw-bold text-primary">Servicios Médicos a Domicilio</h2>
+      <p>Atención profesional directamente en tu hogar. Conoce lo que podemos hacer por ti:</p>
     </div>
 
-    <div class="row gy-4">
-    <!-- Medicina General -->
-<div id="medicina-general" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img
-      src="assets/img/doctor1.png"
-      class="img-fluid rounded mx-auto d-block"
-      alt="Consulta médica general a domicilio con médico profesional en Bogotá"
-      title="Consulta médica general a domicilio - Su Médico en Casa"
-      loading="lazy">
-    <h4><a href="#">Medicina General</a></h4>
-    <p>Consulta de <strong>medicina general a domicilio</strong> para evaluación médica, diagnóstico preciso y tratamientos oportunos en la comodidad de tu hogar. <strong>Servicio médico personalizado</strong> por profesionales.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20medicina%20general" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
+    <!-- Servicio individual - Medicina General -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/doctor1.png" class="img-fluid rounded" alt="Medicina General a Domicilio">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Medicina General</h3>
+        <p>Consulta de <strong>medicina general</strong> en casa para evaluación médica, diagnóstico y tratamiento por profesionales confiables.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20medicina%20general" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Terapia Respiratoria -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/TERAPIA_RESPIRA.jpg" class="img-fluid rounded" alt="Terapia Respiratoria">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Terapia Respiratoria</h3>
+        <p>Atención especializada en el hogar para manejo respiratorio, oxígeno, nebulizaciones y más.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20terapia%20respiratoria" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Terapia Física -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/terapia_fisica.jpg" class="img-fluid rounded" alt="Terapia Física">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Terapia Física</h3>
+        <p>Rehabilitación física en casa para recuperar movilidad, fuerza y equilibrio funcional. Servicio profesional personalizado.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20terapia%20física" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Lavado de Oídos -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/lavado_oidos.jpg" class="img-fluid rounded" alt="Lavado de Oídos">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Lavado de Oídos</h3>
+        <p>Eliminación de tapones de cerumen de forma segura e indolora. Atención en casa por personal capacitado.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20lavado%20de%20oídos" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Retiro de Suturas -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/suturas.jpg" class="img-fluid rounded" alt="Retiro de Suturas">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Retiro de Suturas</h3>
+        <p>Extracción segura y estéril de puntos o grapas quirúrgicas en casa. Sin traslados, con garantía de bioseguridad.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20el%20retiro%20de%20suturas" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Curaciones -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/curacion.jpg" class="img-fluid rounded" alt="Curaciones">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Curaciones</h3>
+        <p>Tratamiento de heridas y quemaduras en casa con técnicas profesionales. Ideal para pacientes con movilidad reducida.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20curación" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Electrocardiograma -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/ELECTRO2.webp" class="img-fluid rounded" alt="Electrocardiograma">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Electrocardiograma</h3>
+        <p>Examen para detectar arritmias o problemas cardiacos sin salir de casa. Resultados inmediatos por expertos.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20electrocardiograma" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Ecografía -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/ecografia.jpg" class="img-fluid rounded" alt="Ecografía">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Ecografía</h3>
+        <p>Diagnóstico por imagen para diferentes partes del cuerpo. Comodidad y precisión en tu hogar.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20ecografía" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Videoconsulta -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/VIDEO_CON1.jpg" class="img-fluid rounded" alt="Videoconsulta">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Videoconsulta</h3>
+        <p>Consulta médica virtual desde cualquier lugar. Ideal para seguimiento, asesoría o atención inmediata.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20videoconsulta" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Laboratorio -->
+    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
+      <div class="col-md-5 mb-3 mb-md-0">
+        <img src="assets/img/laboratorio.jpg" class="img-fluid rounded" alt="Laboratorio">
+      </div>
+      <div class="col-md-7 ps-md-4 text-center text-md-start">
+        <h3>Laboratorio</h3>
+        <p>Toma de muestras para exámenes clínicos en casa. Resultados confiables y entrega oportuna.</p>
+        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20servicio%20de%20laboratorio" class="btn btn-success mt-2" target="_blank">
+          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
+        </a>
+      </div>
+    </div>
+
   </div>
-</div>
-
-  <!-- Terapia Respiratoria -->
-<div id="terapia-respiratoria" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img src="assets/img/TERAPIA_RESPIRA.jpg" class="img-fluid rounded mx-auto d-block" alt="Terapia Respiratoria a domicilio" loading="lazy">
-    <h4><a href="#">Terapia Respiratoria</a></h4>
-    <p><strong>Intervenciones para mejorar la función pulmonar</strong>, manejo de oxígeno, nebulizaciones y más. Atención especializada en la comodidad de tu hogar.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20terapia%20respiratoria" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
-  </div>
-</div>
-
-<!-- Terapia Física -->
-<div id="terapia-fisica" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img src="assets/img/terapia_fisica.jpg" class="img-fluid rounded mx-auto d-block" alt="Terapia Física a domicilio" loading="lazy">
-    <h4><a href="#">Terapia Física</a></h4>
-    <p><strong>Rehabilitación física en casa</strong> para recuperar movilidad, fuerza y equilibrio funcional. Atención profesional para tu bienestar físico.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20terapia%20física" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
-  </div>
-</div>
-
-<!-- Lavado de Oídos -->
-<div id="lavado-oidos" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img src="assets/img/lavado_oidos.jpg" class="img-fluid rounded mx-auto d-block" alt="Lavado de oídos" loading="lazy">
-    <h4><a href="#">Lavado de Oídos</a></h4>
-    <p><strong>Eliminación segura de tapones de cerumen</strong> para mejorar la audición. Procedimiento indoloro realizado en tu hogar por profesionales capacitados.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20lavado%20de%20oídos" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
-  </div>
-</div>
-
-<!-- Retiro de Suturas -->
-<div id="suturas" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img src="assets/img/suturas.jpg" class="img-fluid rounded mx-auto d-block" alt="Retiro de suturas a domicilio" loading="lazy">
-    <h4><a href="#">Retiro de Suturas</a></h4>
-    <p><strong>Extracción profesional de puntos o grapas quirúrgicas</strong> con técnicas seguras y esterilizadas. Servicio a domicilio para tu comodidad.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20el%20retiro%20de%20suturas" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
-  </div>
-</div>
-
-<!-- Curaciones -->
-<div id="curaciones" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img src="assets/img/curacion.jpg" class="img-fluid rounded mx-auto d-block" alt="Curaciones a domicilio" loading="lazy">
-    <h4><a href="#">Curaciones</a></h4>
-    <p><strong>Tratamiento de heridas agudas y crónicas</strong> con material estéril y técnicas especializadas. Ideal para pacientes con úlceras, quemaduras u operaciones.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20curación" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
-  </div>
-</div>
-
-<!-- Electrocardiograma -->
-<div id="electrocardiograma" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img src="assets/img/ELECTRO2.webp" class="img-fluid rounded mx-auto d-block" alt="Electrocardiograma a domicilio" loading="lazy">
-    <h4><a href="#">Electrocardiograma</a></h4>
-    <p><strong>Examen del ritmo y la actividad eléctrica del corazón</strong> para detectar arritmias, isquemias y otras afecciones cardíacas sin salir de casa.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20electrocardiograma" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
-  </div>
-</div>
-
-<!-- Ecografía -->
-<div id="ecografias" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img src="assets/img/ecografia.jpg" class="img-fluid rounded mx-auto d-block" alt="Ecografía a domicilio" loading="lazy">
-    <h4><a href="#">Ecografía</a></h4>
-    <p><strong>Diagnóstico por imágenes no invasivo</strong> para órganos, tejidos blandos o embarazo. Realizado por expertos directamente en tu hogar.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20ecografía" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
-  </div>
-</div>
-
-<!-- Videoconsulta -->
-<div id="videoconsulta" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img src="assets/img/VIDEO_CON1.jpg" class="img-fluid rounded mx-auto d-block" alt="Videoconsulta médica" loading="lazy">
-    <h4><a href="#">Videoconsulta</a></h4>
-    <p><strong>Consulta médica virtual desde cualquier lugar</strong> para orientación, seguimiento o valoración general, sin salir de tu hogar.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20videoconsulta" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
-  </div>
-</div>
-
-<!-- Laboratorio -->
-<div id="laboratorio" class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center">
-  <div class="icon-box">
-    <img src="assets/img/laboratorio.jpg" class="img-fluid rounded mx-auto d-block" alt="Servicios de laboratorio a domicilio" loading="lazy">
-    <h4><a href="#">Laboratorio</a></h4>
-    <p><strong>Toma de muestras y análisis clínicos</strong> desde tu hogar. Resultados confiables para exámenes de sangre, orina, pruebas rápidas y más.</p>
-    <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20servicio%20de%20laboratorio" target="_blank" class="btn btn-success">
-      <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
-    </a>
-  </div>
-</div>
-
-
+</section>
 
 <!-- Beneficios -->
 <section style="background: linear-gradient(to bottom, #ffffff, #e6ffe6); padding: 3rem 1.5rem;">
