@@ -205,6 +205,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   animation: zoomIn 15s ease infinite alternate;
 }
 
+/* Nueva regla para que en móviles la imagen se adapte mejor */
+@media (max-width: 768px) {
+  .hero-image {
+    object-position: center top; /* Centrar la parte superior del doctor */
+    object-fit: contain; /* Evita que se corte la imagen */
+    filter: brightness(0.7); /* Menos blur para que no se vea borroso */
+    animation: none; /* Detiene zoom para mejor rendimiento en móviles */
+  }
+}
+
 @keyframes zoomIn {
   from { transform: scale(1); }
   to { transform: scale(1.08); }
@@ -242,7 +252,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 @media (max-width: 768px) {
   .hero-title { font-size: 2.5rem; }
   .hero-subtitle { font-size: 1.2rem; }
+  .hero-content { padding: 1.2rem; text-align: center; }
 }
+
 
   .overlay {
     position: absolute;
