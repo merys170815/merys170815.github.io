@@ -26,7 +26,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TJ6JZWJM');</script>
 <!-- End Google Tag Manager -->
+
   <link rel="canonical" href="https://www.sumedicoencasa.com/" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <script type="application/ld+json">
 {
@@ -73,6 +76,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 
 </head>
+
+<!-- AOS animations -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ once: true });</script>
+
 <body class="index-page">
 
 <!-- Google Tag Manager (noscript) -->
@@ -104,29 +113,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </header>
 
-
   <main class="main">
 
-   <section class="hero-section d-flex align-items-center justify-content-center text-white text-center">
-      <div class="overlay"></div>
-      <div class="content">
-        <h1 class="main-title mb-3">Consulta Médico Domiciliaria Bogotá y Medellin</h1>
-        <p id="changingText" class="sub-title mb-3">Tu salud, nuestra prioridad.</p>
-        <p class="description-text">
-          Ofrecemos <strong>consulta médico domiciliaria</strong>, <strong>medicina general</strong> y <strong>terapia respiratoria</strong> en tu hogar.<br>
-          Profesionales confiables y atención cálida por <strong>WhatsApp</strong>.<br>
-          ¡Consulta médica sin salir de casa!
-        </p>
-        <a href="https://wa.me/3027307330" target="_blank" class="btn btn-primary mt-3">
-          📲 Solicita tu Consulta Ahora
-        </a>
-      </div>
-    </section>
+   <section class="hero-section text-white text-center d-flex align-items-center justify-content-center">
+  <div class="hero-overlay"></div>
+  <div class="hero-image-container">
+    <img id="hero-image" src="assets/img/doctor1.webp" class="hero-image" alt="Imagen médica fondo">
+  </div>
+  <div class="hero-content glass-box p-4 rounded">
+    <h1 class="main-title mb-3 animate__animated animate__fadeInDown">Consulta Médico Domiciliaria <br>Bogotá y Medellín</h1>
+    <p id="changingText" class="sub-title animate__animated animate__fadeIn">Tu salud, nuestra prioridad.</p>
+    <p class="description-text">
+      Atención médica profesional en tu hogar. <br>
+      Agenda fácilmente por <strong>WhatsApp</strong> y recibe atención sin salir de casa.
+    </p>
+    <a href="https://wa.me/3027307330" target="_blank" class="btn btn-lg btn-success shadow mt-3">
+      📲 Solicita tu Consulta Ahora
+    </a>
+  </div>
+</section>
+
   </main>
 
 
 
 <style>
+
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
 
   body {
@@ -136,14 +148,97 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     padding: 0;
     color: #333;
   }
-.hero-section {More actions
-    position: relative;
-    min-height: 100vh;
-    background: url("assets/img/doctor1.webp") center/cover no-repeat;
-    background-color: #0f172a;
-    transition: background-image 1s ease-in-out;
-    overflow: hidden;
-  }
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('assets/img/doctor1.png') center center / cover no-repeat fixed;
+  overflow: hidden;
+}
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(15, 23, 42, 0.85));
+  z-index: 1;
+}
+
+.hero-image-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1.5s ease, transform 5s ease;
+  animation: heroZoom 20s infinite alternate;
+  filter: brightness(0.7);
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.hero-content,
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  padding: 1.5rem;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.main-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.8rem;
+  color: #4ade80;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #e0f2fe;
+  margin-top: 1rem;
+  transition: opacity 0.6s ease;
+}
+
+.description-text {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .main-title { font-size: 2.5rem; }
+  .sub-title { font-size: 1.2rem; }
+  .description-text { font-size: 1rem; }
+  .glass-box { padding: 1rem; }
+}
+
+
   .overlay {
     position: absolute;
     top: 0;
@@ -400,21 +495,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .icon-box h4 { font-size: 20px; }
     .icon-box p { font-size: 15px; }
   }
+.service-card {
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
 
-  .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-  .card-title {
-    font-weight: 700;
-    font-size: 1.25rem;
-  }
-  .card-text {
-    color: #555;
-  }
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.service-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.service-card h4 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.service-card .btn-success {
+  background-color: #16a34a;
+  border: none;
+}
+
+.service-card .btn-success:hover {
+  background-color: #15803d;
+}
+
   @media (max-width: 768px) {
     .card-title {
       font-size: 1.1rem;
@@ -429,7 +547,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Scripts al final -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
- <script>
+<script>
   const items = [
     { img: "assets/img/doctor1.webp", text: "Tu salud, nuestra prioridad." },
     { img: "assets/img/doctor2.webp", text: "Consulta médica sin salir de casa." },
@@ -439,7 +557,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   ];
 
   let index = 0;
-  const heroSection = document.querySelector(".hero-section");
+  const heroImage = document.getElementById("hero-image");
   const textElement = document.getElementById("changingText");
 
   // Pre-carga de imágenes
@@ -449,174 +567,217 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 
   function updateHero() {
-    heroSection.style.backgroundImage = `url('${items[index].img}')`;
+    heroImage.style.opacity = 0;
     textElement.style.opacity = 0;
+
     setTimeout(() => {
-      textElement.innerText = items[index].text;
+      heroImage.src = items[index].img;
+      textElement.textContent = items[index].text;
+      heroImage.style.opacity = 1;
       textElement.style.opacity = 1;
-    }, 400);
+    }, 500);
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    updateHero(); // primera vez
+    updateHero();
     setInterval(() => {
       index = (index + 1) % items.length;
       updateHero();
-    }, 5000);
+    }, 6000);
   });
 </script>
-
 </body>
-
-<section id="services" class="services py-5">
+<section id="services" class="py-5 bg-light">
   <div class="container">
-    <div class="section-title text-center mb-5">
-      <h2 class="fw-bold text-primary">Servicios Médicos a Domicilio</h2>
-      <p>Atención profesional directamente en tu hogar. Conoce lo que podemos hacer por ti:</p>
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-primary display-5">Servicios Médicos a Domicilio</h2>
+      <p class="lead text-secondary">Cuidamos de ti en la comodidad de tu hogar.</p>
     </div>
 
-    <!-- Servicio individual - Medicina General -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/doctor1.png" class="img-fluid rounded" alt="Medicina General a Domicilio">
+    <div class="row gy-4">
+      <!-- Medicina General -->
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/doctor1.png" class="img-fluid rounded-start" alt="Medicina General">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-person-badge me-2"></i>Medicina General</h4>
+              <p>Consulta médica a domicilio para diagnóstico y tratamiento personalizado.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20medicina%20general" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Medicina General</h3>
-        <p>Consulta de <strong>medicina general</strong> en casa para evaluación médica, diagnóstico y tratamiento por profesionales confiables.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20medicina%20general" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
+
+      <!-- Terapia Respiratoria -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/TERAPIA_RESPIRA.jpg" class="img-fluid rounded-start" alt="Terapia Respiratoria">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-wind me-2"></i>Terapia Respiratoria</h4>
+              <p>Nebulizaciones, oxígeno y tratamiento respiratorio en casa.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20terapia%20respiratoria" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terapia Física -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/terapia_fisica.jpg" class="img-fluid rounded-start" alt="Terapia Física">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-activity me-2"></i>Terapia Física</h4>
+              <p>Rehabilitación para mejorar movilidad, fuerza y funcionalidad.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20terapia%20física" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lavado de Oídos -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/lavado_oidos.jpg" class="img-fluid rounded-start" alt="Lavado de Oídos">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-ear me-2"></i>Lavado de Oídos</h4>
+              <p>Eliminación segura de tapones de cerumen. Servicio rápido y sin dolor.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20lavado%20de%20oídos" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Retiro de Suturas -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/suturas.jpg" class="img-fluid rounded-start" alt="Retiro de Suturas">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-scissors me-2"></i>Retiro de Suturas</h4>
+              <p>Extracción segura y profesional de puntos quirúrgicos en casa.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20el%20retiro%20de%20suturas" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curaciones -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/curacion.jpg" class="img-fluid rounded-start" alt="Curaciones">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-bandaid me-2"></i>Curaciones</h4>
+              <p>Atención de heridas, quemaduras y úlceras por profesionales.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20curación" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Electrocardiograma -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/ELECTRO2.webp" class="img-fluid rounded-start" alt="Electrocardiograma">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-heart-pulse me-2"></i>Electrocardiograma</h4>
+              <p>Evaluación cardíaca rápida y confiable directamente en casa.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20electrocardiograma" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ecografía -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/ecografia.jpg" class="img-fluid rounded-start" alt="Ecografía">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-image me-2"></i>Ecografía</h4>
+              <p>Estudio por imagen para múltiples diagnósticos en casa.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20ecografía" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Videoconsulta -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="800">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/VIDEO_CON1.jpg" class="img-fluid rounded-start" alt="Videoconsulta">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-camera-video me-2"></i>Videoconsulta</h4>
+              <p>Consulta virtual para orientación, seguimiento o urgencias leves.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20videoconsulta" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laboratorio -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="900">
+        <div class="card shadow-sm border-0 service-card">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <img src="assets/img/laboratorio.jpg" class="img-fluid rounded-start" alt="Laboratorio">
+            </div>
+            <div class="col-7 p-3">
+              <h4><i class="bi bi-droplet me-2"></i>Laboratorio</h4>
+              <p>Toma de muestras en casa para exámenes clínicos confiables.</p>
+              <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20servicio%20de%20laboratorio" class="btn btn-success btn-sm rounded-pill">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- Terapia Respiratoria -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/TERAPIA_RESPIRA.jpg" class="img-fluid rounded" alt="Terapia Respiratoria">
-      </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Terapia Respiratoria</h3>
-        <p>Atención especializada en el hogar para manejo respiratorio, oxígeno, nebulizaciones y más.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20terapia%20respiratoria" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <!-- Terapia Física -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/terapia_fisica.jpg" class="img-fluid rounded" alt="Terapia Física">
-      </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Terapia Física</h3>
-        <p>Rehabilitación física en casa para recuperar movilidad, fuerza y equilibrio funcional. Servicio profesional personalizado.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20terapia%20física" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <!-- Lavado de Oídos -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/lavado_oidos.jpg" class="img-fluid rounded" alt="Lavado de Oídos">
-      </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Lavado de Oídos</h3>
-        <p>Eliminación de tapones de cerumen de forma segura e indolora. Atención en casa por personal capacitado.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20lavado%20de%20oídos" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <!-- Retiro de Suturas -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/suturas.jpg" class="img-fluid rounded" alt="Retiro de Suturas">
-      </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Retiro de Suturas</h3>
-        <p>Extracción segura y estéril de puntos o grapas quirúrgicas en casa. Sin traslados, con garantía de bioseguridad.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20el%20retiro%20de%20suturas" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <!-- Curaciones -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/curacion.jpg" class="img-fluid rounded" alt="Curaciones">
-      </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Curaciones</h3>
-        <p>Tratamiento de heridas y quemaduras en casa con técnicas profesionales. Ideal para pacientes con movilidad reducida.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20curación" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <!-- Electrocardiograma -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/ELECTRO2.webp" class="img-fluid rounded" alt="Electrocardiograma">
-      </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Electrocardiograma</h3>
-        <p>Examen para detectar arritmias o problemas cardiacos sin salir de casa. Resultados inmediatos por expertos.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20electrocardiograma" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <!-- Ecografía -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/ecografia.jpg" class="img-fluid rounded" alt="Ecografía">
-      </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Ecografía</h3>
-        <p>Diagnóstico por imagen para diferentes partes del cuerpo. Comodidad y precisión en tu hogar.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20ecografía" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <!-- Videoconsulta -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-white p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/VIDEO_CON1.jpg" class="img-fluid rounded" alt="Videoconsulta">
-      </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Videoconsulta</h3>
-        <p>Consulta médica virtual desde cualquier lugar. Ideal para seguimiento, asesoría o atención inmediata.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20videoconsulta" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <!-- Laboratorio -->
-    <div class="service-block d-flex flex-column flex-md-row align-items-center mb-5 bg-light p-4 rounded shadow">
-      <div class="col-md-5 mb-3 mb-md-0">
-        <img src="assets/img/laboratorio.jpg" class="img-fluid rounded" alt="Laboratorio">
-      </div>
-      <div class="col-md-7 ps-md-4 text-center text-md-start">
-        <h3>Laboratorio</h3>
-        <p>Toma de muestras para exámenes clínicos en casa. Resultados confiables y entrega oportuna.</p>
-        <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20un%20servicio%20de%20laboratorio" class="btn btn-success mt-2" target="_blank">
-          <i class="bi bi-whatsapp"></i> Solicitar en WhatsApp
-        </a>
-      </div>
-    </div>
-
   </div>
 </section>
+
 
 <!-- Beneficios -->
 <section style="background: linear-gradient(to bottom, #ffffff, #e6ffe6); padding: 3rem 1.5rem;">
