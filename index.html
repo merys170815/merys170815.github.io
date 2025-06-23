@@ -76,14 +76,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="canonical" href="https://www.sumedicoencasa.com/" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 
 </head>
-
-<!-- AOS animations -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init({ once: true });</script>
 
 <body class="index-page">
 
@@ -144,7 +141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Columna de imagen -->
       <div class="col-md-6 text-center mb-4 mb-md-0">
-        <img id="doctorImage" src="assets/img/doctor3d.png" alt="Consulta médica a domicilio en Bogotá y Medellín con médico general certificado" class="img-fluid doctor-img-3d">
+        <img id="doctorImage" src="assets/img/doctor3d.webp" alt="Consulta médica a domicilio en Bogotá y Medellín con médico general certificado" class="img-fluid doctor-img-3d">
       </div>
     </div>
   </div>
@@ -531,6 +528,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </head>
 
+
+<!-- AOS animations -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ once: true });</script>
+
+
 <body class="index-page">
   <!-- contenido -->
 
@@ -538,9 +542,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
  <script>
   const doctorImages = [
-    "assets/img/doctor3d.png",
-    "assets/img/doctor3d1.png",
-    "assets/img/doctor3d2.png"
+    "assets/img/doctor3d.webp",
+    "assets/img/doctor3d1.webp",
+    "assets/img/doctor3d2.webp"
   ];
   let imageIndex = 0;
   const doctorImg = document.getElementById("doctorImage");
