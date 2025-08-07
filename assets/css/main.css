@@ -2860,3 +2860,22 @@ section,
     justify-content: space-between;
   }
 }
+
+.services-icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.service-item {
+  width: 150px;
+  margin: 15px;
+}
+
+.service-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}

@@ -12,13 +12,18 @@
   <meta name="author" content="Su Médico en Casa">
   <meta name="google-site-verification" content="UFWQLEzrDGkFyhXxkYW07RpTnd7gUUJ-8NIynneIN50" />
 
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
   <link rel="icon" type="image/png" href="/images/logo_sumedico1.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href=" assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17012181201"></script>
+
 
  <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -81,7 +86,62 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </head>
 
+  <script>
+  window.onload = function () {
+    document.getElementById("popup").style.display = "flex";
+  }
+
+  function cerrarPopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
 <body class="index-page">
+
+<!-- Código de seguimiento de Clixtell -->
+<script>
+  var script = document.createElement('script');
+  var prefix = document.location.protocol;
+  script.async = true;
+  script.type = 'text/javascript';
+  var target = prefix + '//scripts.clixtell.com/track.js';
+  script.src = target;
+  var elem = document.head;
+  elem.appendChild(script);
+</script>
+
+<!-- Ventana emergente -->
+<div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.85); z-index:9999;">
+  <div style="position:relative; width:95%; max-width:720px; margin:5% auto; background:#ffffff; padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3);">
+
+    <!-- Título llamativo -->
+    <h2 style="text-align:center; font-size:28px; color:#1b5e20; margin-bottom:20px;">
+      <i class="fas fa-stethoscope" style="color:#28a745; margin-right:10px;"></i>
+      Escaneo Biométrico y Vital en Casa
+    </h2>
+
+    <!-- Video -->
+    <video controls autoplay muted loop style="width:100%; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+      <source src="assets/videos/escaneo.mp4" type="video/mp4">
+      Tu navegador no soporta este video.
+    </video>
+
+    <!-- Botón -->
+    <div style="text-align:center; margin-top:25px;">
+      <a href="agendamiento.html"
+         style="background-color:#28a745; color:#fff; padding:14px 32px; font-size:18px; font-weight:bold; border-radius:30px; text-decoration:none; transition:0.3s;">
+         Conoce Más
+      </a>
+    </div>
+
+    <!-- Botón cerrar -->
+    <span onclick="document.getElementById('popup').style.display='none'"
+          style="position:absolute; top:12px; right:20px; cursor:pointer; font-size:26px; color:#555;">
+      &times;
+    </span>
+  </div>
+</div>
+
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ6JZWJM"
@@ -522,6 +582,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   transform: scale(1.2);
   color: #0f766e;
 }
+
+/* Estilo para la ventana emergente */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.popup-content {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
 
 </style>
 

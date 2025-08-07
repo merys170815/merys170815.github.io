@@ -217,3 +217,9 @@
 
 })();
 
+// Mostrar el popup 2 segundos después de cargar la página
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('popup').style.display = 'block';
+  }, 2000);
+});
