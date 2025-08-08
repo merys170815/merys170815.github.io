@@ -110,39 +110,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   elem.appendChild(script);
 </script>
 
-<!-- Ventana emergente -->
-<div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.85); z-index:9999;">
-  <div style="position:relative; width:95%; max-width:720px; margin:5% auto; background:#ffffff; padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3);">
-
-    <!-- Título llamativo -->
-    <h2 style="text-align:center; font-size:28px; color:#1b5e20; margin-bottom:20px;">
-      <i class="fas fa-stethoscope" style="color:#28a745; margin-right:10px;"></i>
-      Escaneo Biométrico y Vital en Casa
-    </h2>
-
-    <!-- Video -->
-    <video controls autoplay muted loop style="width:100%; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
-      <source src="assets/videos/escaneo.mp4" type="video/mp4">
-      Tu navegador no soporta este video.
-    </video>
-
-    <!-- Botón -->
-    <div style="text-align:center; margin-top:25px;">
-      <a href="agendamiento.html"
-         style="background-color:#28a745; color:#fff; padding:14px 32px; font-size:18px; font-weight:bold; border-radius:30px; text-decoration:none; transition:0.3s;">
-         Conoce Más
-      </a>
-    </div>
-
-    <!-- Botón cerrar -->
-    <span onclick="document.getElementById('popup').style.display='none'"
-          style="position:absolute; top:12px; right:20px; cursor:pointer; font-size:26px; color:#555;">
-      &times;
-    </span>
-  </div>
-</div>
-
-
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ6JZWJM"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -173,7 +140,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </header>
 
   <main class="main">
-<!-- Hero con rotación de imágenes 3D -->
+<!-- Hero Escaneo Biométrico (nuevo primero) -->
+<section class="hero-section-3d d-flex align-items-center text-white" role="banner" aria-label="Escaneo biométrico cuántico por resonancia">
+  <div class="container">
+    <div class="row align-items-center flex-column-reverse flex-md-row">
+
+      <!-- Columna de texto -->
+      <div class="col-md-6 text-center text-md-start">
+        <h1 class="main-title mb-3">Escaneo Biométrico Cuántico<br>por Resonancia</h1>
+        <p id="changingText" class="sub-title mb-3">Evaluación avanzada para tu salud.</p>
+        <p class="description-text">
+          Tecnología de resonancia cuántica para una valoración no invasiva de tu estado de salud,
+          complementada con monitoreo cardiaco, tensión arterial, saturación y exámenes de laboratorio.
+        </p>
+        <a href="agendamiento.html" class="btn btn-lg btn-success shadow mt-3">
+          📄 Solicita más información
+        </a>
+      </div>
+
+      <!-- Columna de imagen -->
+      <div class="col-md-6 text-center mb-4 mb-md-0">
+        <img src="assets/img/biometrico.png" alt="Escaneo biométrico cuántico por resonancia" class="img-fluid doctor-img-3d">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hero Consulta Médica (ya existente) -->
 <section class="hero-section-3d d-flex align-items-center text-white" role="banner" aria-label="Consulta médica a domicilio en Bogotá y Medellín">
   <div class="container">
     <div class="row align-items-center flex-column-reverse flex-md-row">
