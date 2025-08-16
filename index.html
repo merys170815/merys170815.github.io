@@ -83,23 +83,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ]
 }
 </script>
-
 <!-- Script obligatorio de ClickGuard -->
-  <script defer type="application/javascript" src="https://pulse.clickguard.com/s/accELIJR7rBrk/astdPfDXeOKdD"></script>
-  <script defer type="application/javascript" src="https://pulse.clickguard.com/sc"></script>
+<script defer type="application/javascript" src="https://pulse.clickguard.com/s/accELIJR7rBrk/astocw4aEmCgE"></script>
 
-  <!-- Script de conversión para todos los clics en WhatsApp -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll("a[href*='wa.me'], a[href*='api.whatsapp.com']").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          if (typeof CG !== "undefined" && CG.conversion) {
-            CG.conversion("WhatsApp click", 0);
-          }
-        });
+<!-- Script de conversión para todos los clics en WhatsApp -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("a[href*='wa.me'], a[href*='api.whatsapp.com']").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        if (window.CG && typeof CG.conversion === "function") {
+          CG.conversion("WhatsApp click", 0);
+        }
       });
     });
-  </script>
+  });
+</script>
 </head>
 
 
