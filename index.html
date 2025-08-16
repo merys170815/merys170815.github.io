@@ -187,12 +187,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div> <!-- cierre col texto -->
 
-        <!-- Columna de imagen -->
-        <div class="col-md-6 text-center mb-4 mb-md-0">
-          <img id="doctorImage" src="assets/img/doctor3d.webp"
-               alt="Médico a domicilio en Bogotá y Medellín disponible 24/7 para consulta médica general y terapia respiratoria"
-               loading="lazy" width="100%" height="auto">
-        </div>
+    <div class="col-md-6 text-center mb-4 mb-md-0">
+  <img id="doctorImage"
+       src="assets/img/doctor3d.webp"
+       alt="Médico a domicilio en Bogotá y Medellín disponible 24/7 para consulta médica general y terapia respiratoria"
+       class="img-fluid rounded"
+       style="max-width: 100%; height: auto;">
+</div>
+
 
       </div>
     </div>
@@ -241,6 +243,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .doctor-img-3d {
   animation: fadeZoom 1.2s ease-out;
 }
+#doctorImage {
+  width: 100%;
+  height: 400px; /* fijo para no deformar */
+  object-fit: cover; /* recorta la imagen manteniendo proporción */
+  border-radius: 15px;
+}
+
 
 @media (max-width: 768px) {
   .doctor-img-3d {
