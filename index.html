@@ -112,21 +112,7 @@
   </script>
   <!-- End Google Tag Manager -->
 
-  <!-- Script obligatorio de ClickGuard -->
-  <script defer type="application/javascript" src="https://pulse.clickguard.com/s/accELIJR7rBrk/astocw4aEmCgE"></script>
 
-  <!-- Script de conversión para clics en WhatsApp -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll("a[href*='wa.me'], a[href*='api.whatsapp.com']").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          if (window.CG && typeof CG.conversion === "function") {
-            CG.conversion("WhatsApp click", 0);
-          }
-        });
-      });
-    });
-  </script>
 </head>
 
 <body class="index-page">
