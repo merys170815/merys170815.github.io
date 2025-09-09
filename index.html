@@ -188,34 +188,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     Tu navegador no soporta video HTML5.
   </video>
 
-  <!-- Botón para pausar/reanudar -->
-  <button id="togglePlayBtn" class="btn btn-danger mt-2">
-    ⏸️ Pausar video
+  <!-- Botón pausar/reanudar -->
+  <button id="toggleBtn" class="btn btn-danger mt-2">
+    ⏸️ Pausar
   </button>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const video = document.getElementById("doctorVideo");
-      const toggleBtn = document.getElementById("togglePlayBtn");
+      const toggleBtn = document.getElementById("toggleBtn");
 
-      // 1️⃣ Al primer toque en la pantalla, activar sonido
-      const activateSound = () => {
+      // 🔊 Al primer toque en cualquier parte de la pantalla, activar sonido
+      const enableSound = () => {
         video.muted = false;
         video.play();
-        document.removeEventListener("click", activateSound);
-        document.removeEventListener("touchstart", activateSound);
+        document.removeEventListener("click", enableSound);
+        document.removeEventListener("touchstart", enableSound);
       };
-      document.addEventListener("click", activateSound);
-      document.addEventListener("touchstart", activateSound);
+      document.addEventListener("click", enableSound);
+      document.addEventListener("touchstart", enableSound);
 
-      // 2️⃣ Botón para pausar/reanudar
+      // ⏸️ Botón para pausar/reanudar
       toggleBtn.addEventListener("click", () => {
         if (video.paused) {
           video.play();
-          toggleBtn.textContent = "⏸️ Pausar video";
+          toggleBtn.textContent = "⏸️ Pausar";
+          toggleBtn.classList.replace("btn-success", "btn-danger");
         } else {
           video.pause();
-          toggleBtn.textContent = "▶️ Reanudar video";
+          toggleBtn.textContent = "▶️ Reanudar";
+          toggleBtn.classList.replace("btn-danger", "btn-success");
         }
       });
     });
