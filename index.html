@@ -176,66 +176,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div> <!-- cierre col texto -->
 
- <div class="col-md-6 text-center mb-4 mb-md-0">
+<div class="col-md-6 text-center mb-4 mb-md-0">
   <video id="doctorVideo"
          class="img-fluid rounded"
          autoplay
          muted
          loop
          playsinline
-         preload="metadata"
          title="Médico a domicilio en Bogotá y Medellín disponible 24/7">
     <source src="assets/videos/sumedico.mp4" type="video/mp4">
     Tu navegador no soporta video HTML5.
   </video>
 
-  <!-- Botón para pausar / reproducir -->
-  <button id="toggleVideoBtn" class="btn btn-primary mt-2" aria-label="Pausar o reproducir video">
+  <!-- Botón para pausar/reanudar -->
+  <button id="togglePlayBtn" class="btn btn-danger mt-2">
     ⏸️ Pausar video
   </button>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const video = document.getElementById("doctorVideo");
-      const toggleBtn = document.getElementById("toggleVideoBtn");
+      const toggleBtn = document.getElementById("togglePlayBtn");
 
-      // Intento de autoplay (muted)
-      video.play().catch(() => { /* puede fallar en algunos navegadores pero no pasa nada */ });
-
-      // Habilita sonido a la primera interacción del usuario (click/touch/scroll),
-      // excepto si la interacción fue en el botón de pausa (para que ese botón no active el sonido).
-      const enableSound = (e) => {
-        const origin = e && e.target ? e.target : null;
-        if (origin && (origin.id === 'toggleVideoBtn' || origin.closest && origin.closest('#toggleVideoBtn'))) {
-          // Si el click vino desde el botón de toggle, NO activamos sonido ahora.
-          return;
-        }
+      // 1️⃣ Al primer toque en la pantalla, activar sonido
+      const activateSound = () => {
         video.muted = false;
-        video.play().catch(() => {});
-        // quitamos los listeners para que esto ocurra solo la primera vez
-        document.removeEventListener('click', enableSound);
-        document.removeEventListener('touchstart', enableSound);
-        document.removeEventListener('scroll', enableSound);
+        video.play();
+        document.removeEventListener("click", activateSound);
+        document.removeEventListener("touchstart", activateSound);
       };
+      document.addEventListener("click", activateSound);
+      document.addEventListener("touchstart", activateSound);
 
-      document.addEventListener('click', enableSound, { passive: true });
-      document.addEventListener('touchstart', enableSound, { passive: true });
-      document.addEventListener('scroll', enableSound, { passive: true });
-
-      // Botón Pausar / Reproducir (no activa sonido)
-      toggleBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // prevenir que el click se propague y active el sonido por accidente
+      // 2️⃣ Botón para pausar/reanudar
+      toggleBtn.addEventListener("click", () => {
         if (video.paused) {
-          video.play().catch(() => {});
-          toggleBtn.textContent = '⏸️ Pausar video';
+          video.play();
+          toggleBtn.textContent = "⏸️ Pausar video";
         } else {
           video.pause();
-          toggleBtn.textContent = '▶️ Reproducir video';
+          toggleBtn.textContent = "▶️ Reanudar video";
         }
       });
     });
   </script>
 </div>
+
   </section>
 </main>
 
