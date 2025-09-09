@@ -177,12 +177,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div> <!-- cierre col texto -->
 
     <div class="col-md-6 text-center mb-4 mb-md-0">
-  <img id="doctorImage"
-       src="assets/img/doctor3d.webp"
-       alt="Médico a domicilio en Bogotá y Medellín disponible 24/7 para consulta médica general y terapia respiratoria"
-       class="img-fluid rounded"
-       style="max-width: 100%; height: auto;">
+  <video id="doctorVideo"
+         class="img-fluid rounded"
+         autoplay
+         muted
+         loop
+         playsinline
+         title="Médico a domicilio en Bogotá y Medellín disponible 24/7">
+    <source src="assets/videos/sumedico.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5.
+    <img src="assets/img/doctor3d.webp"
+         alt="Médico a domicilio en Bogotá y Medellín disponible 24/7 para consulta médica general y terapia respiratoria"
+         class="img-fluid rounded">
+  </video>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("doctorVideo");
+
+    // Reproducir automáticamente en silencio
+    video.play();
+
+    // En cuanto el usuario interactúe, activamos audio
+    const enableSound = () => {
+      video.muted = false;
+      video.play();
+      document.removeEventListener("click", enableSound);
+      document.removeEventListener("scroll", enableSound);
+    };
+
+    document.addEventListener("click", enableSound);
+    document.addEventListener("scroll", enableSound);
+  });
+</script>
 </div>
+
 
 
       </div>
