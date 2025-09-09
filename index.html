@@ -179,49 +179,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="col-md-6 text-center mb-4 mb-md-0">
   <video id="doctorVideo"
          class="img-fluid rounded"
-         autoplay
-         muted
-         loop
+         controls
          playsinline
          title="Médico a domicilio en Bogotá y Medellín disponible 24/7">
     <source src="assets/videos/sumedico.mp4" type="video/mp4">
     Tu navegador no soporta video HTML5.
+         alt="Médico a domicilio en Bogotá y Medellín disponible 24/7 para consulta médica general y terapia respiratoria"
+         class="img-fluid rounded">
   </video>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("doctorVideo");
 
-  <!-- Botón pausar/reanudar -->
-  <button id="toggleBtn" class="btn btn-danger mt-2">
-    ⏸️ Pausar
-  </button>
+    // Reproducir automáticamente en silencio
+    video.play();
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const video = document.getElementById("doctorVideo");
-      const toggleBtn = document.getElementById("toggleBtn");
+    // En cuanto el usuario interactúe, activamos audio
+    const enableSound = () => {
+      video.muted = false;
+      video.play();
+      document.removeEventListener("click", enableSound);
+      document.removeEventListener("scroll", enableSound);
+    };
 
-      // 🔊 Al primer toque en cualquier parte de la pantalla, activar sonido
-      const enableSound = () => {
-        video.muted = false;
-        video.play();
-        document.removeEventListener("click", enableSound);
-        document.removeEventListener("touchstart", enableSound);
-      };
-      document.addEventListener("click", enableSound);
-      document.addEventListener("touchstart", enableSound);
-
-      // ⏸️ Botón para pausar/reanudar
-      toggleBtn.addEventListener("click", () => {
-        if (video.paused) {
-          video.play();
-          toggleBtn.textContent = "⏸️ Pausar";
-          toggleBtn.classList.replace("btn-success", "btn-danger");
-        } else {
-          video.pause();
-          toggleBtn.textContent = "▶️ Reanudar";
-          toggleBtn.classList.replace("btn-danger", "btn-success");
-        }
-      });
-    });
-  </script>
+    document.addEventListener("click", enableSound);
+    document.addEventListener("scroll", enableSound);
+  });
+</script>
 </div>
 
   </section>
