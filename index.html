@@ -192,7 +192,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const video = document.getElementById("doctorVideo");
       video.play(); // arranca en silencio
 
-      // Activar sonido con la primera interacción en cualquier parte
+      // 🔊 Activar sonido con la primera interacción (clic, scroll o tecla)
       const enableSound = () => {
         video.muted = false;
         video.play();
@@ -204,9 +204,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.addEventListener("click", enableSound);
       document.addEventListener("scroll", enableSound);
       document.addEventListener("keydown", enableSound);
+
+      // ⏯️ Pausar/Reanudar con clic en el propio video
+      video.addEventListener("click", () => {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
     });
   </script>
 </div>
+
 </main>
 
 <style>
