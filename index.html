@@ -36,6 +36,7 @@
   <link rel="canonical" href="https://www.sumedicoencasa.com/" />
   <link rel="alternate" href="https://www.sumedicoencasa.com/" hreflang="es-CO" />
 
+  <!-- ✅ Open Graph (Facebook / WhatsApp) -->
   <link rel="alternate" hreflang="es-CO" href="https://www.sumedicoencasa.com/" />
   <link rel="alternate" hreflang="es" href="https://www.sumedicoencasa.com/" />
   <link rel="alternate" hreflang="x-default" href="https://www.sumedicoencasa.com/" />
@@ -53,6 +54,11 @@
   <meta name="twitter:title" content="Médico a Domicilio en Bogotá 24/7 | Consulta Médica en Casa">
   <meta name="twitter:description" content="Atención médica a domicilio en Bogotá 24/7. Agenda tu consulta rápida y segura por WhatsApp.">
   <meta name="twitter:image" content="https://www.sumedicoencasa.com/assets/img/og-cover.jpg">
+
+    <meta name="geo.region" content="CO-DC">
+<meta name="geo.placename" content="Bogotá, Colombia">
+<meta name="geo.position" content="4.7110;-74.0721">
+<meta name="ICBM" content="4.7110, -74.0721">
   <meta name="geo.region" content="CO-DC">
   <meta name="geo.placename" content="Bogotá, Colombia">
   <meta name="geo.position" content="4.7110;-74.0721">
@@ -145,76 +151,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 <main class="main">
-<!-- Hero con rotación de imágenes 3D -->
-<section class="hero-section-3d d-flex align-items-center text-white" role="banner" aria-label="Médico a domicilio en Bogotá y Medellín 24/7">
-  <div class="container">
-    <div class="row align-items-center flex-column-reverse flex-md-row">
 
-      <!-- Columna de texto -->
-      <div class="col-md-6 text-center text-md-start">
-        <h1 class="main-title mb-3">Médico a Domicilio en Bogotá y Medellín 24/7</h1>
-        <p id="changingText" class="sub-title mb-3">Atención rápida, segura y profesional en casa.</p>
+  <!-- Hero con rotación de imágenes 3D -->
+  <section class="hero-section-3d d-flex align-items-center text-white" role="banner" aria-label="Médico a domicilio en Bogotá y Medellín 24/7">
+    <div class="container">
+      <div class="row align-items-center flex-column-reverse flex-md-row">
 
-        <p class="description-text">
-          Consulta médica en tu hogar por doctores certificados. <br>
-          Agenda fácilmente por <strong>WhatsApp</strong> y recibe atención sin salir de casa.
-        </p>
+        <!-- Columna de texto -->
+        <div class="col-md-6 text-center text-md-start">
+          <h1 class="main-title mb-3">Médico a Domicilio en Bogotá y Medellín 24/7</h1>
+          <p id="changingText" class="sub-title mb-3">Atención rápida, segura y profesional en casa.</p>
 
-        <a href="https://wa.me/3027307330" target="_blank" rel="noopener noreferrer"
-           class="btn btn-lg btn-success shadow mt-3"
-           aria-label="Solicitar consulta médica a domicilio por WhatsApp en Bogotá o Medellín">
-          📲 Solicita tu Consulta Ahora
-        </a>
-
-        <div class="mt-4">
-          <p style="font-size: 0.9rem; color: #555;">
-            Servicio de <strong>consulta médica a domicilio</strong> en Bogotá y Medellín.
-            Contamos con médicos generales, atención urgente y orientación profesional sin filas ni demoras.
-            Solicita tu atención en casa de forma <strong>rápida, segura y confiable</strong>.
+          <p class="description-text">
+            Consulta médica en tu hogar por doctores certificados. <br>
+            Agenda fácilmente por <strong>WhatsApp</strong> y recibe atención sin salir de casa.
           </p>
-        </div>
-      </div> <!-- cierre col texto -->
-<div class="col-md-6 text-center mb-4 mb-md-0">
-  <video id="doctorVideo"
-         class="img-fluid rounded"
-         autoplay
-         muted
-         loop
-         playsinline
-         title="Médico a domicilio en Bogotá y Medellín disponible 24/7">
-    <source src="assets/videos/sumedico2.mp4" type="video/mp4">
-    Tu navegador no soporta video HTML5.
-  </video>
+
+          <a href="https://wa.me/3027307330" target="_blank" rel="noopener noreferrer"
+             class="btn btn-lg btn-success shadow mt-3"
+             aria-label="Solicitar consulta médica a domicilio por WhatsApp en Bogotá o Medellín">
+            📲 Solicita tu Consulta Ahora
+          </a>
+
+          <div class="mt-4">
+            <p style="font-size: 0.9rem; color: #555;">
+              Servicio de <strong>consulta médica a domicilio</strong> en Bogotá y Medellín.
+              Contamos con médicos generales, atención urgente y orientación profesional sin filas ni demoras.
+              Solicita tu atención en casa de forma <strong>rápida, segura y confiable</strong>.
+            </p>
+          </div>
+        </div> <!-- cierre col texto -->
+
+    <div class="col-md-6 text-center mb-4 mb-md-0">
+  <img id="doctorImage"
+       src="assets/img/doctor3d.webp"
+       alt="Médico a domicilio en Bogotá y Medellín disponible 24/7 para consulta médica general y terapia respiratoria"
+       class="img-fluid rounded"
+       style="max-width: 100%; height: auto;">
 </div>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const video = document.getElementById("doctorVideo");
-    video.play(); // inicia en silencio
 
-    // ✅ Habilitar sonido con el primer clic o toque en la pantalla
-    const enableSound = () => {
-      video.muted = false;
-      video.play();
-      // quitamos los eventos después de activarlo
-      document.removeEventListener("click", enableSound);
-      document.removeEventListener("touchstart", enableSound);
-    };
 
-    document.addEventListener("click", enableSound);
-    document.addEventListener("touchstart", enableSound);
-
-    // ⏯️ Pausar/Reanudar con clic en el propio video
-    video.addEventListener("click", (e) => {
-      e.stopPropagation(); // evita que el clic en el video re-dispare enableSound
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-  });
-</script>
-
+      </div>
+    </div>
+  </section>
 </main>
 
 <style>
