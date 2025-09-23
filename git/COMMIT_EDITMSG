@@ -1,0 +1,8 @@
+Merge branch 'main' of https://github.com/merys170815/merys170815.github.io
+
+Resolved conflicts and integrated changes from the remote repository.
+
+The merge includes the following updates:
+- Added submodule `merys170815.github.io`
+- Removed outdated files and submodules
+- Updated `.gitmodules` file

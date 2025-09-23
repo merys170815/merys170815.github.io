@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /cgi-bin/
+Allow: /
+
+Sitemap: https://www.sumedicoencasa.com/sitemap.xml

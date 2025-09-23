@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Su Médico en Casa - Servicios Médicos a Domicilio</title>
+
+  <!-- SEO Básico -->
+  <meta name="description" content="Servicios médicos a domicilio en Bogotá. Teleconsulta, videoconsulta y atención personalizada en casa.">
+  <meta name="keywords" content="medicina a domicilio, teleconsulta, videoconsulta, servicios médicos, Bogotá">
+  <meta name="author" content="Su Médico en Casa">
+  <meta name="google-site-verification" content="UFWQLEzrDGkFyhXxkYW07RpTnd7gUUJ-8NIynneIN50" />
+  <!-- Íconos -->
+  <link rel="icon" type="image/png" href="images/logo_sumedico.png" />
+
+    <!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+ <head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TJ6JZWJM');
+  </script>
+
+  <!-- Google Analytics (opcional si no está en GTM) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XPQRRDJ2S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1XPQRRDJ2S');
+  </script>
+</head>
+
+<body class="index-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ6JZWJM"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+
+ <!-- HEADER -->
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <h2 class="sitename">Su Médico en Casa</h2><span>.</span>
+    </a>
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="portafolio.html">Portafolio de servicios</a></li>
+        <li><a href="medicina-general.html">Medicina General</a></li>
+        <!-- Enlace externo optimizado -->
+        <li><a href="https://wa.me/3027307330" target="_blank" class="btn-getstarted" rel="nofollow sponsored">Contáctanos</a></li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+  </div>
+</header>
+<!-- ESTILOS -->
+
+<style>
+  /* Estilos generales para el contenido */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("assets/img/doctor1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0f172a;
+    transition: background-image 1s ease-in-out;
+    overflow: hidden;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(15, 23, 42, 0.7));
+    z-index: 1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 800px;
+    animation: fadeIn 1s ease-in;
+    text-align: center; /* Centrado de contenido */
+  }
+
+  /* Animación de desvanecimiento */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    color: #4ade80;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1.5px;
+  }
+
+  .sub-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #38bdf8;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeText 1s ease-in-out forwards;
+  }
+
+  .description-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    color: #e0f2fe;
+    line-height: 1.8;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes fadeText {
+    to { opacity: 1; }
+  }
+
+  /* Ajustes en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .main-title {
+      font-size: 2.8rem;
+    }
+
+    .sub-title {
+      font-size: 1.3rem;
+    }
+
+    .description-text {
+      font-size: 1rem;
+    }
+
+    .hero-section {
+      background-image: url("assets/img/doctor1.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Asegura que las imágenes dentro de .content no se salgan de la pantalla */
+    .content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Hacer que los íconos y los textos se ajusten en dispositivos móviles */
+    .iconos {
+      flex-direction: column; /* Coloca los iconos en columna en lugar de fila */
+      padding: 20px 0;
+    }
+
+    .icono {
+      width: 100%; /* Asegura que los iconos ocupen el 100% del ancho disponible */
+      margin-bottom: 20px; /* Agrega un espacio entre los iconos */
+    }
+
+    #whatsapp-button {
+      bottom: 15px; /* Ajuste del botón de WhatsApp en pantallas pequeñas */
+      right: 15px;
+      width: 50px; /* Ajusta el tamaño del botón */
+      height: 50px;
+      font-size: 24px; /* Ajusta el tamaño del ícono */
+    }
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
+
+  /* Estilos del encabezado */
+  header {
+    background: linear-gradient(135deg, #009688, #4db6ac);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+
+  header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+
+  /* Estilos de los iconos */
+  .iconos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .icono {
+    text-align: center;
+    width: 150px;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .icono:hover {
+    transform: scale(1.1);
+    background: #e0f2f1;
+  }
+
+  .icono i {
+    font-size: 40px;
+    color: #009688;
+    margin-bottom: 10px;
+  }
+
+  .icono h3 {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  /* Estilo para el botón de WhatsApp */
+  #whatsapp-button {
+    position: fixed; /* Esto asegura que el botón sea fijo en la pantalla */
+    bottom: 20px; /* Ajusta la distancia desde el fondo */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    width: 60px; /* Ajusta el tamaño del botón */
+    height: 60px;
+    background-color: #25d366; /* Color de WhatsApp */
+    color: white;
+    border-radius: 50%; /* Hace que el botón sea circular */
+    font-size: 28px; /* Tamaño del ícono */
+    display: flex;
+    align-items: center; /* Centra el ícono dentro del botón */
+    justify-content: center; /* Centra el ícono dentro del botón */
+    z-index: 9999; /* Asegura que el botón esté por encima de otros elementos */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra sutil para que resalte */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+  }
+
+  #whatsapp-button:hover {
+    background-color: #128c7e; /* Color de fondo cuando se pasa el mouse */
+    color: white;
+  }
+
+  /* Estilos del pie de página */
+  footer {
+    background: #004d40;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    position: relative;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #4db6ac;
+  }
+
+  .contact-info {
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  /* Estilo para enlaces del menú de navegación */
+  .navmenu a {
+    color: white !important;
+    font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+  }
+
+  /* Enlace activo o al pasar el mouse */
+  .navmenu a:hover {
+    color: #4ade80 !important; /* Puedes ajustar este color al que prefieras */
+  }
+</style>
+
+
+       <!-- Main Content -->
+<section id="main" style="display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px;">
+    <div class="inner" style="max-width: 800px; text-align: center; width: 100%; padding: 20px; box-sizing: border-box;">
+        <header class="major" style="margin-bottom: 20px;">
+            <h2 style="font-style: italic;">Terapia Respiratoria a Domicilio</h2>
+        </header>
+
+        <!-- Imagen del servicio -->
+        <img src="assets/img/imagen1.png" alt="Terapia Respiratoria" class="full-width-img" style="display: block; margin-left: auto; margin-right: auto; max-width: 100%; margin-bottom: 20px; border-radius: 12px;">
+
+        <div class="content" style="text-align: center; margin-top: 20px;">
+            <p style="font-style: italic; font-weight: bold;">Respira Mejor Desde Casa</p>
+            <p>Ofrecemos <strong>terapia respiratoria a domicilio</strong> para personas con dificultades pulmonares, enfermedades respiratorias crónicas o en recuperación de infecciones respiratorias.</p>
+
+            <p><strong>¿Qué incluye nuestro servicio?</strong></p>
+            <ul style="list-style-type: none; padding: 0; text-align: left; margin: 0 auto; display: inline-block; margin-bottom: 20px;">
+                <li><strong>Nebulizaciones:</strong> Administración de medicamentos para facilitar la respiración.</li>
+                <li><strong>Manejo de oxígeno:</strong> Evaluación y soporte para pacientes con requerimientos de oxígeno.</li>
+                <li><strong>Ejercicios de expansión pulmonar:</strong> Técnicas para fortalecer los pulmones y mejorar la ventilación.</li>
+                <li><strong>Educación al paciente:</strong> Orientación para el cuidado respiratorio en casa.</li>
+            </ul>
+
+            <p>Atención personalizada con equipos profesionales, garantizando seguridad, comodidad y eficacia.</p>
+            <p>Contáctanos hoy para solicitar tu <strong>terapia respiratoria a domicilio</strong> y respirar con tranquilidad.</p>
+
+            <a href="https://wa.me/573027307330?text=Hola,%20me%20interesa%20una%20consulta%20de%20terapia%20respiratoria" target="_blank" class="btn btn-success" style="margin-top: 20px;">
+                <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+ <!-- Scroll Top -->
+ <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+ <!-- Preloader -->
+ <div id="preloader"></div>
+
+
+ <!-- Floating WhatsApp Button -->
+ <a href="https://wa.me/573027307330"
+    id="whatsapp-button"
+    class="d-flex align-items-center justify-content-center"
+    target="_blank"
+    onclick="gtag('event', 'conversion', {'send_to': 'AW-16955964314/ZDNACIvstrUaEJr3nZU_'});">
+   <i class="bi bi-whatsapp"></i>
+ </a>
+
+
+
+ <!-- Vendor JS Files -->
+ <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="assets/vendor/php-email-form/validate.js"></script>
+ <script src="assets/vendor/aos/aos.js"></script>
+ <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+ <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+ <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+ <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+ <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+ <!-- Main JS File -->
+ <script src="assets/js/main.js"></script>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>Su Médico en Casa</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+ </head>
+
+
+
+<footer id="footer" class="footer position-relative light-background">
+
+ <header>
+  <h2 class="footer-title">Su Médico en Casa</h2>
+  <p>Atención médica y terapéutica a domicilio en Bogotá</p>
+</header>
+
+
+
+   <div class="container copyright text-center mt-4">
+
+     <p>© <span>Copyright</span> <strong class="sitename">Su Médico en Casa NIT 900976775-2</strong> <span>Todos los derechos reservados</span></p>
+
+     <div class="credits">
+
+       Diseñado por <a href="Su Medico En Casa">Su Médico En Casa</a>
+
+     </div>
+
+   </div>
+
+
+
+ </body>
+
+ </html>
+
+
+
+
