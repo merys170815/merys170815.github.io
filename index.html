@@ -153,12 +153,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
+
 <section class="relative w-full pt-20">
-  <div class="relative w-full max-w-7xl mx-auto h-[250px] sm:h-[350px] md:h-[450px] lg:h-[400px] overflow-hidden rounded-xl shadow-lg">
+  <div class="relative w-full max-w-7xl mx-auto overflow-hidden rounded-xl shadow-lg">
     <img id="banner"
          src="assets/img/portada2.webp"
-         alt="Atención médica en Bogotá"
-         class="w-full h-full object-cover object-center">
+         alt="Atención médica en Bogotá — Médico a domicilio"
+         class="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] xl:h-[550px] object-contain md:object-cover object-center"
+         width="1600" height="900"
+         fetchpriority="high"
+         decoding="async">
   </div>
 </section>
 
@@ -176,6 +180,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     banner.src = images[index];
   }, 5000); // Cambia cada 5 segundos
 </script>
+
 
 <!-- Información debajo del banner - Bloque llamativo con gradientes en títulos -->
 <section class="max-w-7xl mx-auto px-6 md:px-12 py-16 text-center bg-gray-50 rounded-2xl shadow-xl">
