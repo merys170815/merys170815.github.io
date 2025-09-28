@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios Médicos a Domicilio en Bogotá | Su Médico en Casa</title>
-  <meta name="description" content="Atención médica a domicilio en Bogotá: consultas, laboratorios, electrocardiogramas y terapias. Servicio 24/7 con médicos certificados.">
+  <title>Médico a Domicilio en Bogotá 24/7 | Consultas y Urgencias | Su Médico en Casa</title>
+
+
+ <meta name="description" content="Médico a domicilio en Bogotá disponible 24/7. Consultas médicas generales, urgencias, terapias y laboratorios en casa. Agenda tu cita con médicos particulares certificados.">
+
   <meta name="keywords" content="médico a domicilio Bogotá, atención médica en casa, consulta médica, laboratorio a domicilio, electrocardiograma en casa, terapia física, terapia respiratoria">
   <meta name="theme-color" content="#25d366">
 
@@ -32,33 +35,71 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Su Médico en Casa | Servicios Médicos a Domicilio">
+  <meta property="og:title" content="Médico a Domicilio en Bogotá | Su Médico en Casa">
+
   <meta property="og:description" content="Consulta médica, laboratorio, electrocardiograma y terapias sin salir de casa. Atención 24/7 en Bogotá.">
   <meta property="og:image" content="https://www.sumedicoencasa.com/assets/img/portada-medica.jpg">
   <meta property="og:url" content="https://www.sumedicoencasa.com">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Schema.org -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalOrganization",
-    "name": "Su Médico en Casa",
-    "url": "https://www.sumedicoencasa.com",
-    "logo": "https://www.sumedicoencasa.com/assets/logo.png",
-    "sameAs": [
-      "https://facebook.com/sumedicoencasa",
-      "https://instagram.com/sumedicoencasa"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+57-324-941-6572",
-      "contactType": "Atención al cliente",
-      "areaServed": "CO",
-      "availableLanguage": "es"
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Su Médico en Casa",
+  "url": "https://www.sumedicoencasa.com",
+  "logo": "https://www.sumedicoencasa.com/assets/logo.png",
+  "sameAs": [
+    "https://facebook.com/sumedicoencasa",
+    "https://instagram.com/sumedicoencasa"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+57-324-941-6572",
+    "contactType": "Atención al cliente",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Bogotá, Colombia"
+    },
+    "availableLanguage": "es"
+  },
+  "medicalSpecialty": [
+    "GeneralPractice",
+    "UrgentCare",
+    "DiagnosticImaging",
+    "PhysicalTherapy",
+    "RespiratoryTherapy"
+  ],
+  "department": [
+    {
+      "@type": "MedicalClinic",
+      "name": "Consulta Médica Domiciliaria",
+      "url": "https://www.sumedicoencasa.com/consulta-medica-domiciliaria"
+    },
+    {
+      "@type": "MedicalClinic",
+      "name": "Ecografía a Domicilio",
+      "url": "https://www.sumedicoencasa.com/ecografia-domicilio"
+    },
+    {
+      "@type": "MedicalClinic",
+      "name": "Electrocardiograma en Casa",
+      "url": "https://www.sumedicoencasa.com/electrocardiograma-domicilio"
+    },
+    {
+      "@type": "MedicalClinic",
+      "name": "Laboratorio Clínico a Domicilio",
+      "url": "https://www.sumedicoencasa.com/laboratorio-domicilio"
+    },
+    {
+      "@type": "MedicalClinic",
+      "name": "Terapias a Domicilio",
+      "url": "https://www.sumedicoencasa.com/terapias-domicilio"
     }
-  }
-  </script>
+  ]
+}
+</script>
+
 
   <style>
     /* Botón flotante WhatsApp */
@@ -123,33 +164,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header id="header" class="bg-white fixed top-0 left-0 w-full z-50 shadow-md transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo -->
-    <h1 class="text-xl md:text-2xl font-extrabold text-blue-600 tracking-wide">
-      Su Médico en Casa
-    </h1>
+    <h2 class="text-xl md:text-2xl font-extrabold text-blue-600 tracking-wide">
+  Médico a Domicilio en Bogotá | Su Médico en Casa
+</h2>
+
+
 
     <!-- Botón hamburguesa (solo en móviles) -->
     <button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none text-2xl">
       ☰
     </button>
 
-  <!-- Links de navegación -->
-<nav id="menu" class="hidden md:flex space-x-6 font-medium text-gray-700">
+ <nav id="menu" class="hidden md:flex space-x-6 font-medium text-gray-700">
   <a href="portafolio.html" class="hover:text-blue-600 transition duration-300">Nosotros</a>
-  <a href="medicina-general.html" class="hover:text-blue-600 transition duration-300">Servicios</a>
-  <a href="terapia-respiratoria.html" class="hover:text-blue-600 transition duration-300">Terapia</a>
+  <a href="medicina-general.html" class="hover:text-blue-600 transition duration-300">Consulta Médica Domiciliaria</a>
   <a href="https://wa.me/573115081075" target="_blank" class="hover:text-blue-600 transition duration-300">Contacto</a>
 </nav>
+      <!-- Botón CTA destacado -->
+<a href="tel:+573115081075" class="ml-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300 hidden md:inline-block">
+  📞 Llamar 24/7
+</a>
+
+
 </div>
 
 <!-- Menú desplegable en móviles -->
 <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
   <nav class="flex flex-col space-y-2 px-4 py-4 font-medium text-gray-700">
-    <a href="index.html" class="hover:text-blue-600 transition">Inicio</a>
-    <a href="portafolio.html" class="hover:text-blue-600 transition">Nosotros</a>
-    <a href="medicina-general.html" class="hover:text-blue-600 transition">Servicios</a>
-    <a href="https://wa.me/573115081075" target="_blank" class="hover:text-blue-600 transition">Contacto</a>
-  </nav>
+   <a href="portafolio.html" class="hover:text-blue-600 transition duration-300">Nosotros</a>
+  <a href="medicina-general.html" class="hover:text-blue-600 transition duration-300">Consulta Médica Domiciliaria</a>
+  <a href="https://wa.me/573115081075" target="_blank" class="hover:text-blue-600 transition duration-300">Contacto</a>
+</nav>
+<a href="tel:+573249416572" class="bg-blue-600 text-white text-center py-2 rounded-lg shadow hover:bg-blue-700 transition">📞 Llamar 24/7</a>
+
 </div>
+
+
 </header>
 
 
@@ -171,6 +221,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   });
 </script>
+
+
 <section class="relative w-full pt-20">
   <div class="relative w-full max-w-7xl mx-auto overflow-hidden rounded-xl shadow-lg">
     <img id="banner"
@@ -204,46 +256,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Título principal H1 con gradiente -->
   <h1 class="text-3xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent
              bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-    Médico a Domicilio en Bogotá y Medellín – Atención Médica Rápida y Confiable en Casa
-  </h1>
+  Médico a Domicilio en Bogotá – Atención Médica Particular 24/7 en Casa
+</h1>
+
 
   <!-- Subtítulo H2 con otro gradiente suave -->
   <h2 class="text-xl md:text-2xl text-gray-700 mb-8 bg-clip-text text-transparent
              bg-gradient-to-r from-blue-400 to-blue-600">
-    Consulta médica profesional, servicio médico a domicilio y atención personalizada para ti y tu familia
-  </h2>
+  Consulta Médica a Domicilio en Bogotá | Urgencias, Laboratorio, Electrocardiograma y Ecografía en Casa
+</h2>
+
 
   <!-- Lista de beneficios con iconos -->
-  <div class="flex flex-col md:flex-row flex-wrap justify-center gap-8 mb-8">
-    <div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
-      <span>🏥</span> Médico general particular a domicilio en Bogotá
-    </div>
-    <div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
-      <span>🏥</span> Médico general particular a domicilio en Medellín
-    </div>
-    <div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
-      <span>⏱️</span> Atención médica rápida y confiable
-    </div>
-    <div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
-      <span>🛡️</span> Servicio médico a domicilio seguro
-    </div>
-    <div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
-      <span>👨‍👩‍👧‍👦</span> Consulta médica en casa para todas las edades
-    </div>
-  </div>
+  <div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
+  <span>🚑</span> Urgencias médicas a domicilio 24/7 en Bogotá
+</div>
+<div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
+  <span>🏥</span> Médico general particular a domicilio en Bogotá
+</div>
+<div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
+  <span>🛡️</span> Servicio médico a domicilio seguro y confiable
+</div>
+<div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
+  <span>👨‍👩‍👧‍👦</span> Consulta médica en casa para todas las edades
+</div>
+
 <!-- Llamada a la acción destacada -->
 <a href="https://wa.me/573115081075?text=Hola,%20quiero%20solicitar%20una%20consulta%20médica%20a%20domicilio"
    target="_blank"
    class="inline-block bg-gradient-to-r from-green-500 to-green-700 hover:scale-105 transform text-white px-8 py-4 rounded-xl font-bold shadow-lg transition duration-300"
    title="Solicitar consulta médica a domicilio en Bogotá y Medellín">
-   Solicitar Consulta Médica
+  Solicitar Médico a Domicilio 24/7
+
 </a>
 <!-- Sección Servicios con Optimización SEO -->
 <section class="bg-gray-50 py-32" id="servicios-medicos-domicilio">
   <div class="max-w-7xl mx-auto px-6 text-center">
 
     <h2 class="text-4xl md:text-6xl font-extrabold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 w-full uppercase tracking-wide drop-shadow-lg">
-      Servicios Médicos a Domicilio
+      <h2>Servicios Médicos a Domicilio en Bogotá</h2>
+
     </h2>
 
     <p class="text-gray-700 text-lg md:text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
@@ -252,92 +304,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
-
-      <!-- Tarjeta Consulta Médica -->
-      <div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-        <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 shadow-2xl">
-          <img src="assets/img/medicog.png" alt="Consulta médica a domicilio en Bogotá y alrededores" class="w-24 h-24 mx-auto mt-6">
-        </div>
-        <div class="mt-28">
-          <h3 class="text-2xl font-bold mb-3 text-gray-900">Consulta Médica a Domicilio</h3>
-          <p class="text-gray-700 text-sm md:text-base">
-            Recibe <strong>consulta médica en casa</strong> con atención general y especializada.
-            Nuestros <em>médicos a domicilio</em> garantizan comodidad, rapidez y atención personalizada en tu hogar.
-          </p>
-          <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-            Agenda por WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <!-- Tarjeta Laboratorio -->
-      <div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-        <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 rounded-full bg-gradient-to-tr from-green-400 to-teal-600 shadow-2xl">
-          <img src="assets/img/labo1.png" alt="Laboratorio clínico en casa toma de muestras a domicilio" class="w-24 h-24 mx-auto mt-6">
-        </div>
-        <div class="mt-28">
-          <h3 class="text-2xl font-bold mb-3 text-gray-900">Laboratorio Clínico en Casa</h3>
-          <p class="text-gray-700 text-sm md:text-base">
-            Realizamos <strong>exámenes médicos a domicilio</strong> con toma de muestras en tu hogar.
-            Obtén resultados confiables y rápidos sin desplazarte a un laboratorio clínico.
-          </p>
-          <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-            Solicita tu examen
-          </a>
-        </div>
-      </div>
-
-      <!-- Tarjeta Electrocardiograma -->
-      <div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-        <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 flex items-center justify-center shadow-2xl">
-          <img src="assets/img/electro1.png" alt="Electrocardiograma portátil a domicilio" class="w-24 h-24 mx-auto">
-        </div>
-        <div class="mt-28">
-          <h3 class="text-2xl font-bold mb-3 text-gray-900">Electrocardiograma a Domicilio</h3>
-          <p class="text-gray-700 text-sm md:text-base">
-            Realizamos <strong>electrocardiogramas en casa</strong> con equipos portátiles y profesionales capacitados para un diagnóstico rápido y seguro.
-          </p>
-          <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-            Agenda tu electro
-          </a>
-        </div>
-      </div>
-
-      <!-- Tarjeta Terapias -->
-      <div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-        <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 flex items-center justify-center shadow-2xl">
-          <img src="assets/img/terapia1.png" alt="Terapias respiratorias y fisioterapia a domicilio" class="w-24 h-24 mx-auto">
-        </div>
-        <div class="mt-28">
-          <h3 class="text-2xl font-bold mb-3 text-gray-900">Terapias en Casa</h3>
-          <p class="text-gray-700 text-sm md:text-base">
-            Servicio de <strong>fisioterapia, terapias respiratorias y rehabilitación en casa</strong>.
-            Recupera tu salud con profesionales que se adaptan a tus necesidades.
-          </p>
-          <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-            Agenda tu terapia
-          </a>
-        </div>
-      </div>
-
-      <!-- Tarjeta Ecografía -->
-      <div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-        <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 rounded-full bg-gradient-to-tr from-indigo-500 to-blue-600 shadow-2xl">
-          <img src="assets/img/ecogra1.png" alt="Ecografía a domicilio con equipos portátiles de alta resolución" class="w-24 h-24 mx-auto mt-6">
-        </div>
-        <div class="mt-28">
-          <h3 class="text-2xl font-bold mb-3 text-gray-900">Ecografía a Domicilio</h3>
-          <p class="text-gray-700 text-sm md:text-base">
-            Contamos con <strong>ecografías en casa</strong> realizadas por profesionales expertos con equipos de alta resolución para diagnósticos confiables.
-          </p>
-          <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-            Solicita tu ecografía
-          </a>
-        </div>
-      </div>
-
-    </div>
+<!-- Tarjeta Consulta Médica -->
+<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 shadow-2xl">
+    <img src="assets/img/medicog.png" alt="Consulta médica domiciliaria en Bogotá con médico general particular" class="w-24 h-24 mx-auto mt-6">
   </div>
+  <div class="mt-28">
+    <h3 class="text-2xl font-bold mb-3 text-gray-900">Consulta Médica a Domicilio en Bogotá</h3>
+    <p class="text-gray-700 text-sm md:text-base">
+      Recibe <strong>consulta médica en casa</strong> con atención general y especializada.
+      Nuestros <em>médicos a domicilio</em> garantizan comodidad, rapidez y atención personalizada en tu hogar.
+    </p>
+    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
+      Agenda por WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- Tarjeta Laboratorio -->
+<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 rounded-full bg-gradient-to-tr from-green-400 to-teal-600 shadow-2xl">
+    <img src="assets/img/labo1.png" alt="Laboratorio clínico a domicilio en Bogotá con toma de muestras en casa" class="w-24 h-24 mx-auto mt-6">
+  </div>
+  <div class="mt-28">
+    <h3 class="text-2xl font-bold mb-3 text-gray-900">Laboratorio Clínico a Domicilio en Bogotá</h3>
+    <p class="text-gray-700 text-sm md:text-base">
+      Realizamos <strong>exámenes médicos a domicilio</strong> con toma de muestras en tu hogar.
+      Obtén resultados confiables y rápidos sin desplazarte a un laboratorio clínico.
+    </p>
+    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
+      Solicita tu examen
+    </a>
+  </div>
+</div>
+
+<!-- Tarjeta Electrocardiograma -->
+<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 flex items-center justify-center shadow-2xl">
+    <img src="assets/img/electro1.png" alt="Electrocardiograma a domicilio en Bogotá con equipo portátil" class="w-24 h-24 mx-auto">
+  </div>
+  <div class="mt-28">
+    <h3 class="text-2xl font-bold mb-3 text-gray-900">Electrocardiograma a Domicilio en Bogotá</h3>
+    <p class="text-gray-700 text-sm md:text-base">
+      Realizamos <strong>electrocardiogramas en casa</strong> con equipos portátiles y profesionales capacitados para un diagnóstico rápido y seguro.
+    </p>
+    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
+      Agenda tu electro
+    </a>
+  </div>
+</div>
+
+<!-- Tarjeta Terapias -->
+<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 flex items-center justify-center shadow-2xl">
+    <img src="assets/img/terapia1.png" alt="Terapias respiratorias y fisioterapia a domicilio en Bogotá" class="w-24 h-24 mx-auto">
+  </div>
+  <div class="mt-28">
+    <h3 class="text-2xl font-bold mb-3 text-gray-900">Terapias a Domicilio en Bogotá</h3>
+    <p class="text-gray-700 text-sm md:text-base">
+      Servicio de <strong>fisioterapia, terapias respiratorias y rehabilitación en casa</strong>.
+      Recupera tu salud con profesionales que se adaptan a tus necesidades.
+    </p>
+    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
+      Agenda tu terapia
+    </a>
+  </div>
+</div>
+
+<!-- Tarjeta Ecografía -->
+<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 rounded-full bg-gradient-to-tr from-indigo-500 to-blue-600 shadow-2xl">
+    <img src="assets/img/ecogra1.png" alt="Ecografía a domicilio en Bogotá con equipos portátiles de alta resolución" class="w-24 h-24 mx-auto mt-6">
+  </div>
+  <div class="mt-28">
+    <h3 class="text-2xl font-bold mb-3 text-gray-900">Ecografía a Domicilio en Bogotá</h3>
+    <p class="text-gray-700 text-sm md:text-base">
+      Contamos con <strong>ecografías en casa</strong> realizadas por profesionales expertos con equipos de alta resolución para diagnósticos confiables.
+    </p>
+    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
+      Solicita tu ecografía
+    </a>
+  </div>
+</div>
 </section>
 
 
@@ -432,7 +480,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="flex items-start gap-3 justify-center">
           <span class="text-blue-500 text-2xl">💉</span>
           <span>
-            Somos un equipo de médicos y profesionales de la salud comprometidos con brindar atención médica de calidad directamente en la comodidad de tu hogar.
+            Somos un equipo de médicos y profesionales de la salud en Bogotá, comprometidos con brindar <strong>atención médica domiciliaria</strong> de calidad directamente en la comodidad de tu hogar.
+
           </span>
         </p>
         <p class="flex items-start gap-3 justify-center">
@@ -487,7 +536,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="flex-1 min-w-[100px]">
       <h4 class="text-4xl font-bold text-blue-700">24/7</h4>
-      <p class="text-sm">Disponibilidad</p>
+      <p class="text-sm">Disponibilidad 24/7 en Bogotá</p>
+
     </div>
   </div>
 </section>
@@ -522,6 +572,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="py-20">
     <div class="max-w-7xl mx-auto px-4">
       <h3 class="text-3xl font-bold text-center mb-6">Cobertura en Bogotá</h3>
+        <p class="text-gray-700 text-lg mb-6">Atendemos <strong>todas las localidades de Bogotá</strong>: Usaquén, Chapinero, Suba, Engativá, Kennedy, Fontibón, Bosa, y más.</p>
       <div class="rounded-lg overflow-hidden shadow">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.9099870941!2d-74.08175!3d4.60971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a4f2b0b!2sBogotá!5e0!3m2!1ses!2sco!4v1670000000000!5m2!1ses!2sco" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
@@ -536,8 +587,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div>
       <h4 class="text-lg font-semibold mb-3">Su Médico en Casa</h4>
       <p class="text-sm leading-relaxed text-gray-300">
-        Atención médica domiciliaria en Bogotá y Medellín.<br>
-        Profesionales disponibles <span class="font-semibold">24/7</span>.
+       Atención médica domiciliaria en Bogotá.<br>
+Profesionales disponibles <span class="font-semibold">24/7</span>.
+
       </p>
     </div>
 
