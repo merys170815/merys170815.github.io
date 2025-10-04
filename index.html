@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Médico a Domicilio en Bogotá 24/7 | Consultas y Urgencias | Su Médico en Casa</title>
 
-
- <meta name="description" content="Médico a domicilio en Bogotá disponible 24/7. Consultas médicas generales, urgencias, terapias y laboratorios en casa. Agenda tu cita con médicos particulares certificados.">
-
+  <meta name="description" content="Médico a domicilio en Bogotá disponible 24/7. Consultas médicas generales, urgencias, terapias y laboratorios en casa. Agenda tu cita con médicos particulares certificados.">
   <meta name="keywords" content="médico a domicilio Bogotá, atención médica en casa, consulta médica, laboratorio a domicilio, electrocardiograma en casa, terapia física, terapia respiratoria">
-  <meta name="theme-color" content="#25d366">
-
+  <meta name="theme-color" content="#0b73d6">
 
    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16532088361">
@@ -26,7 +23,6 @@
   <!-- Favicon -->
   <link rel="icon" href="https://www.sumedicoencasa.com/assets/img/logo2.png" type="image/png">
 
-
   <!-- Canonical URL -->
 <link rel="canonical" href="https://www.sumedicoencasa.com/">
 
@@ -34,9 +30,11 @@
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
+  <!-- Tipografía (diseño visual: Poppins + Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Médico a Domicilio en Bogotá | Su Médico en Casa">
-
   <meta property="og:description" content="Consulta médica, laboratorio, electrocardiograma y terapias sin salir de casa. Atención 24/7 en Bogotá.">
   <meta property="og:image" content="https://www.sumedicoencasa.com/assets/img/portada-medica.jpg">
   <meta property="og:url" content="https://www.sumedicoencasa.com">
@@ -100,32 +98,169 @@
 }
 </script>
 
-
+  <!-- ========= DISEÑO VISUAL: CSS PERSONALIZADO (solo apariencia) ========= -->
   <style>
-    /* Botón flotante WhatsApp */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 1000;
-      transition: transform 0.2s ease-in-out;
+    :root{
+      --primary:#0b73d6;         /* Azul profesional */
+      --accent:#00b894;          /* Verde suave para CTAs secundarios */
+      --muted:#6b7280;           /* Texto secundario */
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
     }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
+
+    /* Tipografías globales */
+    html,body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    h1,h2,h3,h4,h5 { font-family: "Poppins", "Inter", sans-serif; font-weight:700; }
+
+    /* HEADER: diseño más limpio y profesional */
+    #header { background: rgba(255,255,255,0.9); backdrop-filter: blur(6px); border-bottom: 1px solid #eef2f6; }
+    #header .max-w-7xl { align-items:center; gap:12px; }
+    #header h2 { color:var(--primary); font-size:1.05rem; letter-spacing:0.2px; }
+    #menu a { color:#374151; padding:8px 10px; border-radius:8px; }
+    #menu a:hover { background: rgba(11,115,214,0.08); color:var(--primary); }
+
+    /* Botón CTA Llamar */
+    .call-btn {
+      background: linear-gradient(90deg,var(--primary),#0a5fb7);
+      color:white;
+      border-radius:10px;
+      padding:10px 14px;
+      box-shadow: 0 6px 20px rgba(11,115,214,0.12);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .call-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(11,115,214,0.14); }
+
+    /* Banner: mantiene imágenes pero con overlay suave y título centrado */
+    section.relative .max-w-7xl { position:relative; }
+    #banner { filter: saturate(0.96) contrast(1.02); transition: transform 0.8s ease; }
+    #banner:hover { transform: scale(1.02); }
+
+    /* Herotext area */
+    .hero-section { margin-top:18px; padding:36px 1rem; }
+    .hero-section h1 { font-size:1.9rem; line-height:1.05; color: #0f1724; }
+    .hero-section h2 { color:var(--muted); font-weight:600; margin-bottom:18px; }
+
+    .benefit-row { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; color:var(--muted); }
+
+    /* CTA principal */
+    .cta-primary {
+      background: linear-gradient(90deg,var(--accent), #00a67a);
+      color:#fff;
+      padding:14px 22px;
+      border-radius:14px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      box-shadow: 0 10px 30px rgba(0,166,122,0.14);
+      transition: transform .18s ease, opacity .18s;
+      text-decoration:none;
+    }
+    .cta-primary:hover { transform: translateY(-3px); opacity:.98; }
+
+    /* Servicios: tarjetas más sobrias y limpias */
+    .service-card {
+      border-radius:18px;
+      padding:2.25rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,247,250,1) 100%);
+      box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+      transition: transform .32s cubic-bezier(.2,.9,.2,1), box-shadow .32s;
+      overflow:visible;
+      min-height: 340px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      align-items:start;
+    }
+    .service-card:hover { transform: translateY(-10px); box-shadow: 0 28px 60px rgba(15,23,42,0.08); }
+
+    .service-card .round {
+      width:88px; height:88px; border-radius:999px;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 8px 30px rgba(11,115,214,0.08);
+      margin: -64px auto 12px auto;
+    }
+
+    .service-card h3 { margin-top:8px; color:#0f1724; font-size:1.125rem; }
+    .service-card p { color:var(--muted); margin-top:8px; flex:1; }
+
+    .service-card a {
+      margin-top:14px;
+      padding:10px 14px;
+      border-radius:999px;
+      background: var(--primary);
+      color:white;
+      font-weight:600;
+      box-shadow: 0 8px 20px rgba(11,115,214,0.08);
+      text-decoration:none;
+    }
+    .service-card a:hover { background:#095aa8; transform:translateY(-2px); }
+
+    /* Cards 'Por qué elegirnos' */
+    .choice-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,252,255,1));
+      padding:20px;
+      border-radius:16px;
+      box-shadow: 0 8px 26px rgba(15,23,42,0.04);
+      transition: transform .28s ease, box-shadow .28s ease;
+      text-align:center;
+    }
+    .choice-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(15,23,42,0.06); }
+
+    .choice-card .emoji { font-size:2.6rem; margin-bottom:10px; display:block; }
+
+    /* Reveal cards smoother */
+    .opacity-0 { opacity:0; transform: translateY(20px); transition: all .7s ease; }
+    .opacity-100 { opacity:1; transform: translateY(0); }
+
+    /* Quiénes somos: imagen con borde suave */
+    .who-image { border-radius:14px; box-shadow: 0 18px 60px rgba(2,6,23,0.06); }
+
+    /* Estadísticas */
+    .stats { border-radius:12px; padding:18px; background: linear-gradient(90deg,#e6f0ff, #f7f9fc); box-shadow: 0 10px 30px rgba(11,115,214,0.04); }
+    .stats h4 { color:var(--primary); font-size:2rem; }
+
+    /* Blog cards */
+    .blog-card { border-radius:12px; padding:20px; box-shadow: 0 8px 20px rgba(2,6,23,0.04); background:white; }
+    .blog-card a { color:var(--primary); font-weight:600; }
+
+    /* Footer: más aire y legibilidad */
+    footer { background: linear-gradient(180deg,#042a5d 0%, #05396f 100%); color: #e6eefb; }
+    footer h4 { color:#f8fbff; }
+    footer a { color: rgba(255,255,255,0.92); }
+    footer a:hover { color: #bfe6ff; }
+    footer .text-xs { color: rgba(255,255,255,0.75); border-top:1px solid rgba(255,255,255,0.06); padding-top:12px; }
+
+   /* Reemplaza la regla .whatsapp-float existente por esta */
+.whatsapp-float {
+  position: fixed !important;     /* fija el botón en la ventana */
+  bottom: 20px !important;        /* espacio desde abajo */
+  right: 20px !important;         /* espacio desde la derecha */
+  z-index: 9999 !important;       /* para que esté por encima de todo */
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #00b894, #009a73);
+  box-shadow: 0 20px 50px rgba(0,152,115,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .18s ease;
+}
+.whatsapp-float:hover {
+  transform: translateY(-6px);
+}
+
+
+    /* Responsive tweaks */
+    @media (min-width:1024px){
+      .hero-section h1 { font-size:2.6rem; }
+      .hero-section h2 { font-size:1.35rem; }
     }
   </style>
+  <!-- ========= /FIN CSS PERSONALIZADO ========= -->
 
- <!-- Google Tag Manager -->
+  <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -133,10 +268,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TJ6JZWJM');</script>
 <!-- End Google Tag Manager -->
 
-
-  <!-- Event snippet for su medico en casa conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
+  <script>
 function gtag_report_conversion(url) {
   var callback = function () {
     if (typeof(url) != 'undefined') {
@@ -161,47 +293,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- Navbar -->
-<header id="header" class="bg-white fixed top-0 left-0 w-full z-50 shadow-md transition-all duration-300">
+<header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <!-- Logo -->
-    <h2 class="text-xl md:text-2xl font-extrabold text-blue-600 tracking-wide">
-  Médico a Domicilio en Bogotá | Su Médico en Casa
-</h2>
-
-
+    <!-- Logo (texto) -->
+    <h2 class="text-lg md:text-xl font-extrabold text-primary tracking-tight" style="color:var(--primary);">
+      Médico a Domicilio en Bogotá | <span style="color:#0a2540">Su Médico en Casa</span>
+    </h2>
 
     <!-- Botón hamburguesa (solo en móviles) -->
-    <button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none text-2xl">
+    <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none text-2xl">
       ☰
     </button>
 
- <nav id="menu" class="hidden md:flex space-x-6 font-medium text-gray-700">
-  <a href="portafolio.html" class="hover:text-blue-600 transition duration-300">Nosotros</a>
-  <a href="medicina-general.html" class="hover:text-blue-600 transition duration-300">Consulta Médica Domiciliaria</a>
-  <a href="https://wa.me/573115081075" target="_blank" class="hover:text-blue-600 transition duration-300">Contacto</a>
-</nav>
-      <!-- Botón CTA destacado -->
-<a href="tel:+573115081075" class="ml-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300 hidden md:inline-block">
-  📞 Llamar 24/7
-</a>
+    <nav id="menu" class="hidden md:flex items-center space-x-4 font-medium text-gray-700">
+      <a href="portafolio.html" class="hover:bg-gray-100 px-3 py-2 rounded-md transition">Nosotros</a>
+      <a href="medicina-general.html" class="hover:bg-gray-100 px-3 py-2 rounded-md transition">Consulta Médica</a>
+      <a href="https://wa.me/573115081075" target="_blank" class="hidden lg:inline-flex items-center gap-2 px-3 py-2 rounded-md transition" title="Contacto por WhatsApp">Contacto</a>
+      <!-- CTA -->
+      <a href="tel:+573115081075" class="ml-2 call-btn hidden md:inline-block" aria-label="Llamar 24/7">
+        📞 Llamar 24/7
+      </a>
+    </nav>
+  </div>
 
-
-</div>
-
-<!-- Menú desplegable en móviles -->
-<div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
-  <nav class="flex flex-col space-y-2 px-4 py-4 font-medium text-gray-700">
-   <a href="portafolio.html" class="hover:text-blue-600 transition duration-300">Nosotros</a>
-  <a href="medicina-general.html" class="hover:text-blue-600 transition duration-300">Consulta Médica Domiciliaria</a>
-  <a href="https://wa.me/573115081075" target="_blank" class="hover:text-blue-600 transition duration-300">Contacto</a>
-</nav>
-<a href="tel:+573249416572" class="bg-blue-600 text-white text-center py-2 rounded-lg shadow hover:bg-blue-700 transition">📞 Llamar 24/7</a>
-
-</div>
-
-
+  <!-- Menú desplegable en móviles -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+    <nav class="flex flex-col space-y-2 px-4 py-4 font-medium text-gray-700">
+      <a href="portafolio.html" class="hover:text-blue-600 transition duration-300">Nosotros</a>
+      <a href="medicina-general.html" class="hover:text-blue-600 transition duration-300">Consulta Médica Domiciliaria</a>
+      <a href="https://wa.me/573115081075" target="_blank" class="hover:text-blue-600 transition duration-300">Contacto</a>
+    </nav>
+    <a href="tel:+573249416572" class="bg-blue-600 text-white text-center py-3 rounded-lg shadow hover:bg-blue-700 transition block mx-4 mb-4">📞 Llamar 24/7</a>
+  </div>
 </header>
-
 
 <!-- Script para abrir/cerrar el menú móvil y efecto scroll -->
 <script>
@@ -222,7 +346,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
-
 <section class="relative w-full pt-20">
   <div class="relative w-full max-w-7xl mx-auto overflow-hidden rounded-xl shadow-lg">
     <img id="banner"
@@ -232,9 +355,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          width="1600" height="900"
          fetchpriority="high"
          decoding="async">
+    <!-- soft overlay to improve legibility if needed -->
+    <div aria-hidden="true" style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(4,41,77,0.12), rgba(2,6,23,0.06)); pointer-events:none;"></div>
   </div>
 </section>
-
 
 <script>
   const images = [
@@ -251,214 +375,188 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }, 5000); // Cambia cada 5 segundos
 </script>
 
-<!-- Información debajo del banner - Bloque llamativo con gradientes en títulos -->
-<section class="max-w-7xl mx-auto px-6 md:px-12 py-16 text-center bg-gray-50 rounded-2xl shadow-xl">
-  <!-- Título principal H1 con gradiente -->
-  <h1 class="text-3xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent
-             bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-  Médico a Domicilio en Bogotá – Atención Médica Particular 24/7 en Casa
-</h1>
+<!-- Información debajo del banner - Bloque llamativo -->
+<section class="max-w-7xl mx-auto px-6 md:px-12 py-12 text-center hero-section bg-gray-50 rounded-2xl">
+  <!-- Título principal H1 (más sobrio y profesional) -->
+  <h1 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight" style="color:#071433;">
+    Médico a Domicilio en Bogotá – Atención Médica Particular 24/7 en Casa
+  </h1>
 
-
-  <!-- Subtítulo H2 con otro gradiente suave -->
-  <h2 class="text-xl md:text-2xl text-gray-700 mb-8 bg-clip-text text-transparent
-             bg-gradient-to-r from-blue-400 to-blue-600">
-  Consulta Médica a Domicilio en Bogotá | Urgencias, Laboratorio, Electrocardiograma y Ecografía en Casa
-</h2>
-
+  <!-- Subtítulo H2 -->
+  <h2 class="text-lg md:text-xl text-gray-600 mb-6">
+    Consulta médica a domicilio | Urgencias, laboratorio, electrocardiograma y ecografía en tu hogar con profesionales certificados.
+  </h2>
 
   <!-- Lista de beneficios con iconos -->
-  <div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
-  <span>🚑</span> Urgencias médicas a domicilio 24/7 en Bogotá
-</div>
-<div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
-  <span>🏥</span> Médico general particular a domicilio en Bogotá
-</div>
-<div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
-  <span>🛡️</span> Servicio médico a domicilio seguro y confiable
-</div>
-<div class="flex items-center gap-3 text-gray-700 text-lg md:text-xl">
-  <span>👨‍👩‍👧‍👦</span> Consulta médica en casa para todas las edades
-</div>
-
-<!-- Llamada a la acción destacada -->
-<a href="https://wa.me/573115081075?text=Hola,%20quiero%20solicitar%20una%20consulta%20médica%20a%20domicilio"
-   target="_blank"
-   class="inline-block bg-gradient-to-r from-green-500 to-green-700 hover:scale-105 transform text-white px-8 py-4 rounded-xl font-bold shadow-lg transition duration-300"
-   title="Solicitar consulta médica a domicilio en Bogotá y Medellín">
-  Solicitar Médico a Domicilio 24/7
-
-</a>
-<!-- Sección Servicios con Optimización SEO -->
-<section class="bg-gray-50 py-32" id="servicios-medicos-domicilio">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-
-    <h2 class="text-4xl md:text-6xl font-extrabold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 w-full uppercase tracking-wide drop-shadow-lg">
-      <h2>Servicios Médicos a Domicilio en Bogotá</h2>
-
-    </h2>
-
-    <p class="text-gray-700 text-lg md:text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
-      Ofrecemos <strong>servicios médicos a domicilio</strong> en tu ciudad: <strong>consulta médica general y especializada, laboratorio clínico en casa, electrocardiograma portátil, fisioterapia y terapias respiratorias, ecografía a domicilio</strong> con equipos de última generación.
-      Brindamos atención confiable, rápida y segura, sin que tengas que salir de tu hogar.
-    </p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
-<!-- Tarjeta Consulta Médica -->
-<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 shadow-2xl">
-    <img src="assets/img/medicog.png" alt="Consulta médica domiciliaria en Bogotá con médico general particular" class="w-24 h-24 mx-auto mt-6">
+  <div class="benefit-row mb-6">
+    <div class="flex items-center gap-2 text-gray-700 px-3 py-2 rounded-md">
+      <span class="text-2xl">🚑</span><span class="text-sm md:text-base">Urgencias 24/7</span>
+    </div>
+    <div class="flex items-center gap-2 text-gray-700 px-3 py-2 rounded-md">
+      <span class="text-2xl">🏥</span><span class="text-sm md:text-base">Médicos particulares</span>
+    </div>
+    <div class="flex items-center gap-2 text-gray-700 px-3 py-2 rounded-md">
+      <span class="text-2xl">🏠</span><span class="text-sm md:text-base">Atención en casa</span>
+    </div>
   </div>
-  <div class="mt-28">
-    <h3 class="text-2xl font-bold mb-3 text-gray-900">Consulta Médica a Domicilio en Bogotá</h3>
-    <p class="text-gray-700 text-sm md:text-base">
-      Recibe <strong>consulta médica en casa</strong> con atención general y especializada.
-      Nuestros <em>médicos a domicilio</em> garantizan comodidad, rapidez y atención personalizada en tu hogar.
-    </p>
-    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-      Agenda por WhatsApp
-    </a>
-  </div>
-</div>
 
-<!-- Tarjeta Laboratorio -->
-<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 rounded-full bg-gradient-to-tr from-green-400 to-teal-600 shadow-2xl">
-    <img src="assets/img/labo1.png" alt="Laboratorio clínico a domicilio en Bogotá con toma de muestras en casa" class="w-24 h-24 mx-auto mt-6">
-  </div>
-  <div class="mt-28">
-    <h3 class="text-2xl font-bold mb-3 text-gray-900">Laboratorio Clínico a Domicilio en Bogotá</h3>
-    <p class="text-gray-700 text-sm md:text-base">
-      Realizamos <strong>exámenes médicos a domicilio</strong> con toma de muestras en tu hogar.
-      Obtén resultados confiables y rápidos sin desplazarte a un laboratorio clínico.
-    </p>
-    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-      Solicita tu examen
-    </a>
-  </div>
-</div>
-
-<!-- Tarjeta Electrocardiograma -->
-<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 flex items-center justify-center shadow-2xl">
-    <img src="assets/img/electro1.png" alt="Electrocardiograma a domicilio en Bogotá con equipo portátil" class="w-24 h-24 mx-auto">
-  </div>
-  <div class="mt-28">
-    <h3 class="text-2xl font-bold mb-3 text-gray-900">Electrocardiograma a Domicilio en Bogotá</h3>
-    <p class="text-gray-700 text-sm md:text-base">
-      Realizamos <strong>electrocardiogramas en casa</strong> con equipos portátiles y profesionales capacitados para un diagnóstico rápido y seguro.
-    </p>
-    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-      Agenda tu electro
-    </a>
-  </div>
-</div>
-
-<!-- Tarjeta Terapias -->
-<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 flex items-center justify-center shadow-2xl">
-    <img src="assets/img/terapia1.png" alt="Terapias respiratorias y fisioterapia a domicilio en Bogotá" class="w-24 h-24 mx-auto">
-  </div>
-  <div class="mt-28">
-    <h3 class="text-2xl font-bold mb-3 text-gray-900">Terapias a Domicilio en Bogotá</h3>
-    <p class="text-gray-700 text-sm md:text-base">
-      Servicio de <strong>fisioterapia, terapias respiratorias y rehabilitación en casa</strong>.
-      Recupera tu salud con profesionales que se adaptan a tus necesidades.
-    </p>
-    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-      Agenda tu terapia
-    </a>
-  </div>
-</div>
-
-<!-- Tarjeta Ecografía -->
-<div class="service-card relative p-8 bg-white rounded-3xl shadow-2xl transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
-  <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-36 rounded-full bg-gradient-to-tr from-indigo-500 to-blue-600 shadow-2xl">
-    <img src="assets/img/ecogra1.png" alt="Ecografía a domicilio en Bogotá con equipos portátiles de alta resolución" class="w-24 h-24 mx-auto mt-6">
-  </div>
-  <div class="mt-28">
-    <h3 class="text-2xl font-bold mb-3 text-gray-900">Ecografía a Domicilio en Bogotá</h3>
-    <p class="text-gray-700 text-sm md:text-base">
-      Contamos con <strong>ecografías en casa</strong> realizadas por profesionales expertos con equipos de alta resolución para diagnósticos confiables.
-    </p>
-    <a href="https://wa.me/573115081075" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition">
-      Solicita tu ecografía
-    </a>
-  </div>
-</div>
+  <!-- Llamada a la acción destacada -->
+  <a href="https://wa.me/573115081075?text=Hola,%20quiero%20solicitar%20una%20consulta%20médica%20a%20domicilio"
+     target="_blank"
+     class="cta-primary"
+     title="Solicitar consulta médica a domicilio en Bogotá y Medellín">
+    📩 Solicitar Médico a Domicilio 24/7
+  </a>
 </section>
 
-
-<!-- Animación gradiente -->
-<style>
-@keyframes gradient-x {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradient-x 6s ease infinite;
-}
-</style>
-
-
- <!-- Por qué elegirnos - versión premium -->
-<section class="bg-gradient-to-b from-gray-50 to-gray-100 py-24">
+<!-- Sección Servicios -->
+<section class="bg-gray-50 py-20" id="servicios-medicos-domicilio">
   <div class="max-w-7xl mx-auto px-6 text-center">
-    <!-- Título con gradiente animado -->
-    <h3 class="text-3xl md:text-4xl font-extrabold mb-16 bg-clip-text text-transparent
-               bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">
-      ¿Por Qué Elegirnos?
-    </h3>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-gray-900 tracking-tight">
+      Servicios Médicos a Domicilio en Bogotá
+    </h2>
 
-      <!-- Tarjeta 1 -->
-      <div class="choice-card p-6 bg-gray-50 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:-translate-y-2 hover:rotate-1 opacity-0">
-        <div class="text-6xl mb-4">⏰</div>
-        <h4 class="text-xl font-bold mb-2">Disponibilidad 24/7</h4>
-        <p class="text-gray-700 text-sm">Siempre listos para atenderte, a cualquier hora del día.</p>
+    <p class="text-gray-600 text-base md:text-lg max-w-4xl mx-auto mb-12 leading-relaxed">
+      Ofrecemos <strong>consulta médica</strong>, <strong>laboratorio clínico</strong>, <strong>electrocardiograma</strong>, <strong>ecografías</strong> y <strong>terapias</strong> a domicilio con equipos de última generación.
+      Atención confiable, rápida y segura sin salir de tu hogar.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+      <!-- Tarjeta Consulta Médica -->
+      <div class="service-card relative">
+        <div class="round" style="background: linear-gradient(90deg,#dbeefe, #e8f3ff);">
+          <img src="assets/img/medicog.png" alt="Consulta médica domiciliaria en Bogotá con médico general particular" class="w-20 h-20">
+        </div>
+        <div class="mt-6">
+          <h3 class="text-lg font-semibold mb-2">Consulta Médica a Domicilio</h3>
+          <p class="text-sm md:text-sm">
+            Recibe <strong>consulta médica en casa</strong> con atención general y especializada. Atención personalizada y confidencial.
+          </p>
+          <a href="https://wa.me/573115081075" target="_blank" class="inline-flex items-center justify-center px-4 py-2 mt-4" aria-label="Agenda por WhatsApp">
+            Agenda por WhatsApp
+          </a>
+        </div>
       </div>
 
-      <!-- Tarjeta 2 -->
-      <div class="choice-card p-6 bg-gray-50 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:-translate-y-2 hover:rotate-1 opacity-0">
-        <div class="text-6xl mb-4">🩺</div>
-        <h4 class="text-xl font-bold mb-2">Médicos Certificados</h4>
-        <p class="text-gray-700 text-sm">Profesionales con experiencia y alta calidad humana.</p>
+      <!-- Tarjeta Laboratorio -->
+      <div class="service-card relative">
+        <div class="round" style="background: linear-gradient(90deg,#e6fbf3,#e1faf0);">
+          <img src="assets/img/labo1.png" alt="Laboratorio clínico a domicilio en Bogotá con toma de muestras en casa" class="w-20 h-20">
+        </div>
+        <div class="mt-6">
+          <h3 class="text-lg font-semibold mb-2">Laboratorio Clínico a Domicilio</h3>
+          <p class="text-sm md:text-sm">
+            Toma de muestras en tu hogar con resultados confiables y servicio profesional.
+          </p>
+          <a href="https://wa.me/573115081075" target="_blank" class="inline-flex items-center justify-center px-4 py-2 mt-4">
+            Solicita tu examen
+          </a>
+        </div>
       </div>
 
-      <!-- Tarjeta 3 -->
-      <div class="choice-card p-6 bg-gray-50 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:-translate-y-2 hover:rotate-1 opacity-0">
-        <div class="text-6xl mb-4">⚡</div>
-        <h4 class="text-xl font-bold mb-2">Atención Rápida</h4>
-        <p class="text-gray-700 text-sm">Llegamos a tu hogar en el menor tiempo posible.</p>
+      <!-- Tarjeta Electrocardiograma -->
+      <div class="service-card relative">
+        <div class="round" style="background: linear-gradient(90deg,#f0f6ff,#eef6ff);">
+          <img src="assets/img/electro1.png" alt="Electrocardiograma a domicilio en Bogotá con equipo portátil" class="w-20 h-20">
+        </div>
+        <div class="mt-6">
+          <h3 class="text-lg font-semibold mb-2">Electrocardiograma a Domicilio</h3>
+          <p class="text-sm md:text-sm">
+            Electrocardiogramas en casa con equipos portátiles y profesionales capacitados.
+          </p>
+          <a href="https://wa.me/573115081075" target="_blank" class="inline-flex items-center justify-center px-4 py-2 mt-4">
+            Agenda tu electro
+          </a>
+        </div>
       </div>
 
-      <!-- Tarjeta 4 -->
-      <div class="choice-card p-6 bg-gray-50 rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 hover:-translate-y-2 hover:rotate-1 opacity-0">
-        <div class="text-6xl mb-4">💰</div>
-        <h4 class="text-xl font-bold mb-2">Precios Transparentes</h4>
-        <p class="text-gray-700 text-sm">Tarifas claras y justas sin costos ocultos.</p>
+      <!-- Tarjeta Terapias -->
+      <div class="service-card relative">
+        <div class="round" style="background: linear-gradient(90deg,#fff3e6,#fff7ef);">
+          <img src="assets/img/terapia1.png" alt="Terapias respiratorias y fisioterapia a domicilio en Bogotá" class="w-20 h-20">
+        </div>
+        <div class="mt-6">
+          <h3 class="text-lg font-semibold mb-2">Terapias a Domicilio</h3>
+          <p class="text-sm md:text-sm">
+            Fisioterapia, terapias respiratorias y rehabilitación adaptadas a tus necesidades en casa.
+          </p>
+          <a href="https://wa.me/573115081075" target="_blank" class="inline-flex items-center justify-center px-4 py-2 mt-4">
+            Agenda tu terapia
+          </a>
+        </div>
       </div>
 
+      <!-- Tarjeta Ecografía -->
+      <div class="service-card relative">
+        <div class="round" style="background: linear-gradient(90deg,#e8f0ff,#eef5ff);">
+          <img src="assets/img/ecogra1.png" alt="Ecografía a domicilio en Bogotá con equipos portátiles de alta resolución" class="w-20 h-20">
+        </div>
+        <div class="mt-6">
+          <h3 class="text-lg font-semibold mb-2">Ecografía a Domicilio</h3>
+          <p class="text-sm md:text-sm">
+            Ecografías en casa con equipos de alta resolución y personal experto para diagnósticos confiables.
+          </p>
+          <a href="https://wa.me/573115081075" target="_blank" class="inline-flex items-center justify-center px-4 py-2 mt-4">
+            Solicita tu ecografía
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Animación de scroll -->
+ <!-- Por qué elegirnos - versión premium -->
+<section class="bg-gradient-to-b from-gray-50 to-gray-100 py-16">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <!-- Título -->
+    <h3 class="text-2xl md:text-3xl font-extrabold mb-8" style="color:#0f1724;">
+      ¿Por Qué Elegirnos?
+    </h3>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="choice-card opacity-0">
+        <span class="emoji">⏰</span>
+        <h4 class="text-lg font-semibold mb-1">Disponibilidad 24/7</h4>
+        <p class="text-sm text-gray-600">Estamos listos para atenderte a cualquier hora del día.</p>
+      </div>
+
+      <div class="choice-card opacity-0">
+        <span class="emoji">🩺</span>
+        <h4 class="text-lg font-semibold mb-1">Médicos Certificados</h4>
+        <p class="text-sm text-gray-600">Profesionales con experiencia y enfoque humano.</p>
+      </div>
+
+      <div class="choice-card opacity-0">
+        <span class="emoji">⚡</span>
+        <h4 class="text-lg font-semibold mb-1">Atención Rápida</h4>
+        <p class="text-sm text-gray-600">Tiempos de respuesta optimizados para emergencias y consultas.</p>
+      </div>
+
+      <div class="choice-card opacity-0">
+        <span class="emoji">💰</span>
+        <h4 class="text-lg font-semibold mb-1">Precios Transparentes</h4>
+        <p class="text-sm text-gray-600">Tarifas claras sin costos ocultos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reveal animation for choice cards -->
 <script>
   const cards = document.querySelectorAll('.choice-card');
 
   function revealCards() {
     const triggerBottom = window.innerHeight * 0.85;
 
-    cards.forEach(card => {
+    cards.forEach((card, i) => {
       const cardTop = card.getBoundingClientRect().top;
 
       if(cardTop < triggerBottom) {
-        card.classList.remove('opacity-0');
-        card.classList.add('opacity-100', 'transition', 'duration-700');
+        setTimeout(() => {
+          card.classList.remove('opacity-0');
+          card.classList.add('opacity-100');
+        }, i * 120);
       }
     });
   }
@@ -468,23 +566,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 
 <!-- Quiénes somos -->
-<section class="max-w-7xl mx-auto px-6 md:px-12 py-20 bg-gray-50 rounded-2xl shadow-lg">
-  <div class="grid md:grid-cols-1 gap-12 items-center text-center">
-
+<section class="max-w-7xl mx-auto px-6 md:px-12 py-20 bg-gray-50 rounded-2xl shadow-sm">
+  <div class="grid md:grid-cols-2 gap-12 items-center">
     <!-- Texto -->
-    <div>
-      <h3 class="text-3xl md:text-4xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-        Quiénes Somos
-      </h3>
-      <div class="space-y-4 text-gray-700 text-lg max-w-3xl mx-auto">
-        <p class="flex items-start gap-3 justify-center">
+    <div class="text-center md:text-left">
+      <h3 class="text-2xl md:text-3xl font-extrabold mb-4" style="color:#071433;">Quiénes Somos</h3>
+      <div class="space-y-4 text-gray-700 text-lg max-w-3xl">
+        <p class="flex items-start gap-3">
           <span class="text-blue-500 text-2xl">💉</span>
           <span>
             Somos un equipo de médicos y profesionales de la salud en Bogotá, comprometidos con brindar <strong>atención médica domiciliaria</strong> de calidad directamente en la comodidad de tu hogar.
-
           </span>
         </p>
-        <p class="flex items-start gap-3 justify-center">
+        <p class="flex items-start gap-3">
           <span class="text-green-500 text-2xl">🏠</span>
           <span>
             Nuestra misión es acercar la salud a cada paciente, evitando desplazamientos y ofreciendo un servicio humano, confiable y oportuno.
@@ -493,86 +587,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <!-- Botón que abre WhatsApp -->
       <a href="https://wa.me/573115081075" target="_blank"
-         class="mt-6 inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition duration-300">
+         class="mt-6 inline-block bg-white border border-transparent hover:border-blue-100 text-primary px-6 py-3 rounded-lg font-semibold shadow-sm transition duration-200">
         Escríbenos por WhatsApp
       </a>
     </div>
 
-  </div>
-</section>
-
     <!-- Imagen -->
-    <div>
+    <div class="text-center md:text-right">
       <img src="assets/img/sumedico.webp"
            alt="Equipo médico a domicilio en Bogotá"
-           class="rounded-xl shadow-lg hover:scale-105 transform transition duration-500">
+           class="rounded-xl who-image w-full max-w-md mx-auto md:ml-auto">
     </div>
   </div>
 </section>
 
-
-<!-- Animación gradiente -->
-<style>
-@keyframes gradient-x {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradient-x 5s ease infinite;
-}
-</style>
 <!-- Estadísticas -->
-<section class="bg-blue-200 text-gray-800 py-20 text-center">
-  <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-around items-center gap-6">
-    <div class="flex-1 min-w-[100px]">
-      <h4 class="text-4xl font-bold text-blue-700">+10</h4>
-      <p class="text-sm">Años de experiencia</p>
-    </div>
-    <div class="flex-1 min-w-[100px]">
-      <h4 class="text-4xl font-bold text-blue-700">+5.000</h4>
-      <p class="text-sm">Pacientes atendidos</p>
-    </div>
-    <div class="flex-1 min-w-[100px]">
-      <h4 class="text-4xl font-bold text-blue-700">24/7</h4>
-      <p class="text-sm">Disponibilidad 24/7 en Bogotá</p>
-
+<section class="py-12">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex flex-wrap justify-around items-center gap-6">
+      <div class="stats text-center min-w-[140px]">
+        <h4 class="text-3xl font-bold">+10</h4>
+        <p class="text-sm text-gray-700">Años de experiencia</p>
+      </div>
+      <div class="stats text-center min-w-[140px]">
+        <h4 class="text-3xl font-bold">+5.000</h4>
+        <p class="text-sm text-gray-700">Pacientes atendidos</p>
+      </div>
+      <div class="stats text-center min-w-[140px]">
+        <h4 class="text-3xl font-bold">24/7</h4>
+        <p class="text-sm text-gray-700">Disponibilidad en Bogotá</p>
+      </div>
     </div>
   </div>
 </section>
-
-
 
   <!-- Blog -->
-  <section class="bg-gray-100 py-20">
+  <section class="bg-gray-100 py-16">
     <div class="max-w-7xl mx-auto px-4">
-      <h3 class="text-3xl font-bold text-center mb-10">Artículos de Salud</h3>
+      <h3 class="text-2xl font-bold text-center mb-8">Artículos de Salud</h3>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 shadow rounded-lg">
+        <div class="blog-card">
           <h4 class="font-semibold mb-2">Cómo prevenir la hipertensión en casa</h4>
-          <p class="text-sm">Consejos prácticos para mantener una vida saludable...</p>
-          <a href="blog/hipertension.html" class="text-blue-600 text-sm font-semibold hover:underline">Leer más</a>
+          <p class="text-sm text-gray-600">Consejos prácticos para mantener una vida saudável...</p>
+          <a href="blog/hipertension.html" class="text-sm font-semibold hover:underline">Leer más</a>
         </div>
-        <div class="bg-white p-6 shadow rounded-lg">
+        <div class="blog-card">
           <h4 class="font-semibold mb-2">La importancia del chequeo médico anual</h4>
-          <p class="text-sm">Un control a tiempo puede salvar tu vida...</p>
-          <a href="blog/chequeo-anual.html" class="text-blue-600 text-sm font-semibold hover:underline">Leer más</a>
+          <p class="text-sm text-gray-600">Un control a tiempo puede salvar tu vida...</p>
+          <a href="blog/chequeo-anual.html" class="text-sm font-semibold hover:underline">Leer más</a>
         </div>
-        <div class="bg-white p-6 shadow rounded-lg">
+        <div class="blog-card">
           <h4 class="font-semibold mb-2">Tips para fortalecer el sistema inmune</h4>
-          <p class="text-sm">Pequeños cambios que marcan la diferencia...</p>
-          <a href="blog/sistema-inmune.html" class="text-blue-600 text-sm font-semibold hover:underline">Leer más</a>
+          <p class="text-sm text-gray-600">Pequeños cambios que marcan la diferencia...</p>
+          <a href="blog/sistema-inmune.html" class="text-sm font-semibold hover:underline">Leer más</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Mapa -->
-  <section class="py-20">
+  <section class="py-12">
     <div class="max-w-7xl mx-auto px-4">
-      <h3 class="text-3xl font-bold text-center mb-6">Cobertura en Bogotá</h3>
-        <p class="text-gray-700 text-lg mb-6">Atendemos <strong>todas las localidades de Bogotá</strong>: Usaquén, Chapinero, Suba, Engativá, Kennedy, Fontibón, Bosa, y más.</p>
+      <h3 class="text-2xl font-bold text-center mb-4">Cobertura en Bogotá</h3>
+        <p class="text-gray-700 text-lg mb-6 text-center">Atendemos <strong>todas las localidades de Bogotá</strong>: Usaquén, Chapinero, Suba, Engativá, Kennedy, Fontibón, Bosa, y más.</p>
       <div class="rounded-lg overflow-hidden shadow">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.9099870941!2d-74.08175!3d4.60971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a4f2b0b!2sBogotá!5e0!3m2!1ses!2sco!4v1670000000000!5m2!1ses!2sco" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
@@ -580,16 +657,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
 <!-- Footer -->
-<footer class="bg-blue-900 text-white py-10">
+<footer class="py-10">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
 
     <!-- Columna 1 -->
     <div>
       <h4 class="text-lg font-semibold mb-3">Su Médico en Casa</h4>
-      <p class="text-sm leading-relaxed text-gray-300">
+      <p class="text-sm leading-relaxed text-blue-100">
        Atención médica domiciliaria en Bogotá.<br>
 Profesionales disponibles <span class="font-semibold">24/7</span>.
-
       </p>
     </div>
 
@@ -597,41 +673,42 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
     <div>
       <h4 class="text-lg font-semibold mb-3">Enlaces rápidos</h4>
       <ul class="space-y-2 text-sm">
-        <li><a href="index.html" class="hover:text-blue-400 transition">Inicio</a></li>
-        <li><a href="portafolio.html" class="hover:text-blue-400 transition">Nosotros</a></li>
-        <li><a href="medicina-general.html" class="hover:text-blue-400 transition">Medicina</a></li>
-        <li><a href="terapia-respiratoria.html" class="hover:text-blue-400 transition">Terapias</a></li>
+        <li><a href="index.html" class="hover:text-blue-200 transition">Inicio</a></li>
+        <li><a href="portafolio.html" class="hover:text-blue-200 transition">Nosotros</a></li>
+        <li><a href="medicina-general.html" class="hover:text-blue-200 transition">Medicina</a></li>
+        <li><a href="terapia-respiratoria.html" class="hover:text-blue-200 transition">Terapias</a></li>
       </ul>
     </div>
 
    <!-- Columna 3 -->
 <div>
   <h4 class="text-lg font-semibold mb-3">Contáctanos</h4>
-  <ul class="space-y-2 text-sm text-gray-300">
+  <ul class="space-y-2 text-sm text-blue-100">
     <li class="flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l3 7-1.34 2.68a2 2 0 001.7 2.97h6a2 2 0 001.7-2.97L17 12l3-7h2" />
       </svg>
-      <a href="tel:+573115081075" class="hover:text-blue-400 transition">+57 3115081075</a>
+      <a href="tel:+573115081075" class="hover:text-blue-200 transition">+57 3115081075</a>
     </li>
     <li class="flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
       </svg>
-      <a href="https://wa.me/573115081075" target="_blank" class="hover:text-green-400 transition">WhatsApp</a>
+      <a href="https://wa.me/573115081075" target="_blank" class="hover:text-green-200 transition">WhatsApp</a>
     </li>
     <li class="flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m0 0l4-4m-4 4l4 4m-6-4h12" />
       </svg>
-      <a href="mailto:sumedicoencasajym@gmail.com" class="hover:text-blue-400 transition">sumedicoencasajym@gmail.com</a>
+      <a href="mailto:sumedicoencasajym@gmail.com" class="hover:text-blue-200 transition">sumedicoencasajym@gmail.com</a>
     </li>
   </ul>
 </div>
 
+  </div>
 
   <!-- Línea inferior -->
-  <div class="text-center mt-10 text-xs text-gray-500 border-t border-gray-700 pt-4">
+  <div class="text-center mt-10 text-xs text-blue-100 border-t border-blue-200/10 pt-4">
     © 2025 <span class="font-semibold">Su Médico en Casa</span>. Todos los derechos reservados.
   </div>
 </footer>
@@ -639,10 +716,10 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 <!-- Botón flotante WhatsApp -->
 <a href="https://wa.me/573115081075"
    target="_blank"
-   class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:bg-green-600 transition transform hover:scale-110"
+   class="whatsapp-float"
    aria-label="WhatsApp">
   <!-- Icono de WhatsApp -->
-  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7" style="color:white;">
     <path d="M12.01 2C6.49 2 2 6.48 2 12c0 2.09.54 4.06 1.57 5.82L2 22l4.3-1.56A10.01 10.01 0 1 0 12.01 2zm0 18.2c-1.74 0-3.41-.45-4.88-1.31l-.35-.21-2.55.93.87-2.49-.23-.38a8.17 8.17 0 1 1 7.14 3.46z"/>
     <path d="M16.69 14.69c-.27-.14-1.61-.79-1.86-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.54.13-.13.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.95.93-.95 2.26s.97 2.63 1.11 2.81c.14.18 1.91 2.91 4.63 4.08.65.28 1.16.45 1.56.57.65.21 1.24.18 1.7.11.52-.08 1.61-.66 1.84-1.29.23-.63.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z"/>
   </svg>
@@ -650,6 +727,3 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 
 </body>
 </html>
-
-
-
