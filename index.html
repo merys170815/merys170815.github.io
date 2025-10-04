@@ -291,43 +291,44 @@ function gtag_report_conversion(url) {
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ6JZWJM"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
 <!-- Navbar -->
-<header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+<header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300" style="background-color:#0b1727;">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <!-- Logo (texto) -->
-    <h2 class="text-lg md:text-xl font-extrabold text-primary tracking-tight" style="color:var(--primary);">
-      Médico a Domicilio en Bogotá | <span style="color:#0a2540">Su Médico en Casa</span>
+    <!-- Logo -->
+    <h2 class="text-lg md:text-xl font-extrabold tracking-tight">
+      <span style="color:#e6eefb;">SU MÉDICO EN CASA</span>
     </h2>
 
-    <!-- Botón hamburguesa (solo en móviles) -->
-    <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none text-2xl">
+    <!-- Botón hamburguesa -->
+    <button id="menu-btn" class="md:hidden text-white focus:outline-none text-3xl">
       ☰
     </button>
 
-    <nav id="menu" class="hidden md:flex items-center space-x-4 font-medium text-gray-700">
-      <a href="portafolio.html" class="hover:bg-gray-100 px-3 py-2 rounded-md transition">Nosotros</a>
-      <a href="medicina-general.html" class="hover:bg-gray-100 px-3 py-2 rounded-md transition">Consulta Médica</a>
-      <a href="https://wa.me/573115081075" target="_blank" class="hidden lg:inline-flex items-center gap-2 px-3 py-2 rounded-md transition" title="Contacto por WhatsApp">Contacto</a>
-      <!-- CTA -->
-      <a href="tel:+573115081075" class="ml-2 call-btn hidden md:inline-block" aria-label="Llamar 24/7">
+    <!-- Menú desktop -->
+    <nav id="menu" class="hidden md:flex items-center space-x-4 font-medium text-gray-200">
+      <a href="portafolio.html" class="hover:text-cyan-400 transition">Nosotros</a>
+      <a href="medicina-general.html" class="hover:text-cyan-400 transition">Consulta Médica</a>
+      <a href="https://wa.me/573115081075" target="_blank" class="hover:text-cyan-400 transition" title="Contacto por WhatsApp">Contacto</a>
+      <a href="tel:+573115081075" class="ml-2 bg-cyan-500 hover:bg-cyan-600 text-white px-3 py-2 rounded-md transition" aria-label="Llamar 24/7">
         📞 Llamar 24/7
       </a>
     </nav>
   </div>
 
-  <!-- Menú desplegable en móviles -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
-    <nav class="flex flex-col space-y-2 px-4 py-4 font-medium text-gray-700">
-      <a href="portafolio.html" class="hover:text-blue-600 transition duration-300">Nosotros</a>
-      <a href="medicina-general.html" class="hover:text-blue-600 transition duration-300">Consulta Médica Domiciliaria</a>
-      <a href="https://wa.me/573115081075" target="_blank" class="hover:text-blue-600 transition duration-300">Contacto</a>
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#0e1a2b] text-gray-100 shadow-lg border-t border-gray-700">
+    <nav class="flex flex-col space-y-3 px-6 py-4 text-lg">
+      <a href="portafolio.html" class="hover:text-cyan-400 transition">Nosotros</a>
+      <a href="medicina-general.html" class="hover:text-cyan-400 transition">Consulta Médica Domiciliaria</a>
+      <a href="https://wa.me/573115081075" target="_blank" class="hover:text-cyan-400 transition">Contacto</a>
     </nav>
-    <a href="tel:+573249416572" class="bg-blue-600 text-white text-center py-3 rounded-lg shadow hover:bg-blue-700 transition block mx-4 mb-4">📞 Llamar 24/7</a>
+    <a href="tel:+573115081075" class="bg-cyan-500 hover:bg-cyan-600 text-white text-center py-3 rounded-lg shadow block mx-4 mb-4">
+      📞 Llamar 24/7
+    </a>
   </div>
 </header>
 
-<!-- Script para abrir/cerrar el menú móvil y efecto scroll -->
+<!-- Script -->
 <script>
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -338,13 +339,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 
   window.addEventListener("scroll", () => {
-    if(window.scrollY > 50){
-      header.classList.add("shadow-lg", "bg-white/95", "backdrop-blur");
+    if (window.scrollY > 50) {
+      header.classList.add("shadow-lg", "bg-[#0b1727]/95", "backdrop-blur");
     } else {
-      header.classList.remove("shadow-lg", "bg-white/95", "backdrop-blur");
+      header.classList.remove("shadow-lg", "bg-[#0b1727]/95", "backdrop-blur");
     }
   });
 </script>
+
 
 <section class="pt-28 pb-20 bg-gradient-to-r from-black via-gray-900 to-black text-white">
   <div class="relative w-full max-w-7xl mx-auto overflow-hidden rounded-xl shadow-lg">
