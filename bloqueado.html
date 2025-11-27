@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Restringido | Su Médico en Casa</title>
+
+  <!-- Colores y estilo -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #041629, #0a2340);
+      font-family: "Inter", Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #e6eefb;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      padding: 40px 28px;
+      border-radius: 18px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      width: 110px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-size: 1.7rem;
+      color: #7fd1ff;
+      font-weight: 700;
+    }
+
+    p {
+      margin-top: 12px;
+      font-size: 1rem;
+      color: #d6e4f7;
+      line-height: 1.5;
+    }
+
+    .whatsapp-btn {
+      margin-top: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      background: linear-gradient(90deg, #25d366, #128c7e);
+      color: white;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 10px 26px rgba(0,255,140,0.2);
+      transition: transform 0.2s ease;
+      font-size: 1.05rem;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .contact {
+      font-size: 0.9rem;
+      margin-top: 18px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <!-- Tu logo -->
+    <img src="assets/img/logo2.png" alt="Logo Su Médico en Casa" class="logo">
+
+    <h1>Acceso Restringido</h1>
+
+    <p>
+      Este dispositivo ha sido <strong>bloqueado por razones de seguridad</strong>.<br>
+      Si crees que se trata de un error, puedes solicitar revisión.
+    </p>
+
+    <!-- Botón WhatsApp -->
+    <a href="https://wa.me/573115688701?text=Hola,%20mi%20acceso%20fue%20bloqueado,%20por%20favor%20ayuda."
+       class="whatsapp-btn"
+       target="_blank">
+      📲 Solicitar Desbloqueo
+    </a>
+
+    <p class="contact">
+      Su Médico en Casa – Seguridad de acceso<br>
+      Disponible 24/7 para asistencia.
+    </p>
+  </div>
+
+</body>
+</html>
