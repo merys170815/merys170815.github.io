@@ -835,11 +835,9 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 <script src="https://openfpcdn.io/fingerprintjs/v3"></script>
 
 <!-- =============================================
-   1️⃣  DEVICE ID PERMANENTE (ULTRA RESISTENTE)
+ 🔥 Device ID PERMANENTE (versión final y correcta)
 ============================================= -->
 <script>
-let DEVICE_ID = null;
-
 async function getPermanentDeviceID() {
 
     // 1. Revisar localStorage
@@ -848,10 +846,14 @@ async function getPermanentDeviceID() {
     // 2. Revisar cookie
     let cookieId = document.cookie.split("cgid=")[1]?.split(";")[0];
 
-    if (localId) { DEVICE_ID = localId; return localId; }
+    if (localId) {
+        window.DEVICE_ID = localId;
+        return localId;
+    }
+
     if (cookieId) {
         localStorage.setItem("cg_device_id", cookieId);
-        DEVICE_ID = cookieId;
+        window.DEVICE_ID = cookieId;
         return cookieId;
     }
 
@@ -860,18 +862,19 @@ async function getPermanentDeviceID() {
     const result = await fp.get();
     const fp_id = result.visitorId;
 
-    // 4. Crear ID permanente
+    // 4. Crear ID permanente resistente
     const full_id = "perm-" + btoa(fp_id + "-" + navigator.userAgent).substring(0, 48);
 
     // 5. Guardarlo
     localStorage.setItem("cg_device_id", full_id);
     document.cookie = "cgid=" + full_id + "; max-age=31536000; path=/";
 
-    DEVICE_ID = full_id;
+    window.DEVICE_ID = full_id;
     return full_id;
 }
 
-(async () => { await getPermanentDeviceID(); })();
+// Inicializar SIEMPRE
+getPermanentDeviceID();
 </script>
 
 <!-- =============================================
@@ -1015,6 +1018,7 @@ function detectSource(){
   return "otro";
 }
 </script>
+
 
 </body>
 </html>
