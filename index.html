@@ -831,13 +831,14 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ once:true });</script>
 
-<!-- FingerprintJS -->
+<!-- ✅ FingerprintJS (huella digital) -->
 <script src="https://openfpcdn.io/fingerprintjs/v3"></script>
 
+// =======================================
+//  DEVICE ID PERMANENTE — A PRUEBA DE TODO
+// =======================================
+<!-- 🔐 FingerprintJS 100% funcional -->
 <script>
-// =====================================================
-//  DEVICE ID PERMANENTE
-// =====================================================
 window.DEVICE_ID = null;
 
 function generateBackupID(){
@@ -889,9 +890,9 @@ async function getPermanentDeviceID(){
 getPermanentDeviceID();
 </script>
 
-<!-- =====================================================
-     🛡️ GUARD inicial EN TU VPS (MUY IMPORTANTE)
-===================================================== -->
+
+
+<!-- ✅ GUARD inicial antes de mostrar la página -->
 <script>
 async function firstGuardCheck() {
   try {
@@ -917,7 +918,8 @@ async function firstGuardCheck() {
 firstGuardCheck();
 </script>
 
-<!-- Chequeo instantáneo en TU VPS -->
+
+<!-- ✅ Chequeo instantáneo -->
 <script>
 async function checkGuardInstant(){
   if (!window.DEVICE_ID) return;
@@ -936,9 +938,6 @@ async function checkGuardInstant(){
 }
 </script>
 
-<!-- =====================================================
-     Función unificada para TRACK EN TU VPS
-===================================================== -->
 <script>
 function sendAndCheck(payload){
   payload.device_id = window.DEVICE_ID || null;
@@ -957,13 +956,16 @@ function sendAndCheck(payload){
 }
 </script>
 
-<!-- TRACK principal -->
+
+<!-- ✅ TRACK principal -->
 <script>
 (function () {
   const t0 = performance.now();
 
+  // LAND
   sendAndCheck({ type: "land" });
 
+  // LEAVE
   window.addEventListener("beforeunload", function(){
     sendAndCheck({
       type:"leave",
@@ -971,6 +973,7 @@ function sendAndCheck(payload){
     });
   });
 
+  // ✅ TRACK WHATSAPP + origen
   document.addEventListener("click", function(ev){
     const a = ev.target.closest("a");
     if (!a) return;
@@ -989,7 +992,7 @@ function sendAndCheck(payload){
 })();
 </script>
 
-<!-- Ultra Guard (cada 1s, pero EN TU VPS) -->
+<!-- ✅ Ultra Guard (1 segundo) -->
 <script>
 setInterval(() => {
   if (!window.DEVICE_ID) return;
@@ -1006,7 +1009,8 @@ setInterval(() => {
 }, 1000);
 </script>
 
-<!-- Detector origen tráfico -->
+
+<!-- ✅ DETECTOR DE ORIGEN REAL DEL TRÁFICO -->
 <script>
 function detectSource(){
   const ref = document.referrer;
