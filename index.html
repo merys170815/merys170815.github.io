@@ -835,66 +835,62 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 <!-- ✅ FingerprintJS (huella digital) -->
 <script src="https://openfpcdn.io/fingerprintjs/v3"></script>
 
-<script>
 // =======================================
 //  DEVICE ID PERMANENTE — A PRUEBA DE TODO
 // =======================================
-
+<!-- 🔐 FingerprintJS 100% funcional -->
+<script>
 window.DEVICE_ID = null;
 
 function generateBackupID(){
-    const raw = navigator.userAgent + "-" + Date.now() + "-" + Math.random();
-    return "perm-" + btoa(raw).substring(0,48);
+  const raw = navigator.userAgent + "-" + Math.random() + "-" + crypto.randomUUID();
+  return "perm-" + btoa(raw).substring(0,48);
 }
 
 function saveDeviceID(id){
-    try { localStorage.setItem("cg_device_id", id); } catch(e){}
-    document.cookie = "cgid=" + id + "; max-age=31536000; path=/";
+  try { localStorage.setItem("cg_device_id", id); } catch(e){}
+  document.cookie = "cgid="+id+"; max-age=31536000; path=/";
 }
 
 function loadStoredID(){
-    try {
-        const localId = localStorage.getItem("cg_device_id");
-        if (localId) return localId;
-    } catch(e){}
+  try {
+    const a = localStorage.getItem("cg_device_id");
+    if (a) return a;
+  } catch(e){}
 
-    try {
-        const cookieId = document.cookie.split("cgid=")[1]?.split(";")[0];
-        if (cookieId) return cookieId;
-    } catch(e){}
+  try {
+    const b = document.cookie.split("cgid=")[1]?.split(";")[0];
+    if (b) return b;
+  } catch(e){}
 
-    return null;
+  return null;
 }
 
 async function getPermanentDeviceID(){
+  let stored = loadStoredID();
+  if (stored){
+    window.DEVICE_ID = stored;
+    return stored;
+  }
 
-    // 1️⃣ Revisar si ya existe guardado
-    let stored = loadStoredID();
-    if (stored){
-        window.DEVICE_ID = stored;
-        return stored;
-    }
+  let newId = null;
+  try {
+    const fp = await import("https://openfpcdn.io/fingerprintjs/v3").then(m => m.load());
+    const result = await fp.get();
+    const fp_id = result.visitorId;
+    newId = "perm-" + btoa(fp_id + "-" + navigator.userAgent).substring(0,48);
+  } catch(e){
+    newId = generateBackupID();
+  }
 
-    // 2️⃣ Intentar FingerprintJS — si falla usamos fallback
-    let newId = null;
-    try {
-        const fp = await FingerprintJS.load();
-        const result = await fp.get();
-        const fp_id = result.visitorId;
-        newId = "perm-" + btoa(fp_id + "-" + navigator.userAgent).substring(0,48);
-    } catch(e){
-        // 3️⃣ Fallback totalmente local
-        newId = generateBackupID();
-    }
-
-    saveDeviceID(newId);
-    window.DEVICE_ID = newId;
-    return newId;
+  saveDeviceID(newId);
+  window.DEVICE_ID = newId;
+  return newId;
 }
 
-// Inicializar SIEMPRE
 getPermanentDeviceID();
 </script>
+
 
 
 <!-- ✅ GUARD inicial antes de mostrar la página -->
