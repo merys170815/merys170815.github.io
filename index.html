@@ -823,6 +823,7 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
   </svg>
 </a>
 
+
 <!-- ================================
      SCRIPTS FINALES
 ================================ -->
@@ -831,9 +832,8 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ once:true });</script>
 
-<!-- 🔥 FingerprintJS -->
+<!-- ✅ FingerprintJS (huella digital) -->
 <script src="https://openfpcdn.io/fingerprintjs/v3"></script>
-
 <!-- =============================================
  🔥 Device ID PERMANENTE (versión final y correcta)
 ============================================= -->
@@ -877,22 +877,19 @@ async function getPermanentDeviceID() {
 getPermanentDeviceID();
 </script>
 
-<!-- =============================================
-   2️⃣  PRIMER GUARD (ANTES DE QUE VEAN LA PÁGINA)
-============================================= -->
+<!-- ✅ GUARD inicial antes de mostrar la página -->
 <script>
 async function firstGuardCheck() {
   try {
-    // Esperar fingerprint + device permanente
     for (let i = 0; i < 25; i++) {
-      if (DEVICE_ID) break;
+      if (window.DEVICE_ID) break;
       await new Promise(r => setTimeout(r, 80));
     }
 
     const resp = await fetch("https://clikguardian.onrender.com/guard", {
       method:"POST",
       headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify({ device_id: DEVICE_ID })
+      body: JSON.stringify({ device_id: window.DEVICE_ID })
     });
 
     if (resp.status === 403){
@@ -906,18 +903,16 @@ async function firstGuardCheck() {
 firstGuardCheck();
 </script>
 
-<!-- =============================================
-   3️⃣  CHEQUEO INSTANTÁNEO
-============================================= -->
+<!-- ✅ Chequeo instantáneo -->
 <script>
 async function checkGuardInstant(){
-  if (!DEVICE_ID) return;
+  if (!window.DEVICE_ID) return;
 
   try {
     const resp = await fetch("https://clikguardian.onrender.com/guard", {
       method:"POST",
       headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify({ device_id: DEVICE_ID })
+      body: JSON.stringify({ device_id: window.DEVICE_ID })
     });
 
     if (resp.status === 403){
@@ -927,12 +922,10 @@ async function checkGuardInstant(){
 }
 </script>
 
-<!-- =============================================
-   4️⃣  TRACK (LAND / LEAVE / WHATSAPP)
-============================================= -->
+<!-- ✅ Función unificada para TRACK + chequeo -->
 <script>
 function sendAndCheck(payload){
-  payload.device_id = DEVICE_ID;
+  payload.device_id = window.DEVICE_ID || null;
   payload.url  = location.href;
   payload.ref  = document.referrer || null;
   payload.ua   = navigator.userAgent;
@@ -946,7 +939,10 @@ function sendAndCheck(payload){
     setTimeout(checkGuardInstant, 200);
   });
 }
+</script>
 
+<!-- ✅ TRACK principal -->
+<script>
 (function () {
   const t0 = performance.now();
 
@@ -961,7 +957,7 @@ function sendAndCheck(payload){
     });
   });
 
-  // WHATSAPP
+  // ✅ TRACK WHATSAPP + origen
   document.addEventListener("click", function(ev){
     const a = ev.target.closest("a");
     if (!a) return;
@@ -980,17 +976,15 @@ function sendAndCheck(payload){
 })();
 </script>
 
-<!-- =============================================
-   5️⃣  ULTRA GUARD (cada 1 segundo)
-============================================= -->
+<!-- ✅ Ultra Guard (1 segundo) -->
 <script>
 setInterval(() => {
-  if (!DEVICE_ID) return;
+  if (!window.DEVICE_ID) return;
 
   fetch("https://clikguardian.onrender.com/guard", {
     method:"POST",
     headers:{ "Content-Type":"application/json" },
-    body: JSON.stringify({ device_id: DEVICE_ID })
+    body: JSON.stringify({ device_id: window.DEVICE_ID })
   }).then(resp => {
     if (resp.status === 403){
       window.location.replace("/bloqueado.html");
@@ -999,9 +993,7 @@ setInterval(() => {
 }, 1000);
 </script>
 
-<!-- =============================================
-   6️⃣  DETECTOR DE ORIGEN REAL (Analytics)
-============================================= -->
+<!-- ✅ DETECTOR DE ORIGEN REAL DEL TRÁFICO -->
 <script>
 function detectSource(){
   const ref = document.referrer;
