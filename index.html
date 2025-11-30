@@ -824,7 +824,7 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 </a>
 
 <!-- ================================
-     SCRIPTS FINALES (VERSIÓN VPS)
+     SCRIPTS FINALES (VERSIÓN VPS PRO)
 ================================ -->
 
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
@@ -832,211 +832,256 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ once:true });</script>
 
-<!-- FingerprintJS -->
+<!-- FingerprintJS (para DeviceID permanente) -->
 <script src="https://openfpcdn.io/fingerprintjs/v3"></script>
 
 <!-- =======================================
-     ⚡ DEVICE ID PERMANENTE
+     ⚡ DEVICE ID PERMANENTE (PRO)
 ======================================= -->
 <script>
-window.DEVICE_ID = null;
+  window.DEVICE_ID = null;
 
-function generateBackupID(){
-  const raw = navigator.userAgent + "-" + Date.now() + "-" + Math.random();
-  return "perm-" + btoa(raw).substring(0,48);
-}
-
-function saveDeviceID(id){
-  try { localStorage.setItem("cg_device_id", id); } catch(e){}
-  document.cookie = "cgid="+id+"; max-age=31536000; path=/";
-}
-
-function loadStoredID(){
-  try {
-    let a = localStorage.getItem("cg_device_id");
-    if (a) return a;
-  } catch(e){}
-
-  try {
-    let b = document.cookie.split("cgid=")[1]?.split(";")[0];
-    if (b) return b;
-  } catch(e){}
-
-  return null;
-}
-
-async function getPermanentDeviceID(){
-  let stored = loadStoredID();
-  if (stored){
-    window.DEVICE_ID = stored;
-    return stored;
+  function generateBackupID(){
+    const raw = navigator.userAgent + "-" + Date.now() + "-" + Math.random();
+    return "perm-" + btoa(raw).substring(0,48);
   }
 
-  let newId = null;
-  try {
-    const fp = await FingerprintJS.load();
-    const result = await fp.get();
-    const fp_id = result.visitorId;
-    newId = "perm-" + btoa(fp_id + "-" + navigator.userAgent).substring(0,48);
-  } catch(e){
-    newId = generateBackupID();
+  function saveDeviceID(id){
+    try { localStorage.setItem("cg_device_id", id); } catch(e){}
+    document.cookie = "cgid="+id+"; max-age=31536000; path=/";
   }
 
-  saveDeviceID(newId);
-  window.DEVICE_ID = newId;
-  return newId;
-}
+  function loadStoredID(){
+    try {
+      let a = localStorage.getItem("cg_device_id");
+      if (a) return a;
+    } catch(e){}
 
-getPermanentDeviceID();
+    try {
+      let b = document.cookie.split("cgid=")[1]?.split(";")[0];
+      if (b) return b;
+    } catch(e){}
+
+    return null;
+  }
+
+  async function getPermanentDeviceID(){
+    // 1️⃣ Si ya existe guardado → usarlo
+    let stored = loadStoredID();
+    if (stored){
+      window.DEVICE_ID = stored;
+      return stored;
+    }
+
+    // 2️⃣ Si no existe, generamos uno con FingerprintJS + datos del navegador
+    let newId = null;
+    try {
+      const fp = await FingerprintJS.load();
+      const result = await fp.get();
+      const fp_id = result.visitorId || "";
+      const combo = fp_id + "|" + navigator.userAgent + "|" + (navigator.language || "") +
+                    "|" + (window.screen.width + "x" + window.screen.height) +
+                    "|" + (Intl.DateTimeFormat().resolvedOptions().timeZone || "") +
+                    "|" + (navigator.platform || "");
+      newId = "perm-" + btoa(combo).substring(0,48);
+    } catch(e){
+      newId = generateBackupID();
+    }
+
+    saveDeviceID(newId);
+    window.DEVICE_ID = newId;
+    return newId;
+  }
+
+  // Lanzar inicialización
+  getPermanentDeviceID();
 </script>
 
 <!-- =======================================
      🔐 GUARD INICIAL
 ======================================= -->
 <script>
-async function firstGuardCheck() {
-  try {
-    for (let i = 0; i < 30; i++) {
-      if (window.DEVICE_ID) break;
-      await new Promise(r => setTimeout(r, 80));
+  async function firstGuardCheck() {
+    try {
+      // Esperamos un poquito a que se genere DEVICE_ID
+      for (let i = 0; i < 30; i++) {
+        if (window.DEVICE_ID) break;
+        await new Promise(r => setTimeout(r, 80));
+      }
+
+      const resp = await fetch("https://api.medigoencas.com/guard", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ device_id: window.DEVICE_ID || null })
+      });
+
+      if (resp.status === 403){
+        window.stop();
+        document.documentElement.innerHTML = "";
+        window.location.replace("/bloqueado.html");
+      }
+
+    } catch(e){
+      // silencioso para no romper UX
+      console.error("Error en firstGuardCheck", e);
     }
-
-    const resp = await fetch("https://api.medigoencas.com/guard", {
-      method:"POST",
-      headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify({ device_id: window.DEVICE_ID })
-    });
-
-    if (resp.status === 403){
-      window.stop();
-      document.documentElement.innerHTML = "";
-      window.location.replace("/bloqueado.html");
-    }
-
-  } catch(e){}
-}
-firstGuardCheck();
+  }
+  firstGuardCheck();
 </script>
 
 <!-- =======================================
      CHEQUEO INSTANTÁNEO
 ======================================= -->
 <script>
-async function checkGuardInstant(){
-  if (!window.DEVICE_ID) return;
+  async function checkGuardInstant(){
+    if (!window.DEVICE_ID) return;
 
-  try {
-    const resp = await fetch("https://api.medigoencas.com/guard", {
-      method:"POST",
-      headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify({ device_id: window.DEVICE_ID })
-    });
-
-    if (resp.status === 403){
-      window.location.replace("/bloqueado.html");
-    }
-  } catch(e){}
-}
-</script>
-
-<!-- =======================================
-     TRACK + GUARD
-======================================= -->
-<script>
-function sendAndCheck(payload){
-
-  payload.device_id = window.DEVICE_ID || null;
-  payload.url  = location.href;
-  payload.ref  = document.referrer || null;
-  payload.ua   = navigator.userAgent;
-
-  // TRACK CORRECTO (VPS)
-  fetch("https://api.medigoencas.com/track", {
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body: JSON.stringify(payload),
-    keepalive:true
-  }).finally(() => {
-    setTimeout(checkGuardInstant, 150);
-  });
-}
-</script>
-
-<!-- =======================================
-     TRACK PRINCIPAL
-======================================= -->
-<script>
-(function(){
-  const t0 = performance.now();
-
-  // LAND
-  sendAndCheck({ type: "land" });
-
-  // LEAVE
-  window.addEventListener("beforeunload", function(){
-    sendAndCheck({
-      type:"leave",
-      dwell_ms: Math.round(performance.now() - t0)
-    });
-  });
-
-  // WHATSAPP CLICK
-  document.addEventListener("click", function(ev){
-    const a = ev.target.closest("a");
-    if (!a) return;
-
-    const href = a.getAttribute("href") || "";
-
-    if (/wa\.me|api\.whatsapp\.com/.test(href)){
-      sendAndCheck({
-        type: "whatsapp_click",
-        wa_url: href,
-        source: detectSource()
+    try {
+      const resp = await fetch("https://api.medigoencas.com/guard", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ device_id: window.DEVICE_ID || null })
       });
+
+      if (resp.status === 403){
+        window.location.replace("/bloqueado.html");
+      }
+    } catch(e){
+      console.error("Error en checkGuardInstant", e);
     }
-  }, true);
-
-})();
-</script>
-
-<!-- =======================================
-     ULTRA GUARD
-======================================= -->
-<script>
-setInterval(() => {
-  if (!window.DEVICE_ID) return;
-
-  fetch("https://api.medigoencas.com/guard", {
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body: JSON.stringify({ device_id: window.DEVICE_ID })
-  }).then(resp => {
-    if (resp.status === 403){
-      window.location.replace("/bloqueado.html");
-    }
-  });
-
-}, 1200);
+  }
 </script>
 
 <!-- =======================================
      DETECTOR DE ORIGEN
 ======================================= -->
 <script>
-function detectSource(){
-  const ref = document.referrer;
-  const url = location.href;
+  function detectSource(){
+    const ref = document.referrer || "";
+    const url = location.href;
 
-  if (!ref) return "directo";
+    if (!ref) return "directo";
 
-  if (ref.includes("google") && url.includes("gclid=")) return "google_ads";
-  if (ref.includes("google")) return "busqueda_organica";
-  if (ref.includes("facebook")) return "facebook";
-  if (ref.includes("instagram")) return "instagram";
-  if (ref.includes("tiktok")) return "tiktok";
+    if (ref.includes("google") && url.includes("gclid=")) return "google_ads";
+    if (ref.includes("google")) return "busqueda_organica";
+    if (ref.includes("facebook")) return "facebook";
+    if (ref.includes("instagram")) return "instagram";
+    if (ref.includes("tiktok")) return "tiktok";
 
-  return "otro";
-}
+    return "otro";
+  }
+
+  // Extra: params de URL (gclid, keyword, etc.)
+  function getUrlParams() {
+    const params = new URLSearchParams(location.search);
+    return {
+      gclid: params.get("gclid") || null,
+      keyword: params.get("keyword") || params.get("kw") || null
+    };
+  }
+</script>
+
+<!-- =======================================
+     TRACK + GUARD (PRO)
+======================================= -->
+<script>
+  function buildBasePayload(payload){
+    const extra = getUrlParams();
+
+    payload.device_id = window.DEVICE_ID || null;
+    payload.url       = location.href;
+    payload.ref       = document.referrer || null;
+    payload.ua        = navigator.userAgent || null;
+    payload.lang      = navigator.language || null;
+    payload.tz        = (Intl.DateTimeFormat().resolvedOptions().timeZone || null);
+    payload.screen    = window.screen
+                          ? (window.screen.width + "x" + window.screen.height)
+                          : null;
+    payload.platform  = navigator.platform || null;
+    payload.site      = location.hostname || null;
+
+    // Para Google Ads / SEO
+    if (!payload.gclid)  payload.gclid  = extra.gclid;
+    if (!payload.keyword) payload.keyword = extra.keyword;
+
+    return payload;
+  }
+
+  function sendAndCheck(payload){
+    const finalPayload = buildBasePayload(payload);
+
+    // TRACK CORRECTO (VPS)
+    fetch("https://api.medigoencas.com/track", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify(finalPayload),
+      keepalive:true
+    }).finally(() => {
+      // Pequeña verificación extra
+      setTimeout(checkGuardInstant, 150);
+    });
+  }
+</script>
+
+<!-- =======================================
+     TRACK PRINCIPAL (LAND / LEAVE / WHATSAPP)
+======================================= -->
+<script>
+  (function(){
+    const t0 = performance.now();
+
+    // LAND (entrada a la página)
+    sendAndCheck({ type: "land" });
+
+    // LEAVE (salida de la página con dwell)
+    window.addEventListener("beforeunload", function(){
+      sendAndCheck({
+        type:"leave",
+        dwell_ms: Math.round(performance.now() - t0)
+      });
+    });
+
+    // WHATSAPP CLICK
+    document.addEventListener("click", function(ev){
+      const a = ev.target.closest("a");
+      if (!a) return;
+
+      const href = a.getAttribute("href") || "";
+
+      if (/wa\.me|api\.whatsapp\.com/.test(href)){
+        const src = detectSource();
+        const extra = getUrlParams();
+
+        sendAndCheck({
+          type: "whatsapp_click",
+          wa_url: href,
+          source: src,
+          gclid: extra.gclid,
+          keyword: extra.keyword
+        });
+      }
+    }, true);
+
+  })();
+</script>
+
+<!-- =======================================
+     ULTRA GUARD (PRO)
+======================================= -->
+<script>
+  setInterval(() => {
+    if (!window.DEVICE_ID) return;
+
+    fetch("https://api.medigoencas.com/guard", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ device_id: window.DEVICE_ID || null })
+    }).then(resp => {
+      if (resp.status === 403){
+        window.location.replace("/bloqueado.html");
+      }
+    }).catch(() => {});
+  }, 1200);
 </script>
 
 </body>
