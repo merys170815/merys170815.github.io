@@ -945,36 +945,34 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
     return payload;
   }
 </script>
-
-<!-- =======================================
-     🔐 GUARD INICIAL (BLOQUEO REAL)
-======================================= -->
 <script>
-  async function firstGuardCheck() {
-    try {
-      for (let i = 0; i < 30; i++) {
-        if (window.DEVICE_ID) break;
-        await new Promise(r => setTimeout(r, 80));
-      }
+async function firstGuardCheck() {
+  try {
 
-      const resp = await fetch("https://api.medigoencas.com/guard", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify({ device_id: window.DEVICE_ID || null })
-      });
-
-      if (resp.status === 403){
-        window.stop();
-        document.documentElement.innerHTML = "";
-        window.location.replace("/bloqueado.html");
-      }
-    } catch(e){
-      console.error("Error en firstGuardCheck", e);
+    // Esperar hasta que DeviceID exista REALMENTE
+    while (!window.DEVICE_ID) {
+      await new Promise(r => setTimeout(r, 120));
     }
-  }
 
-  firstGuardCheck();
+    const resp = await fetch("https://api.medigoencas.com/guard", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ device_id: window.DEVICE_ID })
+    });
+
+    if (resp.status === 403) {
+      window.stop();
+      document.documentElement.innerHTML = "";
+      window.location.href = "/bloqueado.html";
+    }
+  } catch(e) {
+    console.error("Guard error:", e);
+  }
+}
+
+firstGuardCheck();
 </script>
+
 
 <!-- =======================================
      🔄 CHEQUEO INSTANTÁNEO
