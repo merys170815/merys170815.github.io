@@ -823,7 +823,6 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
   </svg>
 </a>
 
-
 <!-- ================================
      SCRIPTS FINALES (VERSIÓN VPS PRO)
 ================================ -->
@@ -867,14 +866,12 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
   }
 
   async function getPermanentDeviceID(){
-    // 1️⃣ Si ya existe guardado → usarlo
     let stored = loadStoredID();
     if (stored){
       window.DEVICE_ID = stored;
       return stored;
     }
 
-    // 2️⃣ Si no existe, generamos uno con FingerprintJS + datos del navegador
     let newId = null;
     try {
       const fp = await FingerprintJS.load();
@@ -894,17 +891,66 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
     return newId;
   }
 
-  // Lanzar inicialización
   getPermanentDeviceID();
 </script>
 
 <!-- =======================================
-     🔐 GUARD INICIAL
+     DETECTOR DE ORIGEN (SEO + Ads)
+======================================= -->
+<script>
+  function detectSource(){
+    const ref = document.referrer || "";
+    const url = location.href;
+
+    if (!ref) return "directo";
+    if (ref.includes("google") && url.includes("gclid=")) return "google_ads";
+    if (ref.includes("google")) return "busqueda_organica";
+    if (ref.includes("facebook")) return "facebook";
+    if (ref.includes("instagram")) return "instagram";
+    if (ref.includes("tiktok")) return "tiktok";
+
+    return "otro";
+  }
+
+  function getUrlParams() {
+    const params = new URLSearchParams(location.search);
+    return {
+      gclid: params.get("gclid") || null,
+      keyword: params.get("keyword") || params.get("kw") || null
+    };
+  }
+</script>
+
+<!-- =======================================
+     TRACK + GUARD — BASE DE PAYLOAD
+======================================= -->
+<script>
+  function buildBasePayload(payload){
+    const extra = getUrlParams();
+
+    payload.device_id = window.DEVICE_ID || null;
+    payload.url       = location.href;
+    payload.ref       = document.referrer || null;
+    payload.ua        = navigator.userAgent || null;
+    payload.lang      = navigator.language || null;
+    payload.tz        = Intl.DateTimeFormat().resolvedOptions().timeZone || null;
+    payload.screen    = window.screen ? (window.screen.width + "x" + window.screen.height) : null;
+    payload.platform  = navigator.platform || null;
+    payload.site      = location.hostname || null;
+
+    if (!payload.gclid)   payload.gclid  = extra.gclid;
+    if (!payload.keyword) payload.keyword = extra.keyword;
+
+    return payload;
+  }
+</script>
+
+<!-- =======================================
+     🔐 GUARD INICIAL (BLOQUEO REAL)
 ======================================= -->
 <script>
   async function firstGuardCheck() {
     try {
-      // Esperamos un poquito a que se genere DEVICE_ID
       for (let i = 0; i < 30; i++) {
         if (window.DEVICE_ID) break;
         await new Promise(r => setTimeout(r, 80));
@@ -921,17 +967,16 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
         document.documentElement.innerHTML = "";
         window.location.replace("/bloqueado.html");
       }
-
     } catch(e){
-      // silencioso para no romper UX
       console.error("Error en firstGuardCheck", e);
     }
   }
+
   firstGuardCheck();
 </script>
 
 <!-- =======================================
-     CHEQUEO INSTANTÁNEO
+     🔄 CHEQUEO INSTANTÁNEO
 ======================================= -->
 <script>
   async function checkGuardInstant(){
@@ -941,100 +986,43 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
       const resp = await fetch("https://api.medigoencas.com/guard", {
         method:"POST",
         headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify({ device_id: window.DEVICE_ID || null })
+        body: JSON.stringify({ device_id: window.DEVICE_ID })
       });
 
       if (resp.status === 403){
         window.location.replace("/bloqueado.html");
       }
-    } catch(e){
-      console.error("Error en checkGuardInstant", e);
-    }
+    } catch(e){}
   }
 </script>
 
 <!-- =======================================
-     DETECTOR DE ORIGEN
+     TRACKER GLOBAL (sendAndCheck)
 ======================================= -->
 <script>
-  function detectSource(){
-    const ref = document.referrer || "";
-    const url = location.href;
-
-    if (!ref) return "directo";
-
-    if (ref.includes("google") && url.includes("gclid=")) return "google_ads";
-    if (ref.includes("google")) return "busqueda_organica";
-    if (ref.includes("facebook")) return "facebook";
-    if (ref.includes("instagram")) return "instagram";
-    if (ref.includes("tiktok")) return "tiktok";
-
-    return "otro";
-  }
-
-  // Extra: params de URL (gclid, keyword, etc.)
-  function getUrlParams() {
-    const params = new URLSearchParams(location.search);
-    return {
-      gclid: params.get("gclid") || null,
-      keyword: params.get("keyword") || params.get("kw") || null
-    };
-  }
-</script>
-
-<!-- =======================================
-     TRACK + GUARD (PRO)
-======================================= -->
-<script>
-  function buildBasePayload(payload){
-    const extra = getUrlParams();
-
-    payload.device_id = window.DEVICE_ID || null;
-    payload.url       = location.href;
-    payload.ref       = document.referrer || null;
-    payload.ua        = navigator.userAgent || null;
-    payload.lang      = navigator.language || null;
-    payload.tz        = (Intl.DateTimeFormat().resolvedOptions().timeZone || null);
-    payload.screen    = window.screen
-                          ? (window.screen.width + "x" + window.screen.height)
-                          : null;
-    payload.platform  = navigator.platform || null;
-    payload.site      = location.hostname || null;
-
-    // Para Google Ads / SEO
-    if (!payload.gclid)  payload.gclid  = extra.gclid;
-    if (!payload.keyword) payload.keyword = extra.keyword;
-
-    return payload;
-  }
-
   function sendAndCheck(payload){
     const finalPayload = buildBasePayload(payload);
 
-    // TRACK CORRECTO (VPS)
     fetch("https://api.medigoencas.com/track", {
       method:"POST",
       headers:{ "Content-Type":"application/json" },
       body: JSON.stringify(finalPayload),
       keepalive:true
     }).finally(() => {
-      // Pequeña verificación extra
       setTimeout(checkGuardInstant, 150);
     });
   }
 </script>
 
 <!-- =======================================
-     TRACK PRINCIPAL (LAND / LEAVE / WHATSAPP)
+     TRACK PRINCIPAL (LAND / LEAVE / WA)
 ======================================= -->
 <script>
   (function(){
     const t0 = performance.now();
 
-    // LAND (entrada a la página)
-    sendAndCheck({ type: "land" });
+    sendAndCheck({ type:"land" });
 
-    // LEAVE (salida de la página con dwell)
     window.addEventListener("beforeunload", function(){
       sendAndCheck({
         type:"leave",
@@ -1042,19 +1030,17 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
       });
     });
 
-    // WHATSAPP CLICK
     document.addEventListener("click", function(ev){
       const a = ev.target.closest("a");
       if (!a) return;
 
       const href = a.getAttribute("href") || "";
-
       if (/wa\.me|api\.whatsapp\.com/.test(href)){
         const src = detectSource();
         const extra = getUrlParams();
 
         sendAndCheck({
-          type: "whatsapp_click",
+          type:"whatsapp_click",
           wa_url: href,
           source: src,
           gclid: extra.gclid,
@@ -1062,12 +1048,11 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
         });
       }
     }, true);
-
   })();
 </script>
 
 <!-- =======================================
-     ULTRA GUARD (PRO)
+     ULTRA GUARD (cada 1.2s)
 ======================================= -->
 <script>
   setInterval(() => {
@@ -1076,7 +1061,7 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
     fetch("https://api.medigoencas.com/guard", {
       method:"POST",
       headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify({ device_id: window.DEVICE_ID || null })
+      body: JSON.stringify({ device_id: window.DEVICE_ID })
     }).then(resp => {
       if (resp.status === 403){
         window.location.replace("/bloqueado.html");
@@ -1085,12 +1070,11 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
   }, 1200);
 </script>
 
-<!-- ============================================
-     1️⃣ DETECTOR DE VPN / PROXY / IP ANÓMALA
-=============================================== -->
+<!-- =======================================
+     DETECTOR VPN / PROXY
+======================================= -->
 <script>
 async function detectVPNProxy() {
-  let vpn = false;
   try {
     const ipCheck = await fetch("https://api.ipify.org?format=json");
     const data = await ipCheck.json();
@@ -1100,10 +1084,7 @@ async function detectVPNProxy() {
     let lang = navigator.language || "";
     let regionMismatch = false;
 
-    // Región del navegador no coincide con país → riesgo alto
-    if (!lang.includes("es") && !tz.includes("Bogota")) {
-      regionMismatch = true;
-    }
+    if (!lang.includes("es") && !tz.includes("Bogota")) regionMismatch = true;
 
     sendAndCheck({
       type: "vpn_check",
@@ -1120,10 +1101,9 @@ async function detectVPNProxy() {
 detectVPNProxy();
 </script>
 
-
-<!-- ============================================
-     2️⃣ DETECTOR DE RAGE CLICKS
-=============================================== -->
+<!-- =======================================
+     RAGE CLICKS
+======================================= -->
 <script>
 let rageClicks = 0;
 let rageTimer = null;
@@ -1142,10 +1122,9 @@ document.addEventListener("click", () => {
 });
 </script>
 
-
-<!-- ============================================
-     3️⃣ DETECTOR DE MULTI-TAB
-=============================================== -->
+<!-- =======================================
+     MULTI TAB
+======================================= -->
 <script>
 const MULTI_KEY = "medigo_tab_open";
 
@@ -1158,10 +1137,9 @@ window.addEventListener("storage", (ev) => {
 });
 </script>
 
-
-<!-- ============================================
-     4️⃣ DETECTOR DE SCROLL ANÓMALO
-=============================================== -->
+<!-- =======================================
+     SCROLL ANÓMALO
+======================================= -->
 <script>
 let scrollEvents = 0;
 let firstScrollTime = null;
@@ -1173,23 +1151,19 @@ window.addEventListener("scroll", () => {
 
 setInterval(() => {
   if (!firstScrollTime) {
-    // Usuario no scrollea nada (bot típico)
     sendAndCheck({ type: "scroll_pattern", pattern: "no_scroll" });
   } else if (scrollEvents > 100) {
-    // Demasiado scroll → comportamiento no humano
     sendAndCheck({ type: "scroll_pattern", pattern: "excessive_scroll" });
   }
 
-  // Reset
   scrollEvents = 0;
   firstScrollTime = null;
 }, 8000);
 </script>
 
-
-<!-- ============================================
-     5️⃣ HONEYPOT INVISIBLE ANTI-BOTS
-=============================================== -->
+<!-- =======================================
+     HONEYPOT OCULTO
+======================================= -->
 <script>
 document.body.insertAdjacentHTML("beforeend",
   '<input type="text" id="trap_field" style="display:none!important;">'
