@@ -1119,6 +1119,8 @@ function buildBasePayload(payload){
     const extra = getUrlParams();
 
     payload.device_id = window.DEVICE_ID || null;
+    payload.fingerprint = window.DEVICE_ID || null;
+
     payload.url       = location.href;
     payload.ref       = document.referrer || null;
     payload.ua        = navigator.userAgent || null;
