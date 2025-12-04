@@ -833,40 +833,84 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ once:true });</script>
 
+<!-- FingerprintJS (versión que sí expone FingerprintJS) -->
 <!-- FingerprintJS (para DeviceID permanente) -->
-<script src="https://openfpcdn.io/fingerprintjs/v3/fp.min.js"></script>
-
+<script src="https://openfpcdn.io/fingerprintjs/v3"></script>
 
 <!-- =======================================
+     ⚡ DEVICE ID PERMANENTE — VERSIÓN PRO
      ⚡ DEVICE ID PERMANENTE (PRO)
 ======================================= -->
 <script>
+window.DEVICE_ID = null;
   window.DEVICE_ID = null;
 
+function generateBackupID(){
+  const raw = navigator.userAgent + "-" + Date.now() + "-" + Math.random();
+  return "perm-" + btoa(raw).substring(0,48);
+}
+
+function saveDeviceID(id){
+  try { localStorage.setItem("cg_device_id", id); } catch(e){}
+  document.cookie = "cgid="+id+"; max-age=31536000; path=/";
+}
+
+function loadStoredID(){
+  try {
+    const a = localStorage.getItem("cg_device_id");
+    if (a) return a;
+  } catch(e){}
+
+  try {
+    const b = document.cookie.split("cgid=")[1]?.split(";")[0];
+    if (b) return b;
+  } catch(e){}
+
+  return null;
+}
   function generateBackupID(){
     const raw = navigator.userAgent + "-" + Date.now() + "-" + Math.random();
     return "perm-" + btoa(raw).substring(0,48);
   }
 
+async function getPermanentDeviceID(){
+  // 1️⃣ Si ya existe, úsalo
+  let stored = loadStoredID();
+  if (stored){
+    window.DEVICE_ID = stored;
+    return stored;
   function saveDeviceID(id){
     try { localStorage.setItem("cg_device_id", id); } catch(e){}
     document.cookie = "cgid="+id+"; max-age=31536000; path=/";
   }
 
+  // 2️⃣ Si no existe, se genera uno real con FingerprintJS
+  let newId = null;
   function loadStoredID(){
     try {
       let a = localStorage.getItem("cg_device_id");
       if (a) return a;
     } catch(e){}
 
+  try {
+    const fp = await FingerprintJS.load();
+    const result = await fp.get();
     try {
       let b = document.cookie.split("cgid=")[1]?.split(";")[0];
       if (b) return b;
     } catch(e){}
 
+    const fp_id = result.visitorId || "";
     return null;
   }
 
+    const combo =
+      fp_id + "|" +
+      navigator.userAgent + "|" +
+      (navigator.language || "") + "|" +
+      (window.screen.width + "x" + window.screen.height) + "|" +
+      (Intl.DateTimeFormat().resolvedOptions().timeZone || "") + "|" +
+      (navigator.platform || "");
   async function getPermanentDeviceID(){
     // 1️⃣ Si ya existe guardado → usarlo
     let stored = loadStoredID();
@@ -875,6 +919,7 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
       return stored;
     }
 
+    newId = "perm-" + btoa(combo).substring(0,48);
     // 2️⃣ Si no existe, generamos uno con FingerprintJS + datos del navegador
     let newId = null;
     try {
@@ -890,11 +935,19 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
       newId = generateBackupID();
     }
 
+  } catch(e){
+    newId = generateBackupID();
     saveDeviceID(newId);
     window.DEVICE_ID = newId;
     return newId;
   }
 
+  saveDeviceID(newId);
+  window.DEVICE_ID = newId;
+  return newId;
+}
+
+getPermanentDeviceID();
   // Lanzar inicialización
   getPermanentDeviceID();
 </script>
@@ -903,6 +956,13 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
      🔐 GUARD INICIAL
 ======================================= -->
 <script>
+async function firstGuardCheck() {
+  try {
+    // Esperar que DEVICE_ID esté listo
+    for (let i = 0; i < 30; i++) {
+      if (window.DEVICE_ID) break;
+      await new Promise(r => setTimeout(r, 80));
+    }
   async function firstGuardCheck() {
     try {
       // Esperamos un poquito a que se genere DEVICE_ID
@@ -911,18 +971,31 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
         await new Promise(r => setTimeout(r, 80));
       }
 
+    const resp = await fetch("https://api.medigoencas.com/guard", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ device_id: window.DEVICE_ID })
+    });
       const resp = await fetch("https://api.medigoencas.com/guard", {
         method:"POST",
         headers:{ "Content-Type":"application/json" },
         body: JSON.stringify({ device_id: window.DEVICE_ID || null })
       });
 
+    if (resp.status === 403){
+      window.stop();
+      document.documentElement.innerHTML = "";
+      window.location.replace("/bloqueado.html");
+    }
       if (resp.status === 403){
         window.stop();
         document.documentElement.innerHTML = "";
         window.location.replace("/bloqueado.html");
       }
 
+  } catch(e){}
+}
+firstGuardCheck();
     } catch(e){
       // silencioso para no romper UX
       console.error("Error en firstGuardCheck", e);
@@ -935,6 +1008,15 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
      CHEQUEO INSTANTÁNEO
 ======================================= -->
 <script>
+async function checkGuardInstant(){
+  if (!window.DEVICE_ID) return;
+
+  try {
+    const resp = await fetch("https://api.medigoencas.com/guard", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ device_id: window.DEVICE_ID })
+    });
   async function checkGuardInstant(){
     if (!window.DEVICE_ID) return;
 
@@ -945,12 +1027,17 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
         body: JSON.stringify({ device_id: window.DEVICE_ID || null })
       });
 
+    if (resp.status === 403){
+      window.location.replace("/bloqueado.html");
       if (resp.status === 403){
         window.location.replace("/bloqueado.html");
       }
     } catch(e){
       console.error("Error en checkGuardInstant", e);
     }
+
+  } catch(e){}
+}
   }
 </script>
 
@@ -958,10 +1045,30 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
      DETECTOR DE ORIGEN
 ======================================= -->
 <script>
+function detectSource(){
+  const ref = document.referrer || "";
+  const url = location.href;
+
+  if (!ref) return "directo";
+  if (ref.includes("google") && url.includes("gclid=")) return "google_ads";
+  if (ref.includes("google")) return "busqueda_organica";
+  if (ref.includes("facebook")) return "facebook";
+  if (ref.includes("instagram")) return "instagram";
+  if (ref.includes("tiktok")) return "tiktok";
+
+  return "otro";
+}
   function detectSource(){
     const ref = document.referrer || "";
     const url = location.href;
 
+function getUrlParams() {
+  const params = new URLSearchParams(location.search);
+  return {
+    gclid: params.get("gclid") || null,
+    keyword: params.get("keyword") || params.get("kw") || null
+  };
+}
     if (!ref) return "directo";
 
     if (ref.includes("google") && url.includes("gclid=")) return "google_ads";
@@ -984,9 +1091,30 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 </script>
 
 <!-- =======================================
+     TRACK + GUARD
      TRACK + GUARD (PRO)
 ======================================= -->
 <script>
+function buildBasePayload(payload){
+  const extra = getUrlParams();
+
+  payload.device_id = window.DEVICE_ID || null;
+  payload.url       = location.href;
+  payload.ref       = document.referrer || null;
+  payload.ua        = navigator.userAgent || null;
+  payload.lang      = navigator.language || null;
+  payload.tz        = Intl.DateTimeFormat().resolvedOptions().timeZone || null;
+  payload.screen    = window.screen
+                        ? (window.screen.width + "x" + window.screen.height)
+                        : null;
+  payload.platform  = navigator.platform || null;
+  payload.site      = location.hostname || null;
+
+  payload.gclid     = payload.gclid || extra.gclid;
+  payload.keyword   = payload.keyword || extra.keyword;
+
+  return payload;
+}
   function buildBasePayload(payload){
     const extra = getUrlParams();
 
@@ -1009,9 +1137,20 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
     return payload;
   }
 
+function sendAndCheck(payload){
+  const finalPayload = buildBasePayload(payload);
   function sendAndCheck(payload){
     const finalPayload = buildBasePayload(payload);
 
+  fetch("https://api.medigoencas.com/track", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify(finalPayload),
+    keepalive:true
+  }).finally(() => {
+    setTimeout(checkGuardInstant, 150);
+  });
+}
     // TRACK CORRECTO (VPS)
     fetch("https://api.medigoencas.com/track", {
       method:"POST",
@@ -1026,15 +1165,25 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 </script>
 
 <!-- =======================================
+     TRACK PRINCIPAL
      TRACK PRINCIPAL (LAND / LEAVE / WHATSAPP)
 ======================================= -->
 <script>
+(function(){
+  const t0 = performance.now();
   (function(){
     const t0 = performance.now();
 
+  // LAND
+  sendAndCheck({ type: "land" });
     // LAND (entrada a la página)
     sendAndCheck({ type: "land" });
 
+  // LEAVE
+  window.addEventListener("beforeunload", function(){
+    sendAndCheck({
+      type:"leave",
+      dwell_ms: Math.round(performance.now() - t0)
     // LEAVE (salida de la página con dwell)
     window.addEventListener("beforeunload", function(){
       sendAndCheck({
@@ -1042,14 +1191,31 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
         dwell_ms: Math.round(performance.now() - t0)
       });
     });
+  });
 
+  // WHATSAPP CLICK
+  document.addEventListener("click", function(ev){
+    const a = ev.target.closest("a");
+    if (!a) return;
     // WHATSAPP CLICK
     document.addEventListener("click", function(ev){
       const a = ev.target.closest("a");
       if (!a) return;
 
+    const href = a.getAttribute("href") || "";
       const href = a.getAttribute("href") || "";
 
+    if (/wa\.me|api\.whatsapp\.com/.test(href)){
+      const extra = getUrlParams();
+      sendAndCheck({
+        type: "whatsapp_click",
+        wa_url: href,
+        source: detectSource(),
+        gclid: extra.gclid,
+        keyword: extra.keyword
+      });
+    }
+  }, true);
       if (/wa\.me|api\.whatsapp\.com/.test(href)){
         const src = detectSource();
         const extra = getUrlParams();
@@ -1064,13 +1230,25 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
       }
     }, true);
 
+})();
   })();
 </script>
 
 <!-- =======================================
+     ULTRA GUARD (cada 1.2s)
      ULTRA GUARD (PRO)
 ======================================= -->
 <script>
+setInterval(() => {
+  if (!window.DEVICE_ID) return;
+
+  fetch("https://api.medigoencas.com/guard", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({ device_id: window.DEVICE_ID })
+  }).then(resp => {
+    if (resp.status === 403){
+      window.location.replace("/bloqueado.html");
   setInterval(() => {
     if (!window.DEVICE_ID) return;
 
@@ -1105,6 +1283,8 @@ async function detectVPNProxy() {
     if (!lang.includes("es") && !tz.includes("Bogota")) {
       regionMismatch = true;
     }
+  });
+}, 1200);
 
     sendAndCheck({
       type: "vpn_check",
