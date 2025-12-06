@@ -823,5 +823,332 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
   </svg>
 </a>
 
+
+<!-- ================================
+     SCRIPTS FINALES (VERSIÓN VPS PRO)
+================================ -->
+
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ once:true });</script>
+
+<!-- =======================================
+     🔥 1) FINGERPRINTJS (PRIMERO)
+======================================= -->
+<script type="module">
+  import FingerprintJS from "https://openfpcdn.io/fingerprintjs/v3";
+
+  window.DEVICE_ID = null;
+
+  async function getPermanentDeviceID() {
+    let stored = localStorage.getItem("cg_device_id");
+    if (stored) {
+      window.DEVICE_ID = stored;
+      return stored;
+    }
+
+    let fp = await FingerprintJS.load();
+    let result = await fp.get();
+    let newId = "perm-" + result.visitorId;
+
+    localStorage.setItem("cg_device_id", newId);
+    document.cookie = "cgid="+newId+"; max-age=31536000; path=/";
+
+    window.DEVICE_ID = newId;
+    return newId;
+  }
+
+  getPermanentDeviceID();
+</script>
+
+<!-- =======================================
+     🔐 GUARD INICIAL
+======================================= -->
+<script>
+  async function firstGuardCheck() {
+    try {
+      // Esperamos un poquito a que se genere DEVICE_ID
+      for (let i = 0; i < 30; i++) {
+        if (window.DEVICE_ID) break;
+        await new Promise(r => setTimeout(r, 80));
+      }
+
+      const resp = await fetch("https://api.medigoencas.com/guard", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ device_id: window.DEVICE_ID || null })
+      });
+
+      if (resp.status === 403){
+        window.stop();
+        document.documentElement.innerHTML = "";
+        window.location.replace("/bloqueado.html");
+      }
+
+    } catch(e){
+      // silencioso para no romper UX
+      console.error("Error en firstGuardCheck", e);
+    }
+  }
+  firstGuardCheck();
+</script>
+
+<!-- =======================================
+     CHEQUEO INSTANTÁNEO
+======================================= -->
+<script>
+  async function checkGuardInstant(){
+    if (!window.DEVICE_ID) return;
+
+    try {
+      const resp = await fetch("https://api.medigoencas.com/guard", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ device_id: window.DEVICE_ID || null })
+      });
+
+      if (resp.status === 403){
+        window.location.replace("/bloqueado.html");
+      }
+    } catch(e){
+      console.error("Error en checkGuardInstant", e);
+    }
+  }
+</script>
+
+<!-- =======================================
+     DETECTOR DE ORIGEN
+======================================= -->
+<script>
+  function detectSource(){
+    const ref = document.referrer || "";
+    const url = location.href;
+
+    if (!ref) return "directo";
+
+    if (ref.includes("google") && url.includes("gclid=")) return "google_ads";
+    if (ref.includes("google")) return "busqueda_organica";
+    if (ref.includes("facebook")) return "facebook";
+    if (ref.includes("instagram")) return "instagram";
+    if (ref.includes("tiktok")) return "tiktok";
+
+    return "otro";
+  }
+
+  // Extra: params de URL (gclid, keyword, etc.)
+  function getUrlParams() {
+    const params = new URLSearchParams(location.search);
+    return {
+      gclid: params.get("gclid") || null,
+      keyword: params.get("keyword") || params.get("kw") || null
+    };
+  }
+</script>
+
+<!-- =======================================
+     TRACK + GUARD (PRO)
+======================================= -->
+<script>
+  function buildBasePayload(payload){
+    const extra = getUrlParams();
+
+    payload.device_id = window.DEVICE_ID || null;
+    payload.fingerprint = window.DEVICE_ID || null;
+
+    payload.url       = location.href;
+    payload.ref       = document.referrer || null;
+    payload.ua        = navigator.userAgent || null;
+    payload.lang      = navigator.language || null;
+    payload.tz        = (Intl.DateTimeFormat().resolvedOptions().timeZone || null);
+    payload.screen    = window.screen
+                          ? (window.screen.width + "x" + window.screen.height)
+                          : null;
+    payload.platform  = navigator.platform || null;
+    payload.site      = location.hostname || null;
+
+    // Para Google Ads / SEO
+    if (!payload.gclid)  payload.gclid  = extra.gclid;
+    if (!payload.keyword) payload.keyword = extra.keyword;
+
+    return payload;
+  }
+
+  function sendAndCheck(payload){
+    const finalPayload = buildBasePayload(payload);
+
+    // TRACK CORRECTO (VPS)
+    fetch("https://api.medigoencas.com/track", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify(finalPayload),
+      keepalive:true
+    }).finally(() => {
+      // Pequeña verificación extra
+      setTimeout(checkGuardInstant, 150);
+    });
+  }
+</script>
+
+<!-- =======================================
+     TRACK PRINCIPAL (LAND / LEAVE / WHATSAPP)
+======================================= -->
+<script>
+  (function(){
+    const t0 = performance.now();
+
+    // LAND (entrada a la página)
+    sendAndCheck({ type: "land" });
+
+    // LEAVE (salida de la página con dwell)
+    window.addEventListener("beforeunload", function(){
+      sendAndCheck({
+        type:"leave",
+        dwell_ms: Math.round(performance.now() - t0)
+      });
+    });
+
+    // WHATSAPP CLICK
+    document.addEventListener("click", function(ev){
+      const a = ev.target.closest("a");
+      if (!a) return;
+
+      const href = a.getAttribute("href") || "";
+
+      if (/wa\.me|api\.whatsapp\.com/.test(href)){
+        const src = detectSource();
+        const extra = getUrlParams();
+
+        sendAndCheck({
+          type: "whatsapp_click",
+          wa_url: href,
+          source: src,
+          gclid: extra.gclid,
+          keyword: extra.keyword
+        });
+      }
+    }, true);
+
+  })();
+</script>
+
+<!-- =======================================
+     ULTRA GUARD (PRO)
+======================================= -->
+<script>
+  setInterval(() => {
+    if (!window.DEVICE_ID) return;
+
+    fetch("https://api.medigoencas.com/guard", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ device_id: window.DEVICE_ID || null })
+    }).then(resp => {
+      if (resp.status === 403){
+        window.location.replace("/bloqueado.html");
+      }
+    }).catch(() => {});
+  }, 1200);
+</script>
+
+<!-- ============================================
+     1️⃣ DETECTOR DE VPN / PROXY / IP ANÓMALA
+=============================================== -->
+<script>
+async function detectVPNProxy() {
+  let vpn = false;
+  try {
+    const ipCheck = await fetch("https://api.ipify.org?format=json");
+    const data = await ipCheck.json();
+
+    const publicIP = data.ip || null;
+    let tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    let lang = navigator.language || "";
+    let regionMismatch = false;
+
+    // Región del navegador no coincide con país → riesgo alto
+    if (!lang.includes("es") && !tz.includes("Bogota")) {
+      regionMismatch = true;
+    }
+
+    sendAndCheck({
+      type: "vpn_check",
+      public_ip: publicIP,
+      tz: tz,
+      lang: lang,
+      region_mismatch: regionMismatch
+    });
+
+  } catch(e){
+    console.error("VPN check error", e);
+  }
+}
+detectVPNProxy();
+</script>
+
+
+<!-- ============================================
+     2️⃣ DETECTOR DE RAGE CLICKS
+=============================================== -->
+<script>
+let rageClicks = 0;
+let rageTimer = null;
+
+document.addEventListener("click", () => {
+  rageClicks++;
+  if (!rageTimer) {
+    rageTimer = setTimeout(() => {
+      if (rageClicks >= 5) {
+        sendAndCheck({ type: "rage_click", clicks: rageClicks });
+      }
+      rageClicks = 0;
+      rageTimer = null;
+    }, 1000);
+  }
+});
+</script>
+
+
+<!-- ============================================
+     3️⃣ DETECTOR DE MULTI-TAB
+=============================================== -->
+<script>
+const MULTI_KEY = "medigo_tab_open";
+
+localStorage.setItem(MULTI_KEY, Date.now());
+
+window.addEventListener("storage", (ev) => {
+  if (ev.key === MULTI_KEY) {
+    sendAndCheck({ type: "multi_tab" });
+  }
+});
+</script>
+
+<!-- ============================================
+     🛡 HONEYPOT INVISIBLE — Solo por Evento
+=============================================== -->
+<script>
+  // 1️⃣ Crea el input trampa invisible
+  document.body.insertAdjacentHTML("beforeend",
+    '<input type="text" id="trap_field" style="display:none!important;">'
+  );
+
+  // 2️⃣ Detecta cuando ALGUIEN (bot) escribe
+  document.addEventListener("input", function(ev){
+    // Solo si el target es nuestro trap
+    if(ev.target && ev.target.id === "trap_field"){
+      const value = ev.target.value || "";
+
+      // Enviar señal inmediata
+      sendAndCheck({
+        type: "honeypot_trigger",
+        value: value
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
 </body>
 </html>
