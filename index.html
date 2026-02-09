@@ -823,6 +823,7 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
   </svg>
 </a>
 
+
 <!-- ================================
      SCRIPTS FINALES (VERSIÓN VPS PRO)
 ================================ -->
@@ -832,68 +833,32 @@ Profesionales disponibles <span class="font-semibold">24/7</span>.
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ once:true });</script>
 
-<!-- FingerprintJS (para DeviceID permanente) -->
-<script src="https://openfpcdn.io/fingerprintjs/v3"></script>
-
 <!-- =======================================
-     ⚡ DEVICE ID PERMANENTE (PRO)
+     🔥 1) FINGERPRINTJS (PRIMERO)
 ======================================= -->
-<script>
+<script type="module">
+  import FingerprintJS from "https://openfpcdn.io/fingerprintjs/v3";
+
   window.DEVICE_ID = null;
 
-  function generateBackupID(){
-    const raw = navigator.userAgent + "-" + Date.now() + "-" + Math.random();
-    return "perm-" + btoa(raw).substring(0,48);
-  }
-
-  function saveDeviceID(id){
-    try { localStorage.setItem("cg_device_id", id); } catch(e){}
-    document.cookie = "cgid="+id+"; max-age=31536000; path=/";
-  }
-
-  function loadStoredID(){
-    try {
-      let a = localStorage.getItem("cg_device_id");
-      if (a) return a;
-    } catch(e){}
-
-    try {
-      let b = document.cookie.split("cgid=")[1]?.split(";")[0];
-      if (b) return b;
-    } catch(e){}
-
-    return null;
-  }
-
-  async function getPermanentDeviceID(){
-    // 1️⃣ Si ya existe guardado → usarlo
-    let stored = loadStoredID();
-    if (stored){
+  async function getPermanentDeviceID() {
+    let stored = localStorage.getItem("cg_device_id");
+    if (stored) {
       window.DEVICE_ID = stored;
       return stored;
     }
 
-    // 2️⃣ Si no existe, generamos uno con FingerprintJS + datos del navegador
-    let newId = null;
-    try {
-      const fp = await FingerprintJS.load();
-      const result = await fp.get();
-      const fp_id = result.visitorId || "";
-      const combo = fp_id + "|" + navigator.userAgent + "|" + (navigator.language || "") +
-                    "|" + (window.screen.width + "x" + window.screen.height) +
-                    "|" + (Intl.DateTimeFormat().resolvedOptions().timeZone || "") +
-                    "|" + (navigator.platform || "");
-      newId = "perm-" + btoa(combo).substring(0,48);
-    } catch(e){
-      newId = generateBackupID();
-    }
+    let fp = await FingerprintJS.load();
+    let result = await fp.get();
+    let newId = "perm-" + result.visitorId;
 
-    saveDeviceID(newId);
+    localStorage.setItem("cg_device_id", newId);
+    document.cookie = "cgid="+newId+"; max-age=31536000; path=/";
+
     window.DEVICE_ID = newId;
     return newId;
   }
 
-  // Lanzar inicialización
   getPermanentDeviceID();
 </script>
 
@@ -1159,50 +1124,31 @@ window.addEventListener("storage", (ev) => {
 });
 </script>
 
-
 <!-- ============================================
-     4️⃣ DETECTOR DE SCROLL ANÓMALO
+     🛡 HONEYPOT INVISIBLE — Solo por Evento
 =============================================== -->
 <script>
-let scrollEvents = 0;
-let firstScrollTime = null;
+  // 1️⃣ Crea el input trampa invisible
+  document.body.insertAdjacentHTML("beforeend",
+    '<input type="text" id="trap_field" style="display:none!important;">'
+  );
 
-window.addEventListener("scroll", () => {
-  scrollEvents++;
-  if (!firstScrollTime) firstScrollTime = Date.now();
-});
+  // 2️⃣ Detecta cuando ALGUIEN (bot) escribe
+  document.addEventListener("input", function(ev){
+    // Solo si el target es nuestro trap
+    if(ev.target && ev.target.id === "trap_field"){
+      const value = ev.target.value || "";
 
-setInterval(() => {
-  if (!firstScrollTime) {
-    // Usuario no scrollea nada (bot típico)
-    sendAndCheck({ type: "scroll_pattern", pattern: "no_scroll" });
-  } else if (scrollEvents > 100) {
-    // Demasiado scroll → comportamiento no humano
-    sendAndCheck({ type: "scroll_pattern", pattern: "excessive_scroll" });
-  }
-
-  // Reset
-  scrollEvents = 0;
-  firstScrollTime = null;
-}, 8000);
+      // Enviar señal inmediata
+      sendAndCheck({
+        type: "honeypot_trigger",
+        value: value
+      });
+    }
+  });
 </script>
 
-
-<!-- ============================================
-     5️⃣ HONEYPOT INVISIBLE ANTI-BOTS
-=============================================== -->
-<script>
-document.body.insertAdjacentHTML("beforeend",
-  '<input type="text" id="trap_field" style="display:none!important;">'
-);
-
-setInterval(() => {
-  const trap = document.getElementById("trap_field");
-  if (trap && trap.value.length > 0) {
-    sendAndCheck({ type: "honeypot_trigger", value: trap.value });
-  }
-}, 1200);
-</script>
-
+</body>
+</html>
 </body>
 </html>
