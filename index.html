@@ -1,27 +1,6 @@
 <!DOCTYPE html>
 <html lang="es-CO">
 <head>
-
-
-    <!-- Event snippet for Vista de una página conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-18447624072/6gD2COfVvqgdEIjPwdxE',
-      'value': 1.0,
-      'currency': 'COP',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
-
   <meta charset="UTF-8" />
   <meta http-equiv="content-language" content="es-CO" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
