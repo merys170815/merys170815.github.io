@@ -1,7 +1,16 @@
+
+# Robots.txt - Su Médico en Casa
+# https://www.sumedicoencasa.com/
+
 User-agent: *
+
+# Bloquear directorios privados o administrativos
 Disallow: /admin/
 Disallow: /login/
 Disallow: /cgi-bin/
+
+# Permitir el rastreo del sitio
 Allow: /
 
+# Sitemap XML
 Sitemap: https://www.sumedicoencasa.com/sitemap.xml
